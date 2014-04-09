@@ -1,4 +1,4 @@
-function [ stain_mat_nnmf, saturation_mat_nnmf] = deconvolutionNNMF(imname,datadir,resultdir, options, varargin)
+function [ stain1_nnmf, stain2_nnmf, saturation_mat_nnmf] = deconvolutionNNMF(imname,datadir,resultdir, options, varargin)
 % deconvolutionNNMF used non negative matrix factorization 
 % 
 defaultopt = struct('PlotResults','on',...
@@ -30,6 +30,10 @@ end
 %opticalDensity = raw2rgb(raw_image)./255;
 calculate_optical_density 
 [stain_mat_nnmf,saturation_mat_nnmf] = nnmf(opticalDensity,2);
+% keep the stain vectors in RGB form
+stain1_nnmf = od2rgb(stain_mat_nnmf(:,1),3,1);
+stain2_nnmf = od2rgb(stain_mat_nnmf(:,2),3,1);
+
 min_stain_rgb = stainvec2rgb(stain_mat_nnmf(:,1),saturation_mat_nnmf(1,:),xsize,ysize);
 max_stain_rgb = stainvec2rgb(stain_mat_nnmf(:,2),saturation_mat_nnmf(2,:),xsize,ysize);
 remain_rgb = raw_image - min_stain_rgb - max_stain_rgb;
