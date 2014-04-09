@@ -1,4 +1,3 @@
-function [ stain_mat, saturation_mat, project2svds, U] = deconvolutionSVD(imname,datadir,resultdir, options, varargin) 
 %colorDeconvolution: deconvole H+E images into blue + pink stained images
 %   Algorithm: Macenko et al. A method for normalizing histology slides for
 %   quantitative analysis
@@ -9,7 +8,10 @@ function [ stain_mat, saturation_mat, project2svds, U] = deconvolutionSVD(imname
 %         extremeCutoff - to account for noise noise - default 1
 % OUTPUTS: saturationMat and matrix of stain vectors stainVector
 %[imname, filterOD, extremeCutoff] = parse_inputs(varargin{:});
-%
+% Author: Luong Nguyen
+% Modified 4/9/14
+function [ stain1_svd, stain2_svd, saturation_mat] = deconvolutionSVD(imname,datadir,resultdir, options, varargin) 
+
 defaultopt = struct('PlotResults','on',...
     'filterOD',0.15,...
     'extremeCutoff',1); % flag for plotting the results
@@ -47,6 +49,9 @@ indx_max = abs(angles_1st_svd - extreme_values(2)) < 1e-5;
 proj_stain_mat = [median(project2svds(:,indx_min),2) median(project2svds(:,indx_max),2)];
 % OD = VS where V=stainVectors, S = saturationMat
 stain_mat = [median(opticalDensity(:,indx_min),2) median(opticalDensity(:,indx_max),2)];
+% keep the stain vectors in RGB form
+stain1_svd = od2rgb(stain_mat(:,1),3,1);
+stain2_svd = od2rgb(stain_mat(:,2),3,1);
 saturation_mat = pinv(stain_mat)*opticalDensity;
 min_stain_rgb = stainvec2rgb(stain_mat(:,1),saturation_mat(1,:),xsize,ysize);
 max_stain_rgb = stainvec2rgb(stain_mat(:,2),saturation_mat(2,:),xsize,ysize);
