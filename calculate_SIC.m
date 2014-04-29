@@ -10,7 +10,6 @@
 % indx_pixel = randperm(xsize*ysize,nsamples);
 % rgb_image = rgb_image_whole(:,indx_pixel);
 % rgb_image = raw2rgb(raw_image);
-step = 1000; % for plotting 
 
 % set parameters
 % prompt = 'Please enter the mu value ';
@@ -25,42 +24,47 @@ step = 1000; % for plotting
 %     sigma_s = input(prompt);
 % end
 
+step = 1000; % for plotting 
+
 options = struct('Normalize','on');
 %options = struct('Normalize','off');
 mu_s = 4; sigma_s = 2;
 % obtain the color opponency matrix
 workdir = '/Users/lun5/Research/color_deconvolution'; 
-load([workdir filesep 'training_pink_purple.mat'],'training_data')
-[U,D,V] = svd(training_data);
-rotation_matrix = []; %[-U(:,1) U(:,2:3)];
-%rotation_matrix = [-U(:,1) U(:,2:3)]';
-%rotation_matrix = [-U(:,1) U(:,2:3)];
+training1 = load([workdir filesep 'training_pink_purple.mat'],'training_data');
+training2 = load([workdir filesep 'results' filesep '140428' filesep  'training_pink_purple.mat'],'training_data');
+training_data = [training1.training_data training2.training_data];
+[U,D,V] = svd(training_data,0);
+rotation_matrix = [-U(:,1) U(:,2:3)]'; % this is correct one
 % calculate the sic coordinates
 sic_image = rgb2sic( rgb_image, mu_s, sigma_s, rotation_matrix, options); 
 
-% This is stupid move by me
+% manual deconvolution
 [ purple_manual_rgb,pink_manual_rgb, stain_mat_man] = deconvolutionManual( imname,datadir,resultdir);% options ); 
 %
 purple_stain_man_sic = rgb2sic(purple_manual_rgb,mu_s, sigma_s, rotation_matrix, options); 
 pink_stain_man_sic = rgb2sic(pink_manual_rgb,mu_s, sigma_s, rotation_matrix, options); 
 
-%% Plot the SIC space
+%% get the image name for plotting
+split_string = regexp(imname,'\.','split');
+savename = fullfile(resultdir,split_string{1});
+%% Plot the color opponency space (cite SIC)
 h=figure; scatter(sic_image(1,1:step:end),sic_image(2,1:step:end),20,rgb_image(:,1:step:end)'./255,'filled');
 hold on
 h1=plot(pink_stain_man_sic(1),pink_stain_man_sic(2),'bs','MarkerSize',10,...%'MarkerFaceColor',pink_manual_rgb./255,
     'MarkerEdgeColor','k','LineWidth',3);
 h2=plot(purple_stain_man_sic(1),purple_stain_man_sic(2),'bo','MarkerSize',10,...%'MarkerFaceColor',purple_manual_rgb./255,
     'MarkerEdgeColor','r','LineWidth',3);
-legend([h1, h2],'manual pink stain', 'manual purple stain');
+%legend([h1, h2],'manual pink stain', 'manual purple stain');
 xlabel('s1','FontSize',15);ylabel('s2','FontSize',15);
-line([-1 1],[0 0])
-line([0 0],[-1 1])
+line([-1 1],[0 0],'Color','k')
+line([0 0],[-1 1],'Color','k')
 hold off
-title('SIC 2D representation of hue','FontSize',15);
+title('Color opponency 2D representation of hue','FontSize',15);
 axis([-1 1 -1 1])
 set(gca,'FontSize',15);
 if strcmpi(saveflag,'on')
-    print(h,'-dtiff', [resultdir filesep imname '_sic_rep.tiff']);
+    print(h,'-dtiff', [savename '_sic_rep.tiff']);
 end
 %% distribution of coordinates s1
 h=figure;hist(sic_image(1,1:step:end),30);
@@ -71,12 +75,12 @@ h1 = line([pink_stain_man_sic(1) pink_stain_man_sic(1)],[ax(3) ax(4)],'LineWidth
 h2 = line([purple_stain_man_sic(1) purple_stain_man_sic(1)],[ax(3) ax(4)],'LineWidth',3, 'Color',purple_manual_rgb./255);
 legend([h1, h2],'manual pink stain', 'manual purple stain');
 hold off
-h = findobj(gca,'Type','patch');
-set(h,'FaceColor',[.8 .8 .8],'EdgeColor','w')
+h3 = findobj(gca,'Type','patch');
+set(h3,'FaceColor',[.8 .8 .8],'EdgeColor','w')
 title('Distribution of s1','FontSize',15);
 set(gca,'FontSize',15);
 if strcmpi(saveflag,'on')
-    print(h,'-dtiff', [resultdir filesep imname '_s1_dist.tiff']);
+    print(h,'-dtiff', [savename '_s1_dist.tiff']);
 end
 % save this to the result
 
@@ -90,47 +94,87 @@ legend([h1, h2],'manual pink stain', 'manual purple stain');
 hold off
 title('Distribution of s2','FontSize',15);
 set(gca,'FontSize',15);
-h = findobj(gca,'Type','patch');
-set(h,'FaceColor',[.8 .8 .8],'EdgeColor','w')
+h3 = findobj(gca,'Type','patch');
+set(h3,'FaceColor',[.8 .8 .8],'EdgeColor','w')
 if strcmpi(saveflag,'on')
-    print(h,'-dtiff', [resultdir filesep imname '_s2_sic.tiff']);
+    print(h,'-dtiff', [savename '_s2_sic.tiff']);
 end
 
 %% Contribution of the first element
 % histogram of the first component
 rotated_coordinates = rotation_matrix*rgb_image;
-figure;hist(rotated_coordinates(1,:),100);
+first_component = uint8(rotated_coordinates(1,:));
+h = figure;hist(double(first_component),50);
 set(gca,'FontSize',15);
-h = findobj(gca,'Type','patch');
-set(h,'FaceColor',[.8 .8 .8],'EdgeColor','w')
+h3 = findobj(gca,'Type','patch');
+set(h3,'FaceColor',[.8 .8 .8],'EdgeColor','w')
 xlabel('Distribution of the 1st svd','FontSize',15);
+if strcmpi(saveflag,'on')
+    print(h,'-dtiff', [savename '_dist_first_comp.tiff']);
+end
 
 % make an image where each pixel value is the corresponding first coeff
 firstsvd_image = reshape(rotated_coordinates(1,:),[xsize, ysize]);
-figure;imshow(firstsvd_image,[]);
+h = figure;imshow(firstsvd_image,[]);
 set(gca,'FontSize',15);
 title('Pixel is first coeff','FontSize',15);
+if strcmpi(saveflag,'on')
+    print(h,'-dtiff', [savename '_first_svd_image.tiff']);
+end
+
 %remove the contribution of the first SVD vector from each pixel and 
 %show how the residual image looks like? 
-
+residual = rgb_image - rotation_matrix(1,:)'*(rotation_matrix(1,:)*rgb_image);
+RGB = abs(residual);
+r = reshape(RGB(1,:),[xsize, ysize]);
+g = reshape(RGB(2,:),[xsize, ysize]);
+b = reshape(RGB(3,:),[xsize, ysize]);
+residual_image = uint8(cat(3,r,g,b));
+%imtool(residual_image);
 % OD = VS where V=stainVectors, S = saturationMat
-saturation_mat = pinv(rotation_matrix(:,1))*opticalDensity;
-%saturation_mat = pinv(rotation_matrix(1,:))'*opticalDensity;
-firstsvd_rgb = stainvec2rgb(rotation_matrix(:,1),saturation_mat,xsize,ysize);
-remain_1stsvd_rgb = raw_image - firstsvd_rgb;
-figure;imshow(remain_1stsvd_rgb,[])
+% saturation_mat = pinv(rotation_matrix(1,:))'*opticalDensity;
+% firstsvd_rgb = stainvec2rgb(rotation_matrix(1,:)',saturation_mat,xsize,ysize);
+% remain_1stsvd_rgb = raw_image - firstsvd_rgb;
+% figure;imshow(remain_1stsvd_rgb,[])
+h = figure; imshow(residual_image);
 title('Remove contribution of 1st svd','FontSize',15);
-
+if strcmpi(saveflag,'on')
+    print(h,'-dtiff', [savename '_remove_brightness.tiff']);
+end
 % 
 %% show an image of the saturated amplitude
-sat_levels = sqrt(sic_image(1,:).^2 + sic_image(2,:).^2);
+sat_levels = sqrt(rotated_coordinates(2,:).^2 + rotated_coordinates(3,:).^2);
 sat_image = reshape(sat_levels ,[xsize, ysize]);
-figure; imshow(sat_image,[]);
+h = figure; imshow(sat_image,[]);
 title('Saturated level','FontSize',15);
-
+if strcmpi(saveflag,'on')
+    print(h,'-dtiff', [savename '_saturated_values.tiff']);
+end
 %% show an image of the hue angle
 % bin the hue angle into say 8 categories and give them separate colors
+hue_vector = angle(rotated_coordinates(2,:) + rotated_coordinates(3,:)*1i);
+pink_stain_man_rotated = rotation_matrix*pink_manual_rgb;
+pink_stain_hue = angle(pink_stain_man_rotated(2)+pink_stain_man_rotated(3)*1i);
+purple_stain_man_rotated = rotation_matrix*purple_manual_rgb;
+purple_stain_hue = angle(purple_stain_man_rotated(2)+purple_stain_man_rotated(3)*1i);
+%
+h = figure;hist(hue_vector,8);
+ax = axis;
+hold on
+h1 = line([pink_stain_hue pink_stain_hue],[ax(3) ax(4)],'LineWidth',3, 'Color',pink_manual_rgb./255);
+h2 = line([purple_stain_hue purple_stain_hue],[ax(3) ax(4)],'LineWidth',3, 'Color',purple_manual_rgb./255);
+legend([h1, h2],'manual pink stain', 'manual purple stain');
+hold off
+title('Histogram of Hues','FontSize',15);
+if strcmpi(saveflag,'on')
+    print(h,'-dtiff', [savename '_hue_distribution.tiff']);
+end
 
+%%
+%h = findobj(gca,'Type','patch');
+%cm=colormap(jet(8));
+%set(h,'FaceColor',cm,'EdgeColor','w')
+%set(gca,'color',cm);
 % testing effect of different values of mu and sigma
 % sigma_s_vector = 1:1:10;
 % mu_s_vector = 1:1:10;
