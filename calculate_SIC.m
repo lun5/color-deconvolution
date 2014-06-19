@@ -1,5 +1,5 @@
 % calculate_SIC
-% Thesis by Elmaraghi 2003
+% Inspired by Thesis by Elmaraghi 2003
 
 % sample pixels from the raw image
 % close all;
@@ -23,23 +23,31 @@
 % while isempty(imname)
 %     sigma_s = input(prompt);
 % end
-
+%%
 step = 1000; % for plotting 
-
 options = struct('Normalize','on');
 %options = struct('Normalize','off');
 mu_s = 4; sigma_s = 2;
 % obtain the color opponency matrix
-workdir = '/Users/lun5/Research/color_deconvolution'; 
-training1 = load([workdir filesep 'training_pink_purple.mat'],'training_data');
-training2 = load([workdir filesep 'results' filesep '140428' filesep  'training_pink_purple.mat'],'training_data');
-training_data = [training1.training_data training2.training_data];
-[U,D,V] = svd(training_data,0);
-rotation_matrix = [-U(:,1) U(:,2:3)]'; % this is correct one
+% workdir = '/Users/lun5/Research/color_deconvolution'; 
+% training1 = load([workdir filesep 'training_pink_purple.mat'],'training_data');
+% training2 = load([workdir filesep 'results' filesep '140428' filesep  'training_pink_purple.mat'],'training_data');
+% %training3 = load([workdir filesep 'results' filesep '140507' filesep  'training_pink_purple.mat'],'training_data');
+% training_data = [training1.training_data training2.training_data];
+% %training_data = training3.training_data(:,1:4000);
+% [U,D,V] = svd(training_data,0);
+% rotation_matrix = [-U(:,1) U(:,2:3)]'; % this is correct one
 % calculate the sic coordinates
 sic_image = rgb2sic( rgb_image, mu_s, sigma_s, rotation_matrix, options); 
-
+%% Eliminate chemical saturation (black) and optical saturation (white)
+rotated_coordinates = rotation_matrix*rgb_image;
+first_component = uint8(rotated_coordinates(1,:));
+indx_chemical_sat = first_component < 5;
+indx_optical_sat = first_component > 250;
+indx_sat = indx_chemical_sat + indx_optical_sat;
+%%
 % manual deconvolution
+if strcmpi(plotflag,'on')
 [ purple_manual_rgb,pink_manual_rgb, stain_mat_man] = deconvolutionManual( imname,datadir,resultdir);% options ); 
 %
 purple_stain_man_sic = rgb2sic(purple_manual_rgb,mu_s, sigma_s, rotation_matrix, options); 
@@ -49,6 +57,7 @@ pink_stain_man_sic = rgb2sic(pink_manual_rgb,mu_s, sigma_s, rotation_matrix, opt
 split_string = regexp(imname,'\.','split');
 savename = fullfile(resultdir,split_string{1});
 %% Plot the color opponency space (cite SIC)
+%if strcmpi(plotflag,'on')
 h=figure; scatter(sic_image(1,1:step:end),sic_image(2,1:step:end),20,rgb_image(:,1:step:end)'./255,'filled');
 hold on
 h1=plot(pink_stain_man_sic(1),pink_stain_man_sic(2),'bs','MarkerSize',10,...%'MarkerFaceColor',pink_manual_rgb./255,
@@ -66,6 +75,7 @@ set(gca,'FontSize',15);
 if strcmpi(saveflag,'on')
     print(h,'-dtiff', [savename '_sic_rep.tiff']);
 end
+
 %% distribution of coordinates s1
 h=figure;hist(sic_image(1,1:step:end),30);
 %b1 = bar(hist(sic_image(1,:),30) ./ sum(sic_image(1,:)));
@@ -169,6 +179,11 @@ title('Histogram of Hues','FontSize',15);
 if strcmpi(saveflag,'on')
     print(h,'-dtiff', [savename '_hue_distribution.tiff']);
 end
+end
+% collect more training data. Include the whole patch, not just the average
+% of the rgb vectors
+% eliminate chemical and optical saturation vectors by projecting them onto
+% the first component (brightness). Eliminate the two low and two high ones
 
 %%
 %h = findobj(gca,'Type','patch');
