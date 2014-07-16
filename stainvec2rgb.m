@@ -5,7 +5,6 @@ function [ color_deconv_rgb ] = stainvec2rgb( stain_vec, sat_vec, xsize, ysize )
 %OUTPUT: original image deconvoled into image with stain_vec
 num_pixels = xsize * ysize;
 od_stain_image = repmat(sat_vec,3,1).*repmat(stain_vec,1,num_pixels);
-
 color_deconv_rgb = od2rgb(od_stain_image,xsize, ysize);
 end
 
