@@ -14,9 +14,9 @@ h = figure;
 subplot(2,2,1)
 imshow(raw_image)
 subplot(2,2,2)
-imshow(min_stain_rgb)
+imshow(stain1_rgb)
 subplot(2,2,3)
-imshow(max_stain_rgb)
+imshow(stain2_rgb)
 subplot(2,2,4)
 imshow(remain_rgb)
 %print(h,'-dtiff', [savename '_auto_deconv.tiff']);

@@ -1,6 +1,7 @@
 % plot_manual_results;
 % called by deconvolutionManual
-savename = [resultdir filesep imname];
+split_string = regexp(imname,'\.','split');
+savename = fullfile(resultdir,split_string{1});
 h=figure;
 subplot(2,2,1)
 imshow(raw_image)
