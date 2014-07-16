@@ -1,6 +1,9 @@
-function [ purple_manual_rgb,pink_manual_rgb ] = deconvolutionManual( imname, datadir, resultdir, options,  varargin)
 %deconvolution_man: manually deconvole colors by selecting regions that are
 %most purple and pink respectively
+%Luong Nguyen
+% Modified 4/9/14
+function [ purple_manual_rgb,pink_manual_rgb, stain_mat_man] = deconvolutionManual( imname, datadir, resultdir, options,  varargin)
+
 defaultopt = struct('PlotResults','on',...
     'filterOD',0.15); % flag for plotting the results
 
@@ -16,20 +19,23 @@ filterOD = optimget(options,'filterOD',defaultopt,'fast');
 plotflag = optimget(options,'PlotResults',defaultopt,'fast');
 
 raw_image = imread([datadir filesep imname]);
+rgb_image = raw2rgb(raw_image);
 [xsize, ysize] = size(raw_image(:,:,1));
 
 disp('manually select purple stain vector...');
 figure; imshow(raw_image);zoom('on'); zoom(2);
 rect = getrect; rect = floor(rect);
 purple_image_crop = imcrop(raw_image,rect);
-purple_od = rgb2od(purple_image_crop); % convert to OD
+purple_image_crop_rgb = raw2rgb(purple_image_crop);
+purple_od = rgb2od(purple_image_crop_rgb); % convert to OD
 purple_manual_od = mean(purple_od,2);
 purple_manual_rgb = mean(raw2rgb(purple_image_crop),2);
 %
 disp('manually select pink stain vector...');
 rect = getrect; rect = floor(rect);
 pink_image_crop = imcrop(raw_image,rect);
-pink_od = rgb2od(pink_image_crop); % convert to OD
+pink_image_crop_rgb = raw2rgb(pink_image_crop);
+pink_od = rgb2od(pink_image_crop_rgb); % convert to OD
 pink_manual_od = mean(pink_od,2);
 pink_manual_rgb = mean(raw2rgb(pink_image_crop),2);
 %
@@ -46,6 +52,9 @@ remain_rgb_man = raw_image - purple_stain_rgb - pink_stain_rgb;
 if strcmpi(plotflag,'on')
     plot_manual_results;
 end
+
+% calculate_SIC;
+
 
 end
 

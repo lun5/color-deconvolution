@@ -26,6 +26,7 @@ end
 %datadir = fullfile(workdir, '20x_images','TIFF'); % need to move this outside 
 raw_image = imread([datadir filesep imname]);
 [xsize, ysize] = size(raw_image(:,:,1));
+rgb_image = raw2rgb(raw_image);
 
 % get the extreme cutoff and filter optical density and plot flag
 filterOD = optimget(options,'filterOD',defaultopt,'fast');
@@ -50,19 +51,19 @@ proj_stain_mat = [median(project2svds(:,indx_min),2) median(project2svds(:,indx_
 % OD = VS where V=stainVectors, S = saturationMat
 stain_mat = [median(opticalDensity(:,indx_min),2) median(opticalDensity(:,indx_max),2)];
 % keep the stain vectors in RGB form
-stain1_svd = od2rgb(stain_mat(:,1),3,1);
-stain2_svd = od2rgb(stain_mat(:,2),3,1);
+stain1_svd = od2rgb(stain_mat(:,1),1,1);
+stain2_svd = od2rgb(stain_mat(:,2),1,1);
 saturation_mat = pinv(stain_mat)*opticalDensity;
-min_stain_rgb = stainvec2rgb(stain_mat(:,1),saturation_mat(1,:),xsize,ysize);
-max_stain_rgb = stainvec2rgb(stain_mat(:,2),saturation_mat(2,:),xsize,ysize);
+stain1_rgb = stainvec2rgb(stain_mat(:,1),saturation_mat(1,:),xsize,ysize);
+stain2_rgb = stainvec2rgb(stain_mat(:,2),saturation_mat(2,:),xsize,ysize);
 % stain_mat = normc([median(opticalDensity(:,indx_min),2) median(opticalDensity(:,indx_max),2)]);
 % saturation_mat = pinv(stain_mat)*opticalDensity;
 % min_stain_rgb = stainvec2rgb(stain_mat(:,1),saturation_mat(1,:),xsize,ysize);
 % max_stain_rgb = stainvec2rgb(stain_mat(:,2),saturation_mat(2,:),xsize,ysize);
-remain_rgb = raw_image - min_stain_rgb - max_stain_rgb;
+remain_rgb = raw_image - stain1_rgb - stain2_rgb;
 
 if strcmpi(plotflag,'on')
-    plot_svd_results; % this script contained all the plots
+    plot_svd_results;
 end
 
 end
