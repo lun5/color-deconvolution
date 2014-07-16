@@ -1,7 +1,7 @@
 % Luong Nguyen
 % June 12th
 % create figure for the abstract. 
-
+close all;
 standard_purple_rgb = [128,1,128];
 %standard_purple_rgb = [64,1,128];
 standard_pink_rgb = [255,20,147];
@@ -26,7 +26,7 @@ theta = linspace(0, 2*pi, 100);
 [x,y] = pol2cart(thg,rg);
 
 %%
-h = figure; subplot(1,2,1);
+h = figure; %subplot(1,1,1);
 h0 = pcolor(x,y,thg);
 colormap(hsv);
 hold on
@@ -56,19 +56,19 @@ rotation_matrix = [-U(:,1) U(:,2:3)]'; % this is correct one
 % plot the sic coordinates
 options = struct('Normalize','on');
 mu_s = 4; sigma_s = 2;
-training_sic = rgb2sic(training_data,mu_s, sigma_s, rotation_matrix, options); 
-standard_purple_sic = rgb2sic(standard_purple_rgb', mu_s, sigma_s, rotation_matrix, options);
-standard_pink_sic = rgb2sic(standard_pink_rgb', mu_s, sigma_s, rotation_matrix, options);
+[training_oppCol,~] = rgb2oppCol(training_data,mu_s, sigma_s, rotation_matrix, options); 
+standard_purple_oppCol = rgb2oppCol(standard_purple_rgb', mu_s, sigma_s, rotation_matrix, options);
+standard_pink_oppCol = rgb2oppCol(standard_pink_rgb', mu_s, sigma_s, rotation_matrix, options);
 % scatter plot of training data
-subplot(1,2,2);
+%subplot(1,2,2);
 h3 =figure; 
-scatter(training_sic(1,:),training_sic(2,:),20,training_data'./255,'filled');
+scatter(training_oppCol(1,:),training_oppCol(2,:),20,training_data'./255,'filled');
 hold on
 %xlabel('s1','FontSize',15);ylabel('s2','FontSize',15);
 %line([-1 1],[0 0],'Color','k')
 %line([0 0],[-1 1],'Color','k')
-h4 = plot([0 standard_purple_sic(1)],[0 standard_purple_sic(2)],'-', 'LineWidth',3,'Color',standard_purple_rgb./255);
-h5 = plot([0 standard_pink_sic(1)],[0 standard_pink_sic(2)],'-', 'LineWidth',3,'Color','k'); %standard_pink_rgb./255);
+h4 = plot([0 standard_purple_oppCol(1)],[0 standard_purple_oppCol(2)],'-', 'LineWidth',3,'Color',standard_purple_rgb./255);
+h5 = plot([0 standard_pink_oppCol(1)],[0 standard_pink_oppCol(2)],'-', 'LineWidth',3,'Color','k'); %standard_pink_rgb./255);
 legend([h4, h5],'purple', 'pink');
 hold off
 title('Color opponency 2D representation','FontSize',15);
@@ -77,4 +77,7 @@ set(gca,'FontSize',20);
 axis equal
 %grid on
 %print(h3,'-dtiff', [resultdir filesep 'trainingCOspace' datestr(now,'hhMM') '.tiff']);
+% I think I need to get better training data then I can separate them
+% better
+
 
