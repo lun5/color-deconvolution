@@ -2,7 +2,7 @@
 %most purple and pink respectively
 %Luong Nguyen
 % Modified 4/9/14
-function [ purple_manual_rgb,pink_manual_rgb, stain_mat_man] = deconvolutionManual( imname, datadir, resultdir, options,  varargin)
+function [ purple_manual_rgb,pink_manual_rgb, stain_mat_man, saturation_mat_man] = deconvolutionManual( imname, datadir, resultdir, options,  varargin)
 
 defaultopt = struct('PlotResults','on',...
     'filterOD',0.15); % flag for plotting the results

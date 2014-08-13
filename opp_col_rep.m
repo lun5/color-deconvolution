@@ -29,19 +29,26 @@ for i = 1:numImages
     subplot(1,2,1); imshow(raw_image);
     [xsize, ysize] = size(raw_image(:,:,1));
     rgb_image = raw2rgb(raw_image);    
-    [ img, ~] = rgb2oppCol( rgb_image, mu_s, sigma_s, rotation_matrix, options); 
-    % plot the color space 
-    nstep = 100;
-    subplot(1,2,2)
-    scatter(img(1,1:nstep:end),img(2,1:nstep:end),2,rgb_image(:,1:nstep:end)'./255,'filled');
-    axis([-1 1 -1 1]);
-    axis equal
-    % save the plot
-    split_string = regexp(imname,'\.','split');
-    savename = fullfile(resultdir,split_string{1});
-    print(h,'-dpng', [savename '_oppCol_rep_size2.png']);
-    
-    close all;
+    imtool(raw_image); 
+    rgb_image = raw2rgb(raw_image);    
+    [ im_oppCol, first_component] = rgb2oppCol( rgb_image, mu_s, sigma_s, rotation_matrix, options);
+    im_brightness = reshape(first_component,[xsize, ysize]);
+    im_brightness(im_brightness<255) = 0;
+    imtool(im_brightness)
+
+%     [ img, ~] = rgb2oppCol( rgb_image, mu_s, sigma_s, rotation_matrix, options); 
+%     % plot the color space 
+%     nstep = 100;
+%     subplot(1,2,2)
+%     scatter(img(1,1:nstep:end),img(2,1:nstep:end),2,rgb_image(:,1:nstep:end)'./255,'filled');
+%     axis([-1 1 -1 1]);
+%     axis equal
+%     % save the plot
+%     split_string = regexp(imname,'\.','split');
+%     savename = fullfile(resultdir,split_string{1});
+%     print(h,'-dpng', [savename '_oppCol_rep_size2.png']);
+%     
+%     close all;
 end
 
 

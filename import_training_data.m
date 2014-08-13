@@ -30,9 +30,12 @@ if strcmpi(color_space,'RGB')
 elseif strcmpi(color_space,'oppCol') % if opponent color space
     options = struct('Normalize','on');
     training_data = [X_purple_rgb(:,1:3000) X_pink_rgb(:,1:9000)];
+    %training_data_od = rgb2od(training_data);
     [U,D,V] = svd(training_data,0);
+    %[U,D,V] = svd(training_data_od,0);
     rotation_matrix = [-U(:,1) U(:,2:3)]'; % this is correct one
     mu_s = 4; sigma_s = 2; % values for normalization
+    %mu_s = 0.1; sigma_s = 2;
     [X_purple_oppCol,~] = rgb2oppCol(X_purple_rgb, mu_s, sigma_s, rotation_matrix, options);
     [X_pink_oppCol,~] = rgb2oppCol(X_pink_rgb, mu_s, sigma_s, rotation_matrix, options);
     training_data = [X_purple_oppCol';X_pink_oppCol'];
