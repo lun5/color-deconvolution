@@ -1,4 +1,4 @@
-function [ oppCol_coords, brightness, theta, rotated_coordinates] = rgb2oppCol( rgb_coords, rotation_matrix,  varargin) 
+function [ oppCol_coords, brightness, theta, radii] = rgb2oppCol( rgb_coords, rotation_matrix,  varargin) 
 %Convert from RGB space to SIC space
 if nargin < 2
     error('Need at least 2 inputs: rgb coordinates and rotation matrix')
@@ -24,5 +24,6 @@ theta = angle(rotated_coordinates(2,:) + 1i*rotated_coordinates(3,:));
 x = cos(theta); y = sin(theta);
 oppCol_coords = [x;y];
 
+radii = sqrt(rotated_coordinates(2,:).^2 + rotated_coordinates(3,:).^2);
 end
 
