@@ -7,7 +7,7 @@
 % then we can stop
 % let's write this as a function
 
-function [ training_data_purple, training_data_pink] = wsi_get_training( workdir, svs_fname) 
+function [ training_data_purple, training_data_pink, rotation_matrix] = wsi_get_training( workdir, svs_fname) 
 
 datadir = fullfile(workdir, 'TissueImages');
 fileNames = dir(fullfile(datadir,[svs_fname '*.' 'tif']));
@@ -91,8 +91,9 @@ save([resultdir filesep svs_fname 'training_pink.mat'],'training_data_pink');
 
 % should I or should I not calculate the rotation matrix?
 % then I should do the conversion to see as well, without normalization
-%training_data = [training_data_purple training_data_pink];
-%[U,~,~] = svd(training_data,0);
-%rotation_matrix = [-U(:,1) U(:,2:3)]'; % this is correct one
+training_data = [training_data_purple(:,1:min(2000,size(training_data_purple,2)))...
+    training_data_pink(:,1:min(8000,size(training_data_pink,2)))];
+[U,~,~] = svd(training_data,0);
+rotation_matrix = [-U(:,1) U(:,2:3)]'; % this is correct one
 
 end
