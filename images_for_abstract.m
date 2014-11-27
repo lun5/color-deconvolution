@@ -3,17 +3,18 @@
 % create figure for the abstract. 
 
 close all;
-workdir = '/Users/lun5/Research/color_deconvolution'; 
-resultdir = fullfile(workdir, 'results',datestr(now,'yymmdd'));
+% workdir = '/Users/lun5/Research/color_deconvolution'; 
+% resultdir = fullfile(workdir, 'results',datestr(now,'yymmdd'));
 
-if ~exist(resultdir,'dir')
-    mkdir(resultdir);
-end
+% if ~exist(resultdir,'dir')
+%     mkdir(resultdir);
+% end
 % need to load new training data
-trainingdir = fullfile(workdir, 'results', '140625');
+% trainingdir = fullfile(workdir, 'results', '140625');
+trainingdir = 'C:\Users\luong_nguyen\Documents\GitHub\HE-tumor-object-segmentation\DanTrainingData';
 % Read the input in RGB form
-training_purple = load([trainingdir filesep 'training_purple.mat'],'training_data_purple');
-training_pink = load([trainingdir filesep 'training_pink.mat'],'training_data_pink');
+training_purple = load([trainingdir filesep 'tp10-611training_purple.mat'],'training_data_purple');
+training_pink = load([trainingdir filesep 'tp10-611training_pink.mat'],'training_data_pink');
 X_purple_rgb = training_purple.training_data_purple;
 X_pink_rgb = training_pink.training_data_pink;
 
@@ -22,18 +23,41 @@ standard_pink_rgb = mean(X_pink_rgb,2)';
 %standard_purple_rgb = [128,1,128];
 %standard_pink_rgb = [255,20,147];
 
-standard_purple_hsv = rgb2hsv(standard_purple_rgb./255);
-standard_pink_hsv = rgb2hsv(standard_pink_rgb./255);
-[x_purple, y_purple] = pol2cart(standard_purple_hsv(1) - pi/2,standard_purple_hsv(2));
-[x_pink, y_pink] = pol2cart(standard_pink_hsv(1)- pi/2,standard_pink_hsv(2));
+pink_lch = colorspace('lch<-rgb',standard_pink_rgb./255);
+purple_lch = colorspace('lch<-rgb',standard_purple_rgb./255);
+
+[x_pink, y_pink] = pol2cart(deg2rad(pink_lch(3)),1);
+[x_purple, y_purple] = pol2cart(deg2rad(purple_lch(3)),1);
+
+% standard_purple_hsv = rgb2hsv(standard_purple_rgb./255);
+% standard_pink_hsv = rgb2hsv(standard_pink_rgb./255);
+% [x_purple, y_purple] = pol2cart(standard_purple_hsv(1) - pi/2,standard_purple_hsv(2));
+% [x_pink, y_pink] = pol2cart(standard_pink_hsv(1)- pi/2,standard_pink_hsv(2));
 %[x_purple, y_purple] = pol2cart(standard_purple_hsv(1),standard_purple_hsv(2));
 %[x_pink, y_pink] = pol2cart(standard_pink_hsv(1),standard_pink_hsv(2));
+
+standard_rot_mat =  [1/sqrt(3) 1/sqrt(3) 1/sqrt(3); ...
+        1/sqrt(6) 1/sqrt(6) -2/sqrt(6); ...
+        -1/sqrt(2) 1/sqrt(2) 0];
+    
+
 
 % color wheel
 r = linspace(0,1,10);
 theta = linspace(0, 2*pi, 1000);
 [rg, thg] = meshgrid(r,theta);
 [x,y] = pol2cart(thg,rg);
+colors_rgb = colorspace('rgb<-lch',cat(1,repmat(50,1,1000),repmat(50,1,1000),rad2deg(theta))'); 
+
+%%
+h = figure;
+for i = 1:size(x,2)
+    scatter(x(:,i), y(:,i),20,colors_rgb, 'filled')
+    hold on;
+end
+axis equal;
+axis([-1 1 -1 1]);
+axis off
 
 %%
 h = figure; %subplot(1,1,1);
@@ -42,7 +66,7 @@ colormap(hsv);
 hold on
 h1 = plot([0 x_purple],[0 y_purple],'-', 'LineWidth',3,'Color',standard_purple_rgb./255);
 %h2 = plot([0 x_pink],[0 y_pink],'-', 'LineWidth',3,'Color',standard_pink_rgb./255);
-h2 = plot([0 x_pink],[0 y_pink],'-', 'LineWidth',3,'Color','g'); %standard_pink_rgb./255);
+h2 = plot([0 x_pink],[0 y_pink],'-', 'LineWidth',3,'Color', standard_pink_rgb./255);
 legend([h1, h2],'purple', 'pink')
 set(gca,'FontSize',20);
 shading flat;
@@ -53,7 +77,7 @@ print(h,'-dtiff', [resultdir filesep 'hsv' datestr(now,'hhMM') '.tiff']);
 
 %%
 % new color space
-training_data = [X_purple_rgb(:,1:3000) X_pink_rgb(:,1:9000)];
+training_data = [X_purple_rgb X_pink_rgb];
 [U,D,V] = svd(training_data,0);
 rotation_matrix = [-U(:,1) U(:,2:3)]'; % this is correct one
 
@@ -73,8 +97,8 @@ hold on
 %line([0 0],[-1 1],'Color','k')
 h4 = plot([0 standard_purple_oppCol(1)],[0 standard_purple_oppCol(2)],'-', 'LineWidth',3,'Color',standard_purple_rgb./255);
 %h4 = plot([0 standard_purple_oppCol(1)],[0 standard_purple_oppCol(2)],'-', 'LineWidth',3,'Color','b');
-%h5 = plot([0 standard_pink_oppCol(1)],[0 standard_pink_oppCol(2)],'-', 'LineWidth',3,'Color',standard_pink_rgb./255);
-h5 = plot([0 standard_pink_oppCol(1)],[0 standard_pink_oppCol(2)],'-', 'LineWidth',3,'Color','g'); %standard_pink_rgb./255);
+h5 = plot([0 standard_pink_oppCol(1)],[0 standard_pink_oppCol(2)],'-', 'LineWidth',3,'Color',standard_pink_rgb./255);
+%h5 = plot([0 standard_pink_oppCol(1)],[0 standard_pink_oppCol(2)],'-', 'LineWidth',3,'Color','g'); %standard_pink_rgb./255);
 legend([h4, h5],'purple', 'pink');
 hold off
 %title('Color opponency 2D representation','FontSize',15);
