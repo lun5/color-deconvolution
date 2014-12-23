@@ -40,39 +40,39 @@ standard_rot_mat =  [1/sqrt(3) 1/sqrt(3) 1/sqrt(3); ...
         1/sqrt(6) 1/sqrt(6) -2/sqrt(6); ...
         -1/sqrt(2) 1/sqrt(2) 0];
     
+%%
+% h = figure;
+% for i = 1:size(x,2)
+%     scatter(x(:,i), y(:,i),20,colors_rgb, 'filled')
+%     hold on;
+% end
+% axis equal;
+% axis([-1 1 -1 1]);
+% axis off
 
-
+%%
 % color wheel
 r = linspace(0,1,10);
-theta = linspace(0, 2*pi, 1000);
+theta = linspace(0, 2*pi, 5000);
 [rg, thg] = meshgrid(r,theta);
 [x,y] = pol2cart(thg,rg);
-colors_rgb = colorspace('rgb<-lch',cat(1,repmat(50,1,1000),repmat(50,1,1000),rad2deg(theta))'); 
-
-%%
-h = figure;
-for i = 1:size(x,2)
-    scatter(x(:,i), y(:,i),20,colors_rgb, 'filled')
-    hold on;
-end
-axis equal;
-axis([-1 1 -1 1]);
-axis off
-
-%%
+%colors_rgb = colorspace('rgb<-lch',cat(1,repmat(50,1,1000),repmat(50,1,1000),rad2deg(theta))'); 
 h = figure; %subplot(1,1,1);
 h0 = pcolor(x,y,thg);
 colormap(hsv);
-hold on
-h1 = plot([0 x_purple],[0 y_purple],'-', 'LineWidth',3,'Color',standard_purple_rgb./255);
-%h2 = plot([0 x_pink],[0 y_pink],'-', 'LineWidth',3,'Color',standard_pink_rgb./255);
-h2 = plot([0 x_pink],[0 y_pink],'-', 'LineWidth',3,'Color', standard_pink_rgb./255);
-legend([h1, h2],'purple', 'pink')
 set(gca,'FontSize',20);
 shading flat;
 axis equal;
 axis([-1 1 -1 1]);
 axis off
+imwrite(h,fullfile(pwd,'images','hsv_constructed.tiff'),'tif', 'Compression','none');
+print(h,'-dtiff', [resultdir filesep 'hsv' datestr(now,'hhMM') '.tiff']);
+
+hold on
+h1 = plot([0 x_purple],[0 y_purple],'-', 'LineWidth',3,'Color',standard_purple_rgb./255);
+%h2 = plot([0 x_pink],[0 y_pink],'-', 'LineWidth',3,'Color',standard_pink_rgb./255);
+h2 = plot([0 x_pink],[0 y_pink],'-', 'LineWidth',3,'Color', standard_pink_rgb./255);
+legend([h1, h2],'purple', 'pink')
 print(h,'-dtiff', [resultdir filesep 'hsv' datestr(now,'hhMM') '.tiff']);
 
 %%
@@ -120,3 +120,9 @@ print(h3,'-dtiff', [resultdir filesep 'trainingCOspace' datestr(now,'hhMM') '.ti
 % imwrite(purp_pink_image,'purp_pink_image.tif')
 % I = imread('purp_pink_image.tif'); imshow(I,[]);
 
+%%
+% read in the hsb image
+im_hsv = imread(fullfile(pwd,'images','hsv_constructed.tif'));
+imshow(im_hsv);
+% convert it to sic space
+% then plot it on a color wheel

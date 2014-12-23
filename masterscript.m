@@ -11,7 +11,7 @@
 % saturation independent coordinates. 
 %%
 %clearvars;
-addpath(pwd);
+addpath(genpath(pwd));
 disp('Directories of inputs and results')
 workdir = '/Users/lun5/Research/color_deconvolution'; 
 %datadir = uigetdir('*.tiff', 'Please select the image folder');
