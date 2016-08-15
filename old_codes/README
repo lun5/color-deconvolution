@@ -1,0 +1,4 @@
+Color deconvolution using
+   Manually selected stain vectors
+   SVD automatically selected stain vectors
+   NNMF automatically selected stain vectors

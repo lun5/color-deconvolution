@@ -1,0 +1,87 @@
+function  normalized_image = NormLuong(source_image, target_image)
+
+rotation_matrix = load('rotation_matrix_tp10-867-1.mat','rotation_matrix');
+numClusters = 3; % only purple and pink this time
+opts_mixture.noise = 1;
+
+%% calculate features
+for n = 1:2    
+    if n == 1
+        im_rgb = double(source_image)./255;
+        pink_purple_mask = ones(size(source_image,1),size(source_image,2))>0;
+    else
+        im_rgb = double(target_image)./255;
+        pink_purple_mask = ones(size(target_image,1),size(target_image,2))>0;
+    end 
+    
+    which_features = {'hue opp', 'brightness opp','saturation opp'};
+    nrows = size(im_rgb,1); ncols = size(im_rgb,2);
+    X = reshape(im_rgb,[nrows*ncols,3]);
+    rotated_coordinates = rotation_matrix.rotation_matrix*X';
+    indx_purple_pink = pink_purple_mask(:);
+
+    %% cluster using von Mises
+    theta = angle(rotated_coordinates(2,:) + 1i*rotated_coordinates(3,:));
+    sat = sqrt(rotated_coordinates(2,:).^2 + rotated_coordinates(3,:).^2);
+    brightness = rotated_coordinates(1,:);
+    % von Mises
+    X_cart = [cos(theta); sin(theta)]';
+    X_cart_pp = X_cart(pink_purple_mask(:),:); % pp = purple + pink
+    % Call the function
+    %[ mu_hat_polar,~, kappa_hat,posterior_probs_pp, prior_probs_pp] =...
+    %    moVM_fixWhite(X_cart_pp,numClusters,opts_mixture);
+    [ mu_hat_polar,~, kappa_hat,posterior_probs_pp, prior_probs_pp] =...
+        moVM(X_cart_pp,numClusters,opts_mixture);
+    num_pixels = length(theta);
+    % posterior_probs = zeros(num_pixels,4);
+    % posterior_probs(indx_purple_pink,[1:2 4]) = posterior_probs_pp;
+    % posterior_probs(~indx_purple_pink,3) = 1; %white, red, mask
+    % prior_probs_pp = prior_probs_pp/num_pixels *sum(indx_purple_pink);
+    % prior_probs = [prior_probs_pp(1:2), sum(~indx_purple_pink)/num_pixels,...
+    %     prior_probs_pp(3)];
+    posterior_probs = zeros(num_pixels,5);
+    posterior_probs(indx_purple_pink,[1:3 5]) = posterior_probs_pp;
+    posterior_probs(~indx_purple_pink,4) = 1; %white, red, mask
+    prior_probs_pp = prior_probs_pp/num_pixels *sum(indx_purple_pink);
+    prior_probs = [prior_probs_pp(1:3), sum(~indx_purple_pink)/num_pixels,...
+        prior_probs_pp(4)];
+
+    if n==1
+        opts_matching.source_stats = struct('mu_hat_polar',mu_hat_polar,'kappa_hat',kappa_hat,...
+            'posterior_probs',posterior_probs,'prior_probs',prior_probs);
+        f_maps_source = {reshape(theta,[nrows,ncols]), reshape(brightness,[nrows,ncols]),...
+            reshape(sat,[nrows,ncols])};
+    else
+        opts_matching.target_stats = struct('mu_hat_polar',mu_hat_polar,'kappa_hat',kappa_hat,...
+            'posterior_probs',posterior_probs,'prior_probs',prior_probs);
+        f_maps_target = {reshape(theta,[nrows,ncols]), reshape(brightness,[nrows,ncols]),...
+            reshape(sat,[nrows,ncols])};
+    end
+end
+
+f_maps_source_normalized = cell(1,3);
+for feature_iter = 1:length(which_features)
+    f_map_source_curr = f_maps_source{feature_iter};
+    f_map_target_curr = f_maps_target{feature_iter};
+    %% normalization
+    f_map_normalized_curr = matchingMoments(f_map_source_curr, f_map_target_curr,which_features{feature_iter}, opts_matching);
+    f_maps_source_normalized{feature_iter} = f_map_normalized_curr;
+end
+
+%% calculate c2, c3, recover rotated coordinate
+% then calculate new rgb
+source_rotated_eq = zeros(3,length(f_map_normalized_curr));
+source_rotated_eq(1,:) = f_maps_source_normalized{2}; % brightness normalized/equalized
+source_rotated_eq(2,:) = f_maps_source_normalized{3}.*cos(f_maps_source_normalized{1}); % c2
+source_rotated_eq(3,:) = f_maps_source_normalized{3}.*sin(f_maps_source_normalized{1}); % c3
+source_rgb_eq = rotation_matrix.rotation_matrix\source_rotated_eq; % RGB = Rot_matrix \ rotated coordinates
+source_rgb_eq(source_rgb_eq < 0) = 0;
+source_rgb_eq(source_rgb_eq > 1) = 1;
+source_rgb_eq_uint8 = uint8(source_rgb_eq*255); 
+normalized_image = reshape(source_rgb_eq_uint8', size(source_image));
+end
+
+
+
+
+
