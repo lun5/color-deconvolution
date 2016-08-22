@@ -6,6 +6,7 @@ opts_mixture.noise = 1;
 
 %% calculate features
 for n = 1:2    
+    tic;
     if n == 1
         im_rgb = double(source_image)./255;
         pink_purple_mask = ones(size(source_image,1),size(source_image,2))>0;
@@ -51,21 +52,25 @@ for n = 1:2
             'posterior_probs',posterior_probs,'prior_probs',prior_probs);
         f_maps_source = {reshape(theta,[nrows,ncols]), reshape(brightness,[nrows,ncols]),...
             reshape(sat,[nrows,ncols])};
+        fprintf('done with stats of source image in %.2f\n',toc);
     else
         opts_matching.target_stats = struct('mu_hat_polar',mu_hat_polar,'kappa_hat',kappa_hat,...
             'posterior_probs',posterior_probs,'prior_probs',prior_probs);
         f_maps_target = {reshape(theta,[nrows,ncols]), reshape(brightness,[nrows,ncols]),...
             reshape(sat,[nrows,ncols])};
+        fprintf('done with stats of target image in %.2f\n',toc);
     end
 end
 
 f_maps_source_normalized = cell(1,3);
 for feature_iter = 1:length(which_features)
+    tic;
     f_map_source_curr = f_maps_source{feature_iter};
     f_map_target_curr = f_maps_target{feature_iter};
     %% normalization
     f_map_normalized_curr = matchingMoments(f_map_source_curr, f_map_target_curr,which_features{feature_iter}, opts_matching);
     f_maps_source_normalized{feature_iter} = f_map_normalized_curr;
+    fprintf('done with matching %s in %.2f\n',which_features{feature_iter},toc);
 end
 
 %% calculate c2, c3, recover rotated coordinate
@@ -81,7 +86,26 @@ source_rgb_eq_uint8 = uint8(source_rgb_eq*255);
 normalized_image = reshape(source_rgb_eq_uint8', size(source_image));
 end
 
+% nim = stain_normalization(tmp1.tmpim2,tmp1.pink_purple_mask);
+% done with stats of source image in 504.68
+% done with matching hue opp in 5.35
+% done with matching brightness opp in 5.97
+% done with matching saturation opp in 5.37
+% total 521.37
 
+% nim1 = NormLuong(tmp1.tmpim2,target_image);
+% done with stats of source image in 285.12
+% done with stats of target image in 7.85
+% done with matching hue opp in 4.37
+% done with matching brightness opp in 3.28
+% done with matching saturation opp in 3.39
+% total 304
 
+% nim2 = stain_normalization(tmp1.tmpim2,logical(ones(size(tmp1.tmpim2,1),size(tmp1.tmpim2,2))));
+% done with stats of source image in 299.55
+% done with matching hue opp in 7.03
+% done with matching brightness opp in 6.88
+% done with matching saturation opp in 4.13
+% total 317.59
 
 

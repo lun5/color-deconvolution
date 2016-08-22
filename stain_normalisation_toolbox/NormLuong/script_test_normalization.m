@@ -35,7 +35,7 @@ pink_purple_mask = ones(size(source_im,1),size(source_im,2))>0;
 % source_im = tmpim3;
 % load 'source_image_crop2'
 tic;
-[ normalized_image] = target_features(source_im, target_im, pink_purple_mask);
+[ normalized_image] = stain_normalization(source_im, target_im, pink_purple_mask);
 imwrite(normalized_image,fullfile(out_dir,imname));
 
 % [ source_eq_image] = col_normalization( source_im, mask_source);
@@ -48,3 +48,14 @@ subplot(1,3,3);imshow(normalized_image);title('Normalized Image');
 % figure; imshow(normalized_image);
 % imwrite(normalized_image,fullfile(tiles_dir,['new_eq_' source_im_name]));
 end
+
+tmpim2 = imread('sample_halfsized.tif');
+tmp = load('sample_pink_purple_mask.mat');
+pink_purple_mask = tmp.pink_purple_mask;
+
+normalized_image = stain_normalization(tmpim2,pink_purple_mask);
+
+target_image = imread('target.tif');
+tic;
+normalized_image_1 = NormLuong(tmpim2,target_image);
+toc

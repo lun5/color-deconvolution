@@ -7,6 +7,7 @@ opts_mixture.noise = 1;
 
 %% calculate features
 which_features = {'hue opp', 'brightness opp','saturation opp'};
+%tic;
 im_rgb = double(orig_image)./255;
 nrows = size(im_rgb,1); ncols = size(im_rgb,2);
 X = reshape(im_rgb,[nrows*ncols,3]);
@@ -43,19 +44,23 @@ opts_matching.source_stats = struct('mu_hat_polar',mu_hat_polar,'kappa_hat',kapp
     'posterior_probs',posterior_probs,'prior_probs',prior_probs);
 f_maps_source = {reshape(theta,[nrows,ncols]), reshape(brightness,[nrows,ncols]),...
     reshape(sat,[nrows,ncols])};
-%tmp = load('target_stats');tmp = load('target_stats_new');tmp = load('target_stats_may19_lowres');
-tmp = load('target_stats_may19.mat');
+%fprintf('done with stats of source image in %.2f\n',toc);
+
+tmp = load('target_stats');%tmp = load('target_stats_new');%tmp = load('target_stats_may19_lowres');
+%tmp = load('target_stats_may19');
 opts_matching.target_stats = tmp.data;
-% tmp = load('f_maps_target');tmp = load('f_maps_target_new');%tmp = load('f_maps_target_may19_lowres');
-tmp = load('f_maps_target_may19.mat');
+tmp = load('f_maps_target');%tmp = load('f_maps_target_new');%tmp = load('f_maps_target_may19_lowres');
+%tmp = load('f_maps_target_may19');
 f_maps_target = tmp.data;
 f_maps_source_normalized = cell(1,3);
 for feature_iter = 1:length(which_features)
+    %tic;
     f_map_source_curr = f_maps_source{feature_iter};
     f_map_target_curr = f_maps_target{feature_iter};
     %% normalization
     f_map_normalized_curr = matchingMoments(f_map_source_curr, f_map_target_curr,which_features{feature_iter}, opts_matching);
     f_maps_source_normalized{feature_iter} = f_map_normalized_curr;
+    %fprintf('done with matching %s in %.2f\n',which_features{feature_iter},toc);
 end
 
 %% calculate c2, c3, recover rotated coordinate
