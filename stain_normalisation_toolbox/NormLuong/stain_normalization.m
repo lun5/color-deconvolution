@@ -46,10 +46,10 @@ f_maps_source = {reshape(theta,[nrows,ncols]), reshape(brightness,[nrows,ncols])
     reshape(sat,[nrows,ncols])};
 %fprintf('done with stats of source image in %.2f\n',toc);
 
-tmp = load('target_stats');%tmp = load('target_stats_new');%tmp = load('target_stats_may19_lowres');
+tmp = load('target_stats_aug24');%tmp = load('target_stats_new');%tmp = load('target_stats_may19_lowres');
 %tmp = load('target_stats_may19');
 opts_matching.target_stats = tmp.data;
-tmp = load('f_maps_target');%tmp = load('f_maps_target_new');%tmp = load('f_maps_target_may19_lowres');
+tmp = load('f_maps_target_aug24');%tmp = load('f_maps_target_new');%tmp = load('f_maps_target_may19_lowres');
 %tmp = load('f_maps_target_may19');
 f_maps_target = tmp.data;
 f_maps_source_normalized = cell(1,3);
