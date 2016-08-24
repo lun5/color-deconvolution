@@ -44,33 +44,19 @@ end
 %output_dir = fullfile('Z:\HEproject\normalized_evaluation_results\JSEG','new_params');
 
 
-im_dir = 'D:\Documents\TilesNorm\Target15Norm';
-result_dir = 'D:\Documents\TilesNorm\JSEG_results'
-seg_dir = fullfile(result_dir,'seg_im');
+im_dir = 'D:\Documents\Tiles_Norm\Target15Norm_jpg';
+result_dir = 'D:\Documents\Tiles_Norm\JSEG_results';
+%seg_dir = fullfile(result_dir,'seg_im');
+%bdry_dir = fullfile(result_dir,'bdry_files'); 
 mat_dir = fullfile(result_dir,'mat_files');
 gif_dir = fullfile(result_dir,'gif_files');
-bdry_dir = fullfile(result_dir,'bdry_files'); 
 
-if ~exist(result_dir,'dir')
-    mkdir(result_dir);
-end
+if ~exist(result_dir,'dir');mkdir(result_dir);end
+if ~exist(mat_dir,'dir'); mkdir(mat_dir); end
+if ~exist(gif_dir,'dir'); mkdir(gif_dir);end
 
-if ~exist(seg_dir)
-    mkdir(seg_dir);
-end
-
-if ~exist(mat_dir)
-    mkdir(mat_dir);
-end
-
-if ~exist(git_dir)
-    mkdir(git_dir)
-end
-
-if ~exist(bdry_dir)
-    mkdir(bdry_dir);
-end
-
+%if ~exist(bdry_dir,'dir'); mkdir(bdry_dir);end
+%if ~exist(seg_dir,'dir');mkdir(seg_dir);end
 method_names = {'Luong','Khan','Macenko','Reinhard','Vahadane','VahadaneFast'};
 q_thresh = 250;
 m_thresh = 0.4;
@@ -81,8 +67,8 @@ for mm = 1:length(method_names)
    method = method_names{mm};
    curr_dir = fullfile(im_dir,method);
 
-   curr_outdir = fullfile(seg_dir,method);
-   if ~exist(curr_outdir,'dir'); mkdir(curr_outdir);end
+   %curr_outdir = fullfile(result_dir,method);
+   %if ~exist(curr_outdir,'dir'); mkdir(curr_outdir);end
 
    curr_matfile_dir = fullfile(mat_dir,method);
    if ~exist(curr_matfile_dir,'dir'); mkdir(curr_matfile_dir); end;
@@ -96,7 +82,7 @@ for mm = 1:length(method_names)
   
    tt = tic;
    parfor i = 1:num_images 
-      imname = im_list{i}(1:end-4);
+      im_name = im_list{i}(1:end-4);
       gif_file = fullfile(curr_gif_dir, [im_name '.gif']);
       expr = ['segwin -i ', fullfile(curr_dir,im_list{i}), ' -t 3 -s ',...
 	num2str(nrow),' ', num2str(ncol),' -r9 ', gif_file,... 
@@ -106,6 +92,8 @@ for mm = 1:length(method_names)
       end
    end
    parfor i = 1:num_images
+      segs = cell(1,1);
+      im_name = im_list{i}(1:end-4);
       gif_file = fullfile(curr_gif_dir, [im_name '.gif']);
       if exist(gif_file,'file')
       	labels = imread(gif_file,1);
