@@ -9,7 +9,8 @@ method_names = {'Luong','Khan','Macenko','Reinhard','Vahadane', 'VahadaneFast'};
 data_dir = '/home/lun5/ColorNorm';
 %im_dir = fullfile(data_dir,'Tiles_Norm');
 %seg_dir = fullfile(data_dir,'seg_results_15Norm');
-seg_dir = fullfile(data_dir,'seg_results_15Norm_aug19');
+%seg_dir = fullfile(data_dir,'seg_results_15Norm_aug19');
+seg_dir = fullfile(data_dir,'JSEG_results','mat_files');
 %seg_dir = fullfile(data_dir,'EGB_results','segmented_images_seism');
 
 seism_dir = '/home/lun5/github/seism';
@@ -32,13 +33,14 @@ measures = {%
     };
 
 % table of evaluation results are saved here
-eval_dir = seg_dir; %fullfile(data_dir,'EGB_eval_results');
+eval_dir = fullfile(data_dir,'JSEG_results');%seg_dir; %fullfile(data_dir,'EGB_eval_results');
 if ~exist(eval_dir,'dir'); mkdir(eval_dir); end
 gt_set = 'all_files';
 gt_dir = fullfile('/home/lun5/HEproject/groundTruth/coarse_fine_GT_512_512/',gt_set);
 gt_list = dir(fullfile(gt_dir,'*.mat'));
 gt_list = {gt_list.name}';
 
+%{
 for mm = 1:length(method_names)
     tic;
     curr_seg_dir = fullfile(seg_dir,method_names{mm});
@@ -116,6 +118,70 @@ for mm = 1:length(method_names)
     [Lia, Lob] = ismember(source_names, gt_files_wd);
     T_wd = T(Lia,:);
     avg_metrics_wd(mm,:) = mean(table2array(T_wd(:,3:end)));
+end
+
+% for the target ocm
+%}
+metrics_gp = cell(length(method_names), 1);
+ss_names = cell(length(method_names), 1);   
+tt_names = cell(length(method_names), 1);   
+group_names = cell(length(method_names),1);
+for mm = 1:length(method_names)
+   T = readtable(fullfile(eval_dir,[method_names{mm} '_all_files.txt']),'Delimiter',',');
+   %indx = ismember(T.Target,{'jbakl4tseqt'}); 
+   indx = 1:1:length(T.Source); 
+   metrics_gp{mm} = table2array(T(indx,3:end));
+   ss_names{mm} = T.Source;
+   tt_names{mm} = T.Target;
+   gp = cell(size(metrics_gp{mm},1),1);
+   gp(:) = {method_names{mm}};
+   group_names{mm} = gp;
+end
+
+mean_metrics = cell(length(method_names),1);
+median_metrics = cell(length(method_names), 1);   
+
+for mm = 1:length(method_names)
+   mean_metrics{mm} = mean(metrics_gp{mm});
+   median_metrics{mm} = median(metrics_gp{mm});
+end
+
+mean_metrics = cat(1,mean_metrics{:});
+median_metrics = cat(1,median_metrics{:});
+metric_names = cat(2,measures,{'f_overlap'});
+
+for met = [1,16]
+   [sort_metrics, sort_id] = sort(mean_metrics(:,met),'descend');
+   fprintf('\n\nRanking for mean metric %s is \n',metric_names{met});
+   for mm = 1:length(sort_id)
+       fprintf('\t Method %s with mean %.4f\n',method_names{sort_id(mm)},sort_metrics(mm));
+   end
+   
+   for mm = 1:(length(sort_id) -1)
+       method1 = method_names(sort_id(mm));
+       method2 = method_names(sort_id(mm+1));
+       metrics_m1 = metrics_gp{sort_id(mm)}(:,met);
+       metrics_m2 = metrics_gp{sort_id(mm+1)}(:,met);    
+       [h,p] = ttest2(metrics_m1,metrics_m2);
+       fprintf('ttest p-value for metric %s of method %s (mean %.2f) and method %s (mean %.2f) is %.4f\n',...
+            metric_names{met}, method1{1}, sort_metrics(mm), method2{1}, sort_metrics(mm+1), p);
+   end
+ 
+   fprintf('\n\nRanking for mean metric %s is \n',metric_names{met});
+   [sort_metrics, sort_id] = sort(median_metrics(:,met),'descend');
+   for mm = 1:length(sort_id)
+       fprintf('\t Method %s with median %.4f\n',method_names{sort_id(mm)},sort_metrics(mm)); 
+   end
+   
+   for mm = 1:(length(sort_id)-1)
+       method1 = method_names(sort_id(mm));
+       method2 = method_names(sort_id(mm+1));  
+       metrics_m1 = metrics_gp{sort_id(mm)}(:,met);
+       metrics_m2 = metrics_gp{sort_id(mm+1)}(:,met);    
+       p = signrank(metrics_m1,metrics_m2);
+       fprintf('sign rank test p-value for metric %s of method %s (median %.2f) and method %s (median %.2f) is %.4f\n',...
+          metric_names{met}, method1{1}, sort_metrics(mm), method2{1}, sort_metrics(mm+1), p);
+   end
 end
 
 
