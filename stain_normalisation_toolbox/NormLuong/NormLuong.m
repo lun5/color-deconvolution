@@ -3,7 +3,7 @@ function  normalized_image = NormLuong(source_image, target_image)
 rotation_matrix = load('rotation_matrix_tp10-867-1.mat','rotation_matrix');
 numClusters = 3; % only purple and pink this time
 opts_mixture.noise = 1;
-
+opts_mixture.maxiter = 20;
 %% calculate features
 for n = 1:2    
     tic;
