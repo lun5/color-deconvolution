@@ -2,7 +2,7 @@
 % for all normalized images by Tammy Ma
 % code written by  Luong Nguyen July 25, 2016
 
-data_dir = 'D:\Documents\Tiles_Norm';
+%data_dir = 'D:\Documents\Tiles_Norm';
 %im_dir = fullfile(data_dir,'normalized_images');
 %im_dir = fullfile(data_dir,'Target15Norm');
 %stain_dir = fullfile(data_dir,'stain_densities');
@@ -76,9 +76,9 @@ data_dir = 'D:\Documents\Tiles_Norm';
 
 %%
 % Compare between target and source
-im_dir = fullfile(data_dir,'Target15ReNorm');
-stain_dir = fullfile(im_dir,'stain_densities');
-target_dir = fullfile(data_dir,'Tiles_512');
+% im_dir = fullfile(data_dir,'Target15ReNorm');
+% stain_dir = fullfile(im_dir,'stain_densities');
+% target_dir = fullfile(data_dir,'Tiles_512');
 % if ~exist(fullfile(im_dir,'HistDist'),'dir')
 %     mkdir(fullfile(im_dir,'HistDist'));
 % end
@@ -170,168 +170,168 @@ target_dir = fullfile(data_dir,'Tiles_512');
 %% box plot for HSV space
 %%
 % Compare between target and source
-if ~exist(fullfile(im_dir,'HistDist_HSV'),'dir')
-    mkdir(fullfile(im_dir,'HistDist_HSV'));
-end
-PDollar_toolbox_path = 'C:\Users\luong_nguyen\Documents\GitHub\toolbox';
-addpath(genpath(PDollar_toolbox_path));
-metric_names = {'ks','chisq','emd','kl'};
-%im_dir = fullfile(data_dir,'Target15Norm');
-%target_dir = fullfile(data_dir,'Target');
-
-im_dir = fullfile(data_dir,'Target15ReNorm');
-target_dir = fullfile(data_dir,'Tiles_512');
-for mm = 1:length(method_names)
-   tic;
-   curr_dir = fullfile(im_dir,method_names{mm});
-   output_dir = fullfile(stain_dir,method_names{mm});
-   imlist = dir(fullfile(curr_dir,'*.tif'));
-   imlist = {imlist.name}';
-   source_images = cell(length(imlist),1);
-   target_images = cell(length(imlist),1);
-   ks_dist = cell(length(imlist),1); 
-   chisq_dist = cell(length(imlist),1);
-   emd_dist =  cell(length(imlist),1);
-   kl_dist =  cell(length(imlist),1);
-   
-   measures = cell(length(imlist),1);
-      
-   parfor i = 1:length(imlist)
-      imname =  imlist{i}(1:end-4);
-      imname_split = strsplit(imname,'-');
-      source_images{i} = imname_split{2};
-      target_images{i} = imname_split{1};
-           
-      source_im = imread(fullfile(curr_dir,[imname '.tif']));
-      %target_im = imread(fullfile(target_dir,[target_images{i} '.tif']));
-      target_im = imread(fullfile(target_dir,[source_images{i} '.tif']));
-      source_hsv = rgb2hsv(source_im);
-      target_hsv = rgb2hsv(target_im);
-      
-      metrics = zeros(1,length(metric_names)*(size(target_hsv,3)+1));
-      channel_hist_counts = cell(2,3);
-      for cc = 1:3
-         channel = source_hsv(:,:,cc); 
-         [channel_hist_counts{1,cc},~] =  histcounts(channel(:),100,'Normalization', 'probability');
-         channel = target_hsv(:,:,cc); 
-         [channel_hist_counts{2,cc},~] =  histcounts(channel(:),100,'Normalization', 'probability');
-      end   
-          
-      for metr = 1:length(metric_names)
-          metric = metric_names{metr};
-          start_indx = (metr-1)*(size(target_hsv,3)+1) + 1;
-          if strcmp(metric,'ks')
-              for cc = 1:3
-                ss = source_hsv(:,:,cc); tt = target_hsv(:,:,cc);
-                [~,~,metrics(start_indx+cc)] = kstest2(ss(:),tt(:));
-              end
-          else
-              for cc = 1:3
-                 metrics(start_indx+cc) = pdist2(channel_hist_counts{1,cc}, ...
-                     channel_hist_counts{2,cc},metric);
-              end
-          end
-          metrics(start_indx) = sum(metrics((start_indx+1):(start_indx+3)));
-      end
-      measures{i} = metrics;
-   end
-   measures = num2cell(cat(1,measures{:}));
-   T = cell2table(cat(2,source_images,target_images,measures));
-   T.Properties.VariableNames = {'SourceImages','TargetImages',...
-       'ks','ks_h','ks_s','ks_v','emd','chisq','chisq_h','chisq_s','chisq_v',...
-       'emd_h','emd_s','emd_v','kl','kl_h','kl_s','kl_v'};
-   writetable(T,fullfile(im_dir,'HistDist_HSV',[method_names{mm} '.txt']),'Delimiter',',');
-   timepassed = toc;
-   fprintf('Done with method %s in %.2f seconds\n',method_names{mm},timepassed);
-end
+% if ~exist(fullfile(im_dir,'HistDist_HSV'),'dir')
+%     mkdir(fullfile(im_dir,'HistDist_HSV'));
+% end
+% PDollar_toolbox_path = 'C:\Users\luong_nguyen\Documents\GitHub\toolbox';
+% addpath(genpath(PDollar_toolbox_path));
+% metric_names = {'ks','chisq','emd','kl'};
+% %im_dir = fullfile(data_dir,'Target15Norm');
+% %target_dir = fullfile(data_dir,'Target');
+% 
+% im_dir = fullfile(data_dir,'Target15ReNorm');
+% target_dir = fullfile(data_dir,'Tiles_512');
+% for mm = 1:length(method_names)
+%    tic;
+%    curr_dir = fullfile(im_dir,method_names{mm});
+%    output_dir = fullfile(stain_dir,method_names{mm});
+%    imlist = dir(fullfile(curr_dir,'*.tif'));
+%    imlist = {imlist.name}';
+%    source_images = cell(length(imlist),1);
+%    target_images = cell(length(imlist),1);
+%    ks_dist = cell(length(imlist),1); 
+%    chisq_dist = cell(length(imlist),1);
+%    emd_dist =  cell(length(imlist),1);
+%    kl_dist =  cell(length(imlist),1);
+%    
+%    measures = cell(length(imlist),1);
+%       
+%    parfor i = 1:length(imlist)
+%       imname =  imlist{i}(1:end-4);
+%       imname_split = strsplit(imname,'-');
+%       source_images{i} = imname_split{2};
+%       target_images{i} = imname_split{1};
+%            
+%       source_im = imread(fullfile(curr_dir,[imname '.tif']));
+%       %target_im = imread(fullfile(target_dir,[target_images{i} '.tif']));
+%       target_im = imread(fullfile(target_dir,[source_images{i} '.tif']));
+%       source_hsv = rgb2hsv(source_im);
+%       target_hsv = rgb2hsv(target_im);
+%       
+%       metrics = zeros(1,length(metric_names)*(size(target_hsv,3)+1));
+%       channel_hist_counts = cell(2,3);
+%       for cc = 1:3
+%          channel = source_hsv(:,:,cc); 
+%          [channel_hist_counts{1,cc},~] =  histcounts(channel(:),100,'Normalization', 'probability');
+%          channel = target_hsv(:,:,cc); 
+%          [channel_hist_counts{2,cc},~] =  histcounts(channel(:),100,'Normalization', 'probability');
+%       end   
+%           
+%       for metr = 1:length(metric_names)
+%           metric = metric_names{metr};
+%           start_indx = (metr-1)*(size(target_hsv,3)+1) + 1;
+%           if strcmp(metric,'ks')
+%               for cc = 1:3
+%                 ss = source_hsv(:,:,cc); tt = target_hsv(:,:,cc);
+%                 [~,~,metrics(start_indx+cc)] = kstest2(ss(:),tt(:));
+%               end
+%           else
+%               for cc = 1:3
+%                  metrics(start_indx+cc) = pdist2(channel_hist_counts{1,cc}, ...
+%                      channel_hist_counts{2,cc},metric);
+%               end
+%           end
+%           metrics(start_indx) = sum(metrics((start_indx+1):(start_indx+3)));
+%       end
+%       measures{i} = metrics;
+%    end
+%    measures = num2cell(cat(1,measures{:}));
+%    T = cell2table(cat(2,source_images,target_images,measures));
+%    T.Properties.VariableNames = {'SourceImages','TargetImages',...
+%        'ks','ks_h','ks_s','ks_v','chisq','chisq_h','chisq_s','chisq_v',...
+%        'emd','emd_h','emd_s','emd_v','kl','kl_h','kl_s','kl_v'};
+%    writetable(T,fullfile(im_dir,'HistDist_HSV',[method_names{mm} '.txt']),'Delimiter',',');
+%    timepassed = toc;
+%    fprintf('Done with method %s in %.2f seconds\n',method_names{mm},timepassed);
+% end
 
 %% boxplot for the methods
-ks_scores = cell(length(method_names),1);
-chisq_scores = cell(length(method_names),1);
-emd_scores = cell(length(method_names),1);
-kl_scores = cell(length(method_names),1); 
-group_names = cell(length(method_names),1);
-plot_names =  {'Khan','Macenko','Reinhard','Vahadane', 'VahadaneFast','HEColStats'};
-for mm = 1:length(method_names)
-   %T = readtable(fullfile(im_dir,'HistDist',[method_names{mm} '.txt']),'Delimiter',',');
-   T = readtable(fullfile(im_dir,'HistDist_HSV',[method_names{mm} '.txt']),'Delimiter',',');
-   ks_scores{mm} = T.ks;
-   chisq_scores{mm} = T.chisq;
-   emd_scores{mm} = T.emd;
-   kl_scores{mm} = T.kl;
-   gp = cell(length(ks_scores{mm}),1);
-   gp(:) = {plot_names{mm}};
-   group_names{mm} = gp;
-end
+% ks_scores = cell(length(method_names),1);
+% chisq_scores = cell(length(method_names),1);
+% emd_scores = cell(length(method_names),1);
+% kl_scores = cell(length(method_names),1); 
+% group_names = cell(length(method_names),1);
+% plot_names =  {'Khan','Macenko','Reinhard','Vahadane', 'VahadaneFast','HEColStats'};
+% for mm = 1:length(method_names)
+%    %T = readtable(fullfile(im_dir,'HistDist',[method_names{mm} '.txt']),'Delimiter',',');
+%    T = readtable(fullfile(im_dir,'HistDist_HSV',[method_names{mm} '.txt']),'Delimiter',',');
+%    ks_scores{mm} = T.ks;
+%    chisq_scores{mm} = T.chisq;
+%    emd_scores{mm} = T.emd;
+%    kl_scores{mm} = T.kl;
+%    gp = cell(length(ks_scores{mm}),1);
+%    gp(:) = {plot_names{mm}};
+%    group_names{mm} = gp;
+% end
 
 % t test
 % calculate the median
-ks_means = cell(length(method_names),1);
-emd_means = cell(length(method_names),1);
-chisq_means = cell(length(method_names),1);
-kl_means = cell(length(method_names),1);
-for mm = 1:length(method_names)
-%     ks_means{mm} = median(ks_scores{mm});%
-%     emd_means{mm} = median(emd_scores{mm}); %
-%     chisq_means{mm} = median(chisq_scores{mm});%
-%     kl_means{mm} = median(kl_scores{mm});
-    ks_means{mm} = mean(ks_scores{mm});
-    emd_means{mm} = mean(emd_scores{mm});
-    chisq_means{mm} = mean(chisq_scores{mm});
-    kl_means{mm} = mean(kl_scores{mm});
-end
-
-metric_names = {'ks_scores','emd_scores','chisq_scores','kl_scores'};
-mean_metrics = cell(length(metric_names),1);
-mean_metrics{1} = cat(1,ks_means{:});
-mean_metrics{2} = cat(1,emd_means{:});
-mean_metrics{3} = cat(1,chisq_means{:});
-mean_metrics{4} = cat(1,kl_means{:});
-
-for met = 1:4
-    [sort_metric,sort_id] = sort(mean_metrics{met},'ascend');
-    fprintf('\n\nRanking for metric %s is \n',metric_names{met});
-    for mm = 1:length(sort_id)
-        %fprintf ('\t Method %s with median %.4f\n',method_names{sort_id(mm)},sort_metric(mm));
-        fprintf ('\t Method %s with mean %.4f\n',method_names{sort_id(mm)},sort_metric(mm));
-    end
-    for mm = 1:(length(sort_id)-1)
-       method1 = method_names(sort_id(mm));
-       method2 = method_names(sort_id(mm+1));    
-       [h,p] = eval(['ttest2(',metric_names{met},'{sort_id(mm)},',...
-          metric_names{met},'{sort_id(mm+1)})']);
-       fprintf('ttest p-value for metric %s of method %s (mean %.2f) and method %s (mean %.2f) is %.4f\n',...
-          metric_names{met}, method1{1}, sort_metric(mm), method2{1}, sort_metric(mm+1), p);
-%        p = eval(['signrank(',metric_names{met},'{sort_id(mm)},',...
-%            metric_names{met},'{sort_id(mm+1)})']);
-%        fprintf('sign rank test p-value for metric %s of method %s (median %.2f) and method %s (median %.2f) is %.4f\n',...
-%            metric_names{met}, method1{1}, sort_metric(mm), method2{1}, sort_metric(mm+1), p);
-    end
-end
-
-% box plot
-ks_scores = cat(1,ks_scores{:});
-chisq_scores = cat(1,chisq_scores{:});
-emd_scores = cat(1,emd_scores{:});
-kl_scores = cat(1,kl_scores{:});
-group_names = cat(1,group_names{:});
-
-figure; boxplot(chisq_scores,group_names);
-set(gca,'FontSize',16);
-ylabel('\chi^2 differences'); %xlabel('Methods');
-
-figure; boxplot(emd_scores,group_names);
-set(gca,'FontSize',16);
-ylabel('Earth Mover distances'); %xlabel('Methods');
-
-figure; boxplot(ks_scores,group_names);
-set(gca,'FontSize',16);
-ylabel('KS statistics'); %xlabel('Methods');
-%
-
-figure; boxplot(kl_scores,group_names);
-set(gca,'FontSize',16);
-ylabel('KL divergences'); 
+% ks_means = cell(length(method_names),1);
+% emd_means = cell(length(method_names),1);
+% chisq_means = cell(length(method_names),1);
+% kl_means = cell(length(method_names),1);
+% for mm = 1:length(method_names)
+% %     ks_means{mm} = median(ks_scores{mm});%
+% %     emd_means{mm} = median(emd_scores{mm}); %
+% %     chisq_means{mm} = median(chisq_scores{mm});%
+% %     kl_means{mm} = median(kl_scores{mm});
+%     ks_means{mm} = mean(ks_scores{mm});
+%     emd_means{mm} = mean(emd_scores{mm});
+%     chisq_means{mm} = mean(chisq_scores{mm});
+%     kl_means{mm} = mean(kl_scores{mm});
+% end
+% 
+% metric_names = {'ks_scores','emd_scores','chisq_scores','kl_scores'};
+% mean_metrics = cell(length(metric_names),1);
+% mean_metrics{1} = cat(1,ks_means{:});
+% mean_metrics{2} = cat(1,emd_means{:});
+% mean_metrics{3} = cat(1,chisq_means{:});
+% mean_metrics{4} = cat(1,kl_means{:});
+% 
+% for met = 1:4
+%     [sort_metric,sort_id] = sort(mean_metrics{met},'ascend');
+%     fprintf('\n\nRanking for metric %s is \n',metric_names{met});
+%     for mm = 1:length(sort_id)
+%         %fprintf ('\t Method %s with median %.4f\n',method_names{sort_id(mm)},sort_metric(mm));
+%         fprintf ('\t Method %s with mean %.4f\n',method_names{sort_id(mm)},sort_metric(mm));
+%     end
+%     for mm = 1:(length(sort_id)-1)
+%        method1 = method_names(sort_id(mm));
+%        method2 = method_names(sort_id(mm+1));    
+%        [h,p] = eval(['ttest2(',metric_names{met},'{sort_id(mm)},',...
+%           metric_names{met},'{sort_id(mm+1)})']);
+%        fprintf('ttest p-value for metric %s of method %s (mean %.2f) and method %s (mean %.2f) is %.4f\n',...
+%           metric_names{met}, method1{1}, sort_metric(mm), method2{1}, sort_metric(mm+1), p);
+% %        p = eval(['signrank(',metric_names{met},'{sort_id(mm)},',...
+% %            metric_names{met},'{sort_id(mm+1)})']);
+% %        fprintf('sign rank test p-value for metric %s of method %s (median %.2f) and method %s (median %.2f) is %.4f\n',...
+% %            metric_names{met}, method1{1}, sort_metric(mm), method2{1}, sort_metric(mm+1), p);
+%     end
+% end
+% 
+% % box plot
+% ks_scores = cat(1,ks_scores{:});
+% chisq_scores = cat(1,chisq_scores{:});
+% emd_scores = cat(1,emd_scores{:});
+% kl_scores = cat(1,kl_scores{:});
+% group_names = cat(1,group_names{:});
+% 
+% figure; boxplot(chisq_scores,group_names);
+% set(gca,'FontSize',16);
+% ylabel('\chi^2 differences'); %xlabel('Methods');
+% 
+% figure; boxplot(emd_scores,group_names);
+% set(gca,'FontSize',16);
+% ylabel('Earth Mover distances'); %xlabel('Methods');
+% 
+% figure; boxplot(ks_scores,group_names);
+% set(gca,'FontSize',16);
+% ylabel('KS statistics'); %xlabel('Methods');
+% %
+% 
+% figure; boxplot(kl_scores,group_names);
+% set(gca,'FontSize',16);
+% ylabel('KL divergences'); 
 
 %% box plot for user ranking
 % human_ranking_dir = 'D:\Tiles_Norm\Human_ranking';
@@ -399,5 +399,119 @@ ylabel('KL divergences');
 %    title(upper(file_list{i}(14:end-4)));   
 % end
 % 
+
+%% generate latex table
+data_dir = '/Users/lun5/Box Sync/ColorNormalizationPaper/Tiles_512_Validation_Data';
+%eval_dir = fullfile(data_dir,'Norm_Images','HistDist_HSV');
+eval_dir = fullfile(data_dir,'Norm_Images','HistDist');
+%eval_dir = fullfile(data_dir,'Renorm_Images','HistDist_HSV');
+%eval_dir = fullfile(data_dir,'Renorm_Images','HistDist');
+
+method_names = {'Macenko','Reinhard','Khan','Vahadane', 'VahadaneFast','Luong'};
+metrics_gp = cell(length(method_names), 1);
+%ss_names = cell(length(method_names), 1);   
+%tt_names = cell(length(method_names), 1);   
+group_names = cell(length(method_names),1);
+for mm = 1:length(method_names)
+   T = readtable(fullfile(eval_dir,[method_names{mm} '.txt']),'Delimiter',',');
+%    T.Properties.VariableNames = {'SourceImages','TargetImages',...
+%        'ks','ks_h','ks_s','ks_v','chisq','chisq_h','chisq_s','chisq_v',...
+%        'emd','emd_h','emd_s','emd_v','kl','kl_h','kl_s','kl_v'};
+%    writetable(T,fullfile(eval_dir,[method_names{mm} '.txt']),'Delimiter',',');
+   %metrics_gp{mm} = table2array(T(:,3:4:end));
+   metrics_gp{mm} = table2array(T(:,3:3:end));
+   %ss_names{mm} = T.Source;
+   %tt_names{mm} = T.Target;
+   gp = cell(size(metrics_gp{mm},1),1);
+   gp(:) = {method_names{mm}};
+   group_names{mm} = gp;
+end
+
+mean_metrics = cell(length(method_names),1);
+median_metrics = cell(length(method_names), 1);   
+
+for mm = 1:length(method_names)
+   mean_metrics{mm} = mean(metrics_gp{mm});
+   median_metrics{mm} = median(metrics_gp{mm});
+end
+
+mean_metrics = cat(1,mean_metrics{:});
+rank_means = zeros(size(mean_metrics));
+p_means = zeros(size(mean_metrics));
+median_metrics = cat(1,median_metrics{:});
+rank_medians = zeros(size(median_metrics));
+p_medians  = zeros(size(mean_metrics));
+metric_names = {'ks_scores','chisq_scores','emd_scores','kl_scores'};
+
+for met = 1:length(metric_names)
+   [sort_metrics, sort_id] = sort(mean_metrics(:,met),'ascend');
+   [~,ii] = sort(sort_id);
+   rank_means(:,met) = ii;
+   fprintf('\n\nRanking for mean metric %s is \n',metric_names{met});
+   for mm = 1:length(sort_id)
+       fprintf('\t Method %s with mean %.4f\n',method_names{sort_id(mm)},sort_metrics(mm));
+   end
+   
+   for mm = 1:(length(sort_id) -1)
+       method1 = method_names(sort_id(mm));
+       method2 = method_names(sort_id(mm+1));
+       metrics_m1 = metrics_gp{sort_id(mm)}(:,met);
+       metrics_m2 = metrics_gp{sort_id(mm+1)}(:,met);    
+       [h,p] = ttest2(metrics_m1,metrics_m2);
+       p_means(sort_id(mm),met) = p;
+       %fprintf('ttest p-value for metric %s of method %s (mean %.2f) and method %s (mean %.2f) is %.4f\n',...
+       %     metric_names{met}, method1{1}, sort_metrics(mm), method2{1}, sort_metrics(mm+1), p);
+   end
+ 
+   fprintf('\n\nRanking for median metric %s is \n',metric_names{met});
+   [sort_metrics, sort_id] = sort(median_metrics(:,met),'ascend');
+   [~,ii] = sort(sort_id);
+   rank_medians(:,met) = ii;
+   for mm = 1:length(sort_id)
+       fprintf('\t Method %s with median %.4f\n',method_names{sort_id(mm)},sort_metrics(mm)); 
+   end
+   
+   for mm = 1:(length(sort_id)-1)
+       method1 = method_names(sort_id(mm));
+       method2 = method_names(sort_id(mm+1));  
+       metrics_m1 = metrics_gp{sort_id(mm)}(:,met);
+       metrics_m2 = metrics_gp{sort_id(mm+1)}(:,met);    
+       p = signrank(metrics_m1,metrics_m2);
+       p_medians(sort_id(mm),met) = p;
+       %fprintf('sign rank test p-value for metric %s of method %s (median %.2f) and method %s (median %.2f) is %.4f\n',...
+       %   metric_names{met}, method1{1}, sort_metrics(mm), method2{1}, sort_metrics(mm+1), p);
+   end
+end
+
+mean_score_rank_p = zeros(size(mean_metrics,1), 3*size(mean_metrics,2));
+med_score_rank_p = zeros(size(mean_metrics,1), 3*size(mean_metrics,2));
+for i = 1:length(metric_names)
+   mean_score_rank_p(:,(i-1)*3+1) = mean_metrics(:,i);
+   mean_score_rank_p(:,(i-1)*3+2) = rank_means(:,i);
+   mean_score_rank_p(:,(i-1)*3+3) = p_means(:,i);
+   med_score_rank_p(:,(i-1)*3+1) = median_metrics(:,i);
+   med_score_rank_p(:,(i-1)*3+2) = rank_medians(:,i);
+   med_score_rank_p(:,(i-1)*3+3) = p_medians(:,i);
+end
+
+table_method_names = {'MK','RH','Khan','VH','VHF','SCAN'};
+for mm = 1:length(method_names)
+   fprintf('%s & %.3f & %d & %.2f & %.3f & %d & %.2f & %.3f & %d & %.2f & %.3f & %d & %.2f \\\\ \n',...
+       table_method_names{mm},mean_score_rank_p(mm,1),uint8(mean_score_rank_p(mm,2)),mean_score_rank_p(mm,3),...
+       mean_score_rank_p(mm,4),uint8(mean_score_rank_p(mm,5)),mean_score_rank_p(mm,6),...
+       mean_score_rank_p(mm,7),uint8(mean_score_rank_p(mm,8)),mean_score_rank_p(mm,9),...
+       mean_score_rank_p(mm,10),uint8(mean_score_rank_p(mm,11)),mean_score_rank_p(mm,12)); 
+end
+
+fprintf('\n\n');
+for mm = 1:length(method_names)
+   fprintf('%s & %.3f & %d & %.2f & %.3f & %d & %.2f & %.3f & %d & %.2f & %.3f & %d & %.2f \\\\\n',...
+       table_method_names{mm},med_score_rank_p(mm,1),uint8(med_score_rank_p(mm,2)),med_score_rank_p(mm,3),...
+       med_score_rank_p(mm,4),uint8(med_score_rank_p(mm,5)),med_score_rank_p(mm,6),...
+       med_score_rank_p(mm,7),uint8(med_score_rank_p(mm,8)),med_score_rank_p(mm,9),...
+       med_score_rank_p(mm,10),uint8(med_score_rank_p(mm,11)),med_score_rank_p(mm,12)); 
+end
+
+
 
 

@@ -122,6 +122,8 @@ end
 
 % for the target ocm
 %}
+
+method_names = {'Macenko','Reinhard','Khan','Vahadane', 'VahadaneFast','Luong'};
 metrics_gp = cell(length(method_names), 1);
 ss_names = cell(length(method_names), 1);   
 tt_names = cell(length(method_names), 1);   
@@ -146,12 +148,24 @@ for mm = 1:length(method_names)
    median_metrics{mm} = median(metrics_gp{mm});
 end
 
+%metric_names = cat(2,measures,{'f_overlap'});
+metric_names = {'fb','f_overlap'};
 mean_metrics = cat(1,mean_metrics{:});
 median_metrics = cat(1,median_metrics{:});
-metric_names = cat(2,measures,{'f_overlap'});
 
-for met = [1,16]
+mean_metrics = mean_metrics(:,[1, 16]);
+median_metrics = median_metrics(:,[1, 16]);
+
+rank_means = zeros(size(mean_metrics));
+p_means = zeros(size(mean_metrics));
+rank_medians = zeros(size(median_metrics));
+p_medians  = zeros(size(mean_metrics));
+
+for met = 1:length(metric_names)
    [sort_metrics, sort_id] = sort(mean_metrics(:,met),'descend');
+   [~,ii] = sort(sort_id);
+   rank_means(:,met) = ii;
+
    fprintf('\n\nRanking for mean metric %s is \n',metric_names{met});
    for mm = 1:length(sort_id)
        fprintf('\t Method %s with mean %.4f\n',method_names{sort_id(mm)},sort_metrics(mm));
@@ -163,12 +177,15 @@ for met = [1,16]
        metrics_m1 = metrics_gp{sort_id(mm)}(:,met);
        metrics_m2 = metrics_gp{sort_id(mm+1)}(:,met);    
        [h,p] = ttest2(metrics_m1,metrics_m2);
+       p_means(sort_id(mm),met) = p;
        fprintf('ttest p-value for metric %s of method %s (mean %.2f) and method %s (mean %.2f) is %.4f\n',...
             metric_names{met}, method1{1}, sort_metrics(mm), method2{1}, sort_metrics(mm+1), p);
    end
  
    fprintf('\n\nRanking for mean metric %s is \n',metric_names{met});
    [sort_metrics, sort_id] = sort(median_metrics(:,met),'descend');
+   [~,ii] = sort(sort_id);
+   rank_medians(:,met) = ii;
    for mm = 1:length(sort_id)
        fprintf('\t Method %s with median %.4f\n',method_names{sort_id(mm)},sort_metrics(mm)); 
    end
@@ -179,11 +196,41 @@ for met = [1,16]
        metrics_m1 = metrics_gp{sort_id(mm)}(:,met);
        metrics_m2 = metrics_gp{sort_id(mm+1)}(:,met);    
        p = signrank(metrics_m1,metrics_m2);
+       p_medians(sort_id(mm),met) = p;
        fprintf('sign rank test p-value for metric %s of method %s (median %.2f) and method %s (median %.2f) is %.4f\n',...
           metric_names{met}, method1{1}, sort_metrics(mm), method2{1}, sort_metrics(mm+1), p);
    end
 end
 
+mean_score_rank_p = zeros(size(mean_metrics,1), 3*size(mean_metrics,2));
+med_score_rank_p = zeros(size(mean_metrics,1), 3*size(mean_metrics,2));
+for i = 1:length(metric_names)
+   mean_score_rank_p(:,(i-1)*3+1) = mean_metrics(:,i);
+   mean_score_rank_p(:,(i-1)*3+2) = rank_means(:,i);
+   mean_score_rank_p(:,(i-1)*3+3) = p_means(:,i);
+   med_score_rank_p(:,(i-1)*3+1) = median_metrics(:,i);
+   med_score_rank_p(:,(i-1)*3+2) = rank_medians(:,i);
+   med_score_rank_p(:,(i-1)*3+3) = p_medians(:,i);
+end
+
+table_method_names = {'MK','RH','Khan','VH','VHF','SCAN'};
+fprintf('MEAN\n');
+for mm = 1:length(method_names)
+   fprintf('%s & %.3f & %d & %.2f & %.3f & %d & %.2f & %.3f & %d & %.2f & %.3f & %d & %.2f \\\\ \n',...
+       table_method_names{mm},mean_score_rank_p(mm,1),uint8(mean_score_rank_p(mm,2)),mean_score_rank_p(mm,3),...
+       mean_score_rank_p(mm,4),uint8(mean_score_rank_p(mm,5)),mean_score_rank_p(mm,6),...
+       mean_score_rank_p(mm,7),uint8(mean_score_rank_p(mm,8)),mean_score_rank_p(mm,9),...
+       mean_score_rank_p(mm,10),uint8(mean_score_rank_p(mm,11)),mean_score_rank_p(mm,12)); 
+end
+
+fprintf('\n\nMEDIAN\n');
+for mm = 1:length(method_names)
+   fprintf('%s & %.3f & %d & %.2f & %.3f & %d & %.2f & %.3f & %d & %.2f & %.3f & %d & %.2f \\\\\n',...
+       table_method_names{mm},med_score_rank_p(mm,1),uint8(med_score_rank_p(mm,2)),med_score_rank_p(mm,3),...
+       med_score_rank_p(mm,4),uint8(med_score_rank_p(mm,5)),med_score_rank_p(mm,6),...
+       med_score_rank_p(mm,7),uint8(med_score_rank_p(mm,8)),med_score_rank_p(mm,9),...
+       med_score_rank_p(mm,10),uint8(med_score_rank_p(mm,11)),med_score_rank_p(mm,12)); 
+end
 
 % fb_results = cell(num_im,1);
 %    fop_results = cell(num_im,1);
