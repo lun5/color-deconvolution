@@ -5,40 +5,40 @@
 % color normalization run by Tammy Ma
 
 %function script_eval_seg_col_norm()
-method_names = {'Luong','Khan','Macenko','Reinhard','Vahadane', 'VahadaneFast'};
-data_dir = '/home/lun5/ColorNorm';
-%im_dir = fullfile(data_dir,'Tiles_Norm');
-%seg_dir = fullfile(data_dir,'seg_results_15Norm');
-%seg_dir = fullfile(data_dir,'seg_results_15Norm_aug19');
-seg_dir = fullfile(data_dir,'JSEG_results','mat_files');
-%seg_dir = fullfile(data_dir,'EGB_results','segmented_images_seism');
-
-seism_dir = '/home/lun5/github/seism';
-addpath(genpath(seism_dir));
-% List of measures to compute
-measures = {%
-    'fb'  ,... % Precision-recall for boundaries
-    'fop' ,... % Precision-recall for objects and parts
-    'fr'  ,... % Precision-recall for regions
-    'voi' ,... % Variation of information
-    'nvoi',... % Normalized variation of information
-    'pri' ,... % Probabilistic Rand index
-    'sc'  ,'ssc' ,... % Segmentation covering (two directions)
-    'dhd' ,'sdhd',... % Directional Hamming distance (two directions)
-    'bgm' ,... % Bipartite graph matching
-    'vd'  ,... % Van Dongen
-    'bce' ,... % Bidirectional consistency error
-    'gce' ,... % Global consistency error
-    'lce' ,... % Local consistency error
-    };
-
-% table of evaluation results are saved here
-eval_dir = fullfile(data_dir,'JSEG_results');%seg_dir; %fullfile(data_dir,'EGB_eval_results');
-if ~exist(eval_dir,'dir'); mkdir(eval_dir); end
-gt_set = 'all_files';
-gt_dir = fullfile('/home/lun5/HEproject/groundTruth/coarse_fine_GT_512_512/',gt_set);
-gt_list = dir(fullfile(gt_dir,'*.mat'));
-gt_list = {gt_list.name}';
+% method_names = {'Luong','Khan','Macenko','Reinhard','Vahadane', 'VahadaneFast'};
+% data_dir = '/home/lun5/ColorNorm';
+% %im_dir = fullfile(data_dir,'Tiles_Norm');
+% %seg_dir = fullfile(data_dir,'seg_results_15Norm');
+% %seg_dir = fullfile(data_dir,'seg_results_15Norm_aug19');
+% seg_dir = fullfile(data_dir,'JSEG_results','mat_files');
+% %seg_dir = fullfile(data_dir,'EGB_results','segmented_images_seism');
+% 
+% seism_dir = '/home/lun5/github/seism';
+% addpath(genpath(seism_dir));
+% % List of measures to compute
+% measures = {%
+%     'fb'  ,... % Precision-recall for boundaries
+%     'fop' ,... % Precision-recall for objects and parts
+%     'fr'  ,... % Precision-recall for regions
+%     'voi' ,... % Variation of information
+%     'nvoi',... % Normalized variation of information
+%     'pri' ,... % Probabilistic Rand index
+%     'sc'  ,'ssc' ,... % Segmentation covering (two directions)
+%     'dhd' ,'sdhd',... % Directional Hamming distance (two directions)
+%     'bgm' ,... % Bipartite graph matching
+%     'vd'  ,... % Van Dongen
+%     'bce' ,... % Bidirectional consistency error
+%     'gce' ,... % Global consistency error
+%     'lce' ,... % Local consistency error
+%     };
+% 
+% % table of evaluation results are saved here
+% eval_dir = fullfile(data_dir,'JSEG_results');%seg_dir; %fullfile(data_dir,'EGB_eval_results');
+% if ~exist(eval_dir,'dir'); mkdir(eval_dir); end
+% gt_set = 'all_files';
+% gt_dir = fullfile('/home/lun5/HEproject/groundTruth/coarse_fine_GT_512_512/',gt_set);
+% gt_list = dir(fullfile(gt_dir,'*.mat'));
+% gt_list = {gt_list.name}';
 
 %{
 for mm = 1:length(method_names)
@@ -122,14 +122,15 @@ end
 
 % for the target ocm
 %}
-
+data_dir = '/Users/lun5/Box Sync/ColorNormalizationPaper/Tiles_512_Validation_Data';
+eval_dir = fullfile(data_dir,'JSEG_results');
 method_names = {'Macenko','Reinhard','Khan','Vahadane', 'VahadaneFast','Luong'};
 metrics_gp = cell(length(method_names), 1);
 ss_names = cell(length(method_names), 1);   
 tt_names = cell(length(method_names), 1);   
 group_names = cell(length(method_names),1);
 for mm = 1:length(method_names)
-   T = readtable(fullfile(eval_dir,[method_names{mm} '_all_files.txt']),'Delimiter',',');
+   T = readtable(fullfile(eval_dir,[method_names{mm} '.txt']),'Delimiter',',');
    %indx = ismember(T.Target,{'jbakl4tseqt'}); 
    indx = 1:1:length(T.Source); 
    metrics_gp{mm} = table2array(T(indx,3:end));
@@ -153,6 +154,8 @@ metric_names = {'fb','f_overlap'};
 mean_metrics = cat(1,mean_metrics{:});
 median_metrics = cat(1,median_metrics{:});
 
+big_mean_metrics = mean_metrics;
+big_med_metrics = median_metrics;
 mean_metrics = mean_metrics(:,[1, 16]);
 median_metrics = median_metrics(:,[1, 16]);
 
@@ -216,20 +219,16 @@ end
 table_method_names = {'MK','RH','Khan','VH','VHF','SCAN'};
 fprintf('MEAN\n');
 for mm = 1:length(method_names)
-   fprintf('%s & %.3f & %d & %.2f & %.3f & %d & %.2f & %.3f & %d & %.2f & %.3f & %d & %.2f \\\\ \n',...
+   fprintf('%s & %.4f & %d & %.2f & %.4f & %d & %.2f \\\\ \n',...
        table_method_names{mm},mean_score_rank_p(mm,1),uint8(mean_score_rank_p(mm,2)),mean_score_rank_p(mm,3),...
-       mean_score_rank_p(mm,4),uint8(mean_score_rank_p(mm,5)),mean_score_rank_p(mm,6),...
-       mean_score_rank_p(mm,7),uint8(mean_score_rank_p(mm,8)),mean_score_rank_p(mm,9),...
-       mean_score_rank_p(mm,10),uint8(mean_score_rank_p(mm,11)),mean_score_rank_p(mm,12)); 
+       mean_score_rank_p(mm,4),uint8(mean_score_rank_p(mm,5)),mean_score_rank_p(mm,6)); 
 end
 
 fprintf('\n\nMEDIAN\n');
 for mm = 1:length(method_names)
-   fprintf('%s & %.3f & %d & %.2f & %.3f & %d & %.2f & %.3f & %d & %.2f & %.3f & %d & %.2f \\\\\n',...
+   fprintf('%s & %.4f & %d & %.2f & %.4f & %d & %.2f \\\\\n',...
        table_method_names{mm},med_score_rank_p(mm,1),uint8(med_score_rank_p(mm,2)),med_score_rank_p(mm,3),...
-       med_score_rank_p(mm,4),uint8(med_score_rank_p(mm,5)),med_score_rank_p(mm,6),...
-       med_score_rank_p(mm,7),uint8(med_score_rank_p(mm,8)),med_score_rank_p(mm,9),...
-       med_score_rank_p(mm,10),uint8(med_score_rank_p(mm,11)),med_score_rank_p(mm,12)); 
+       med_score_rank_p(mm,4),uint8(med_score_rank_p(mm,5)),med_score_rank_p(mm,6)); 
 end
 
 % fb_results = cell(num_im,1);
