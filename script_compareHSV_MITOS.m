@@ -18,7 +18,7 @@ for mm = 1:length(method_names)
         source_list = dir(fullfile(data_dir,dir_list{dd},'*.tar'));
         t2 = tic;
         if ~exist(fullfile(data_dir,dir_list{dd},'HistDist_HSV'),'dir')
-            mkdir(fullfile(source_dir,dir_list{dd},'HistDist_HSV'));
+            mkdir(fullfile(data_dir,dir_list{dd},'HistDist_HSV'));
         end
         source_list = {source_list.name}';
         measures_over_sourcelist = cell(length(source_list),1); 
@@ -33,6 +33,7 @@ for mm = 1:length(method_names)
                         || ~isempty(strfind(resol_levels{rr},'stain'))
                     continue;
                 end
+                t4 = tic;
                 source_dir = fullfile(data_dir,dir_list{dd},source_name,...
                     'frames',resol_levels{rr});
                 target_dir = fullfile(data_dir,dir_list{dd+2},...
@@ -105,6 +106,8 @@ for mm = 1:length(method_names)
                 measures_over_imlist = num2cell(cat(1,measures_over_imlist{:}));
                 clear t2s_im; clear s2t_im;
                 measures_over_resol{rr} = measures_over_imlist;
+                tt4 = toc(t4);
+                fprintf('Done with resolution %s in %.2f s\n',resol_levels{rr},tt4);
             end
             measures_over_resol = num2cell(cat(1,measures_over_resol{:}));
             measures_over_sourcelist{ss} = measures_over_resol;
@@ -128,7 +131,7 @@ for mm = 1:length(method_names)
         't2s_chisq','t2s_chisq_h','t2s_chisq_s','t2s_chisq_v',...
         't2s_emd','t2s_emd_h','t2s_emd_s','t2s_emd_v',...
         't2s_kl','t2s_kl_h','t2s_kl_s','t2s_kl_v'};
-    writetable(T,fullfile(source_dir,dir_list{dd},'HistDist_HSV',[method_names{mm} '.txt']),'Delimiter',',');
+    writetable(T,fullfile(data_dir,dir_list{dd},'HistDist_HSV',[method_names{mm} '.txt']),'Delimiter',',');
     tt1 = toc(t1);
     fprintf('Done with method %s in %.2f seconds\n',met,tt1);
 end
