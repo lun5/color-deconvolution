@@ -1,6 +1,11 @@
 function  normalized_image = NormLuong(source_image, target_image)
 
 rotation_matrix = load('rotation_matrix_tp10-867-1.mat','rotation_matrix');
+rotation_matrix = rotation_matrix.rotation_matrix;
+% rotation_matrix = [0.6412    0.4903    0.5903;...
+%     0.1340    0.6859   -0.7152;...
+%     0.7556   -0.5376   -0.3741];
+
 numClusters = 3; % only purple and pink this time
 opts_mixture.noise = 1;
 opts_mixture.maxiter = 20;
@@ -18,11 +23,14 @@ for n = 1:2
     which_features = {'hue opp', 'brightness opp','saturation opp'};
     nrows = size(im_rgb,1); ncols = size(im_rgb,2);
     X = reshape(im_rgb,[nrows*ncols,3]);
-    rotated_coordinates = rotation_matrix.rotation_matrix*X';
+    rotated_coordinates = rotation_matrix*X';
     indx_purple_pink = pink_purple_mask(:);
 
     %% cluster using von Mises
     theta = angle(rotated_coordinates(2,:) + 1i*rotated_coordinates(3,:));
+    %theta_o = angle(rotated_coordinates(2,:) + 1i*rotated_coordinates(3,:));
+    %theta = theta_o + 3.34;
+    %theta(theta>pi) = theta(theta>pi) - 2*pi;
     sat = sqrt(rotated_coordinates(2,:).^2 + rotated_coordinates(3,:).^2);
     brightness = rotated_coordinates(1,:);
     % von Mises
@@ -69,6 +77,11 @@ for feature_iter = 1:length(which_features)
     f_map_target_curr = f_maps_target{feature_iter};
     %% normalization
     f_map_normalized_curr = matchingMoments(f_map_source_curr, f_map_target_curr,which_features{feature_iter}, opts_matching);
+    % change this
+%     if feature_iter == 1
+%        f_map_normalized_curr = f_map_normalized_curr - 3.34;
+%        f_map_normalized_curr(f_map_normalized_curr < -pi) = f_map_normalized_curr(f_map_normalized_curr < -pi) + 2*pi;
+%     end
     f_maps_source_normalized{feature_iter} = f_map_normalized_curr;
     fprintf('done with matching %s in %.2f\n',which_features{feature_iter},toc);
 end
@@ -79,7 +92,7 @@ source_rotated_eq = zeros(3,length(f_map_normalized_curr));
 source_rotated_eq(1,:) = f_maps_source_normalized{2}; % brightness normalized/equalized
 source_rotated_eq(2,:) = f_maps_source_normalized{3}.*cos(f_maps_source_normalized{1}); % c2
 source_rotated_eq(3,:) = f_maps_source_normalized{3}.*sin(f_maps_source_normalized{1}); % c3
-source_rgb_eq = rotation_matrix.rotation_matrix\source_rotated_eq; % RGB = Rot_matrix \ rotated coordinates
+source_rgb_eq = rotation_matrix\source_rotated_eq; % RGB = Rot_matrix \ rotated coordinates
 source_rgb_eq(source_rgb_eq < 0) = 0;
 source_rgb_eq(source_rgb_eq > 1) = 1;
 source_rgb_eq_uint8 = uint8(source_rgb_eq*255); 

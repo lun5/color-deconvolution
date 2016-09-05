@@ -4,7 +4,7 @@ data_dir = 'M:\MITOS\';
 dir_list = {'training_aperio','testing_aperio','training_hamamatsu','testing_hamamatsu'};
 method_names = {'Luong','Macenko','Khan','Reinhard','Vahadane','VahadaneFast'};
 
-for mm = 3%4:length(method_names)
+for mm = 1:length(method_names)
 met = method_names{mm};
 
 t1 = tic;
@@ -14,7 +14,21 @@ for dd = 1:2
     source_list = {source_list.name}';
     
     for ss = 1:length(source_list)
-        source_name = source_list{ss}(1:end-4);
+         source_name = source_list{ss}(1:end-4);
+%         if ~exist(fullfile(data_dir, dir_list{dd},source_name,...
+%                  [met '_normalized_frames']),'dir')
+%            movefile(fullfile(data_dir, dir_list{dd},source_name,...
+%                  'normalized_frames'),fullfile(data_dir, dir_list{dd},source_name,...
+%                  [met '_normalized_frames']))   
+%         end
+%         
+%         if ~exist(fullfile(data_dir, dir_list{dd+2},...
+%                 ['H' source_name(2:end)],[met '_normalized_frames']),'dir')
+%            movefile(fullfile(data_dir, dir_list{dd+2},...
+%                 ['H' source_name(2:end)],'normalized_frames'),fullfile(data_dir, dir_list{dd+2},...
+%                 ['H' source_name(2:end)],[met '_normalized_frames'])); 
+%         end
+        
         t2 = tic;
         resol_levels = dir(fullfile(data_dir,dir_list{dd},source_name,'frames'));
         resol_levels = {resol_levels.name}';
@@ -26,21 +40,16 @@ for dd = 1:2
                 'frames',resol_levels{rr});
             target_dir = fullfile(data_dir,dir_list{dd+2},...
                 ['H' source_name(2:end)],'frames',resol_levels{rr});
-            %s2t_dir = fullfile(data_dir, dir_list{dd},source_name,...
-            %    'normalized_frames',resol_levels{rr});
-            %s2t_dir = fullfile(data_dir, dir_list{dd},source_name,...
-            %    'Macenko_normalized_frames',resol_levels{rr});
             s2t_dir = fullfile(data_dir, dir_list{dd},source_name,...
                 [met '_normalized_frames'],resol_levels{rr});
             
             if ~exist(s2t_dir,'dir'); mkdir(s2t_dir); end;
             %t2s_dir = fullfile(data_dir, dir_list{dd+2},...
-            %    ['H' source_name(2:end)],'normalized_frames',resol_levels{rr});
-            %t2s_dir = fullfile(data_dir, dir_list{dd+2},...
             %    ['H' source_name(2:end)],'Macenko_normalized_frames',resol_levels{rr});
             t2s_dir = fullfile(data_dir, dir_list{dd+2},...
                 ['H' source_name(2:end)],[met '_normalized_frames'],resol_levels{rr});
             if ~exist(t2s_dir,'dir'); mkdir(t2s_dir); end;
+            
             imlist = dir(fullfile(source_dir,'*.tiff'));
             imlist = {imlist.name}';
             for ii = 1:length(imlist)
@@ -71,9 +80,9 @@ for dd = 1:2
                 end
             end
             clear t2s_im; clear s2t_im;
-        end
-        tt2 = toc(t2);
-        fprintf('Done with dir %s in %.2f seconds\n',source_name,tt2);
+       end
+       tt2 = toc(t2);
+       fprintf('Done with dir %s in %.2f seconds\n',source_name,tt2);
     end
     tt1 = toc(t1);
     fprintf('Done with method %s in %.2f seconds\n',met,tt1);

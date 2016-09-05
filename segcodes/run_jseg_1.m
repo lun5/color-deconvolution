@@ -186,7 +186,49 @@ end
 %output_dir = fullfile('Z:\HEproject\evaluation_results\JSEG','one_scale');
 %output_dir = 'Z:\HEproject\normalized_evaluation_results\JSEG_grayscale';
 %output_dir = fullfile('Z:\HEproject\normalized_evaluation_results\JSEG','new_params');
+%% run JSEG for non normalized images
+curr_dir = 'D:\Documents\Tiles_Norm\Tiles_512_jpg';
+curr_bdry_dir = fullfile(curr_dir,'bdry_files'); 
+curr_matfile_dir = fullfile(curr_dir,'mat_files');
+curr_gif_dir = fullfile(curr_dir,'gif_files');
+if ~exist(curr_matfile_dir,'dir'); mkdir(curr_matfile_dir); end;
+if ~exist(curr_gif_dir,'dir'); mkdir(curr_gif_dir); end;
+if ~exist(curr_bdry_dir,'dir'); mkdir(curr_bdry_dir); end;
 
+im_list = dir(fullfile(curr_dir,'*.jpg'));
+im_list = {im_list.name}';
+num_images = length(im_list);
+nrow = 512; ncol = 512;
+tt = tic;
+parfor i = 1:num_images
+    im_name = im_list{i}(1:end-4);
+    gif_file = fullfile(curr_gif_dir, [im_name '.gif']);
+    expr = ['segwin -i ', fullfile(curr_dir,im_list{i}), ' -t 6 -r9 ',gif_file, ...
+        ' -s ', num2str(nrow),' ', num2str(ncol),' -m 0.3',' -l 3' ];
+    if ~exist(gif_file,'file')
+        s = evalc_parfor(expr);
+    end
+end
+parfor i = 1:num_images
+    segs = cell(1,1);
+    im_name = im_list{i}(1:end-4);
+    I =  imread( fullfile(curr_dir,[im_name '.jpg']));
+    gif_file = fullfile(curr_gif_dir, [im_name '.gif']);
+    bdry_im_fname = fullfile(curr_bdry_dir,[im_name, '_bdry.jpg']);
+    if ~exist(gif_file,'file')
+        fprintf('gif file does not exist for file %s with method %s\n',im_name,method);
+    end
+    if exist(gif_file,'file') && (~exist(bdry_im_fname,'file'))
+        labels = imread(gif_file,1);
+        segs{1} = labels + 1;
+        edge_map = seg2bdry(labels,'imageSize');
+        edge_map = imdilate(edge_map, strel('disk',1));
+        edge_map_im = I.*uint8(repmat(~edge_map,[1 1 3]));
+        imwrite(edge_map_im,bdry_im_fname);
+        parsave(fullfile(curr_matfile_dir,[im_name '.mat']),segs);
+    end
+end
+t = toc(tt); fprintf('Done in %.2f seconds\n',t);
 
 %% run JSEG
 im_dir = 'D:\Documents\Tiles_Norm\Target15Norm_jpg';
