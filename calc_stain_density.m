@@ -4,7 +4,9 @@
 
 function [stain_density, hem_im_rgb, eosin_im_rgb] = calc_stain_density(im_rgb, opts)
    [h,w,c] = size(im_rgb);
-   im_rgb = double(im_rgb)./255;
+   if max(max(im_rgb)) > 1
+       im_rgb = double(im_rgb)./255;
+   end
    optical_density = - reshape(log(im_rgb+eps),[h*w, c])';
    stain_matrix = [0.644,0.717,0.267; 0.093,0.954,0.283]'; 
    % the stain matrix is already in od values

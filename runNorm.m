@@ -36,26 +36,26 @@ for i=1:length(targlist)
     %time_matrix_target = cell(length(imlist),1);
     for j=1:length(imlist)
         imname = imlist{j};imname = lower(imname);
-        time_methods = zeros(1,2);
+        time_methods = zeros(1,6);
         if strcmp(targetname, imname)== 0
             source_im = imread(fullfile(im_dir,imname));
-%             start = tic; normLuong = NormLuong(source_im, target);
-%             time_methods(1) = toc(start);
-%             printfile(fullfile(print_dir, method_names{1}), normLuong, targetname, imname);
-%             start = tic; normMacenko = NormMacenko(source_im, target);
-%             time_methods(2) = toc(start);
-%             printfile(fullfile(print_dir, method_names{2}), normMacenko, targetname, imname);
-%             start = tic; normReinhard = im2uint8(NormReinhard(source_im, target));
-%             time_methods(3) = toc(start);
-%             printfile(fullfile(print_dir, method_names{3}), normReinhard, targetname, imname);
-%             start = tic; normSCDLeeds = NormSCDLeeds(source_im, target);
-%             time_methods(4) = toc(start);
-%             printfile(fullfile(print_dir, method_names{4}), normSCDLeeds, targetname, imname);
-            start = tic; normVahadane = SNMFnorm(source_im, target);
+            start = tic; normLuong = NormLuong(source_im, target);
             time_methods(1) = toc(start);
+            printfile(fullfile(print_dir, method_names{1}), normLuong, targetname, imname);
+            start = tic; normMacenko = NormMacenko(source_im, target);
+            time_methods(2) = toc(start);
+            printfile(fullfile(print_dir, method_names{2}), normMacenko, targetname, imname);
+            start = tic; normReinhard = im2uint8(NormReinhard(source_im, target));
+            time_methods(3) = toc(start);
+            printfile(fullfile(print_dir, method_names{3}), normReinhard, targetname, imname);
+            start = tic; normSCDLeeds = NormSCDLeeds(source_im, target);
+            time_methods(4) = toc(start);
+            printfile(fullfile(print_dir, method_names{4}), normSCDLeeds, targetname, imname);
+            start = tic; normVahadane = SNMFnorm(source_im, target);
+            time_methods(5) = toc(start);
             printfile(fullfile(print_dir, method_names{5}), normVahadane, targetname, imname);
             start = tic; normVahadaneFast = Demo_colornorm(source_im, target);
-            time_methods(2) = toc(start);
+            time_methods(6) = toc(start);
             printfile(fullfile(print_dir, method_names{6}), normVahadaneFast, targetname, imname);
         end
         time_matrix{i, j} = time_methods;

@@ -2,16 +2,16 @@ function  normalized_image = NormLuong(source_image, target_image)
 
 rotation_matrix = load('rotation_matrix_tp10-867-1.mat','rotation_matrix');
 rotation_matrix = rotation_matrix.rotation_matrix;
-% rotation_matrix = [0.6412    0.4903    0.5903;...
-%     0.1340    0.6859   -0.7152;...
-%     0.7556   -0.5376   -0.3741];
+%rotation_matrix = [0.6412    0.4903    0.5903;...
+%    0.1340    0.6859   -0.7152;...
+%    0.7556   -0.5376   -0.3741];
 
 numClusters = 3; % only purple and pink this time
 opts_mixture.noise = 1;
 opts_mixture.maxiter = 20;
 %% calculate features
 for n = 1:2    
-    tic;
+    %tic;
     if n == 1
         im_rgb = double(source_image)./255;
         pink_purple_mask = ones(size(source_image,1),size(source_image,2))>0;
@@ -60,30 +60,30 @@ for n = 1:2
             'posterior_probs',posterior_probs,'prior_probs',prior_probs);
         f_maps_source = {reshape(theta,[nrows,ncols]), reshape(brightness,[nrows,ncols]),...
             reshape(sat,[nrows,ncols])};
-        fprintf('done with stats of source image in %.2f\n',toc);
+        %fprintf('done with stats of source image in %.2f\n',toc);
     else
         opts_matching.target_stats = struct('mu_hat_polar',mu_hat_polar,'kappa_hat',kappa_hat,...
             'posterior_probs',posterior_probs,'prior_probs',prior_probs);
         f_maps_target = {reshape(theta,[nrows,ncols]), reshape(brightness,[nrows,ncols]),...
             reshape(sat,[nrows,ncols])};
-        fprintf('done with stats of target image in %.2f\n',toc);
+        %fprintf('done with stats of target image in %.2f\n',toc);
     end
 end
 
 f_maps_source_normalized = cell(1,3);
 for feature_iter = 1:length(which_features)
-    tic;
+    %tic;
     f_map_source_curr = f_maps_source{feature_iter};
     f_map_target_curr = f_maps_target{feature_iter};
     %% normalization
     f_map_normalized_curr = matchingMoments(f_map_source_curr, f_map_target_curr,which_features{feature_iter}, opts_matching);
     % change this
-%     if feature_iter == 1
-%        f_map_normalized_curr = f_map_normalized_curr - 3.34;
-%        f_map_normalized_curr(f_map_normalized_curr < -pi) = f_map_normalized_curr(f_map_normalized_curr < -pi) + 2*pi;
-%     end
+    %if feature_iter == 1
+    %   f_map_normalized_curr = f_map_normalized_curr - 3.34;
+    %   f_map_normalized_curr(f_map_normalized_curr < -pi) = f_map_normalized_curr(f_map_normalized_curr < -pi) + 2*pi;
+    %end
     f_maps_source_normalized{feature_iter} = f_map_normalized_curr;
-    fprintf('done with matching %s in %.2f\n',which_features{feature_iter},toc);
+    %fprintf('done with matching %s in %.2f\n',which_features{feature_iter},toc);
 end
 
 %% calculate c2, c3, recover rotated coordinate

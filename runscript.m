@@ -334,71 +334,75 @@
 % ylabel('KL divergences'); 
 
 %% box plot for user ranking
-% human_ranking_dir = 'D:\Tiles_Norm\Human_ranking';
-% file_list = dir(fullfile(human_ranking_dir,'*.txt'));
-% file_list = {file_list.name}';
-% num_sources = 10;
-% num_targets = 2;
-% method_names = {'Luong', 'Macenko', 'Reinhard','Khan', 'Vahadane', 'Vahadane_Fast'};
-% 
-% group_names = cell(6,1);
-% for mm = 1:6
-%     gp = cell(num_targets*num_sources,1);
-%     gp(:) = {method_names{mm}};
-%     group_names{mm} = gp;
-% end
-% group_names = cat(1,group_names{:});
-% 
-% for i = 1: length(file_list)
-%    fname = fullfile(human_ranking_dir,file_list{i});
-%    T = readtable(fname);
-%    % test the logic
-%    count_inconst = 0;
-%    summary_table = zeros(num_targets*num_sources,2+length(method_names));
-%    % col 1: source, col 2: target, col 3 ->8: method  1 ==> 6   
-%    count = 0;
-%    for tt = 1:num_targets
-%        for ss = 1:num_sources
-%            count = count + 1;
-%            summary_table(count,1) = ss;
-%            summary_table(count,2) = tt;
-%            indx_pair = (T.source_num == ss) & (T.target_num == tt);
-%            pairwise_comp_mat = sparse([T.m1_num(indx_pair) T.m2_num(indx_pair)],...
-%                [T.m2_num(indx_pair) T.m1_num(indx_pair)], [T.Results(indx_pair) T.Results(indx_pair)]);
-%            pairwise_comp_mat = full(pairwise_comp_mat);
-%            %scores = zeros(length(method_names),1);
-%            
-%            for mm = 1:length(method_names)
-%                %scores(mm) = sum(pairwise_comp_mat(:,mm) == 1) + 0.5*sum(pairwise_comp_mat(:,mm) == 0);
-%                summary_table(count,mm+2) = sum(T.m1_num(indx_pair) == mm & T.Results(indx_pair) == 1) + ...
-%                    sum(T.m2_num(indx_pair) == mm & T.Results(indx_pair) == 0);% + ...
-%                %0.5* sum(T.m1_num(indx_pair) == mm & T.Results(indx_pair) == 0);
-%            end           
-%        end
-%    end
-%    %[sorted_scores, sorted_indx] = sort(scores,'descend');
-%    mean_scores = mean(summary_table(:,3:8),1); 
-%    [sort_scores, sort_id] = sort(mean_scores,'descend');
-%    fprintf('\n\nUser %s\n',upper(file_list{i}(14:end-4)));
-%    for mm = 1:(length(sort_id)-1)
-%        method1 = method_names(sort_id(mm));
-%        method2 = method_names(sort_id(mm+1));
-%        [~,p] = ttest2(summary_table(:,sort_id(mm) +2), summary_table(:,sort_id(mm+1) +2));
-%        fprintf('ttest p-value for user %s of method %s (mean %.2f) and method %s (mean %.2f) is %.4f\n',...
-%            file_list{i}(14:end-4), method1{1}, sort_scores(mm), method2{1}, sort_scores(mm+1), p);
-%        p = signrank(summary_table(:,sort_id(mm) + 2), summary_table(:,sort_id(mm+1) + 2));
-%        fprintf('sign rank test p-value for  user %s of method %s (median %.2f) and method %s (median %.2f) is %.4f\n',...
-%            file_list{i}(14:end-4), method1{1}, median(summary_table(:,sort_id(mm) + 2)),...
-%            method2{1}, median(summary_table(:,sort_id(mm+1) + 2)), p);
-%    end
-% 
-%    
-%    scores = cat(1,summary_table(:,3),summary_table(:,4),...
-%        summary_table(:,5),summary_table(:,6),summary_table(:,7),summary_table(:,8));
-%    figure; boxplot(scores,group_names);
-%    title(upper(file_list{i}(14:end-4)));   
-% end
-% 
+human_ranking_dir = 'D:\Documents\Tiles_Norm\Human_ranking';
+file_list = dir(fullfile(human_ranking_dir,'user_results*.txt'));
+file_list = {file_list.name}';
+num_sources = 10;
+num_targets = 2;
+method_names = {'Luong', 'Macenko', 'Reinhard','Khan', 'Vahadane', 'Vahadane_Fast'};
+
+group_names = cell(6,1);
+for mm = 1:6
+    gp = cell(num_targets*num_sources,1);
+    gp(:) = {method_names{mm}};
+    group_names{mm} = gp;
+end
+group_names = cat(1,group_names{:});
+
+for i = 1: length(file_list)
+   fname = fullfile(human_ranking_dir,file_list{i});
+   T = readtable(fname);
+   % test the logic
+   count_inconst = 0;
+   summary_table = zeros(num_targets*num_sources,2+length(method_names));
+   % col 1: source, col 2: target, col 3 ->8: method  1 ==> 6   
+   count = 0;
+   for tt = 1:num_targets
+       for ss = 1:num_sources
+           count = count + 1;
+           summary_table(count,1) = ss;
+           summary_table(count,2) = tt;
+           indx_pair = (T.source_num == ss) & (T.target_num == tt);
+           pairwise_comp_mat = sparse([T.m1_num(indx_pair) T.m2_num(indx_pair)],...
+               [T.m2_num(indx_pair) T.m1_num(indx_pair)], [T.Results(indx_pair) T.Results(indx_pair)]);
+           pairwise_comp_mat = full(pairwise_comp_mat);
+           %scores = zeros(length(method_names),1);
+           
+           for mm = 1:length(method_names)
+               %scores(mm) = sum(pairwise_comp_mat(:,mm) == 1) + 0.5*sum(pairwise_comp_mat(:,mm) == 0);
+               summary_table(count,mm+2) = sum(T.m1_num(indx_pair) == mm & T.Results(indx_pair) == 1) + ...
+                   sum(T.m2_num(indx_pair) == mm & T.Results(indx_pair) == 0);% + ...
+               %0.5* sum(T.m1_num(indx_pair) == mm & T.Results(indx_pair) == 0);
+           end           
+       end
+   end
+   %[sorted_scores, sorted_indx] = sort(scores,'descend');
+   mean_scores = mean(summary_table(:,3:8),1); 
+   med_scores = median(summary_table(:,3:8),1); 
+   sum_scores = sum(summary_table(:,3:8), 1);
+   [sort_scores, sort_id] = sort(mean_scores,'descend');
+   [~, sort_id_med] = sort(med_scores,'descend');
+   fprintf('\n\nUser %s ',upper(file_list{i}(14:end-4)));
+   fprintf('%d %0.2f %d  %0.2f %d \n', sum_scores(1), mean_scores(1),...
+       sort_id(1), med_scores(1), sort_id_med(1));
+   for mm = 1:(length(sort_id)-1)
+       method1 = method_names(sort_id(mm));
+       method2 = method_names(sort_id(mm+1));
+       [~,p] = ttest2(summary_table(:,sort_id(mm) +2), summary_table(:,sort_id(mm+1) +2));
+       fprintf('ttest p-value for user %s of method %s (mean %.2f) and method %s (mean %.2f) is %.4f\n',...
+           file_list{i}(14:end-4), method1{1}, sort_scores(mm), method2{1}, sort_scores(mm+1), p);
+       p = signrank(summary_table(:,sort_id(mm) + 2), summary_table(:,sort_id(mm+1) + 2));
+       fprintf('sign rank test p-value for  user %s of method %s (median %.2f) and method %s (median %.2f) is %.4f\n',...
+           file_list{i}(14:end-4), method1{1}, median(summary_table(:,sort_id(mm) + 2)),...
+           method2{1}, median(summary_table(:,sort_id(mm+1) + 2)), p);
+   end
+   
+   scores = cat(1,summary_table(:,3),summary_table(:,4),...
+       summary_table(:,5),summary_table(:,6),summary_table(:,7),summary_table(:,8));
+   %figure; boxplot(scores,group_names);
+   %title(upper(file_list{i}(14:end-4)));   
+end
+
 
 %% generate latex table
 data_dir = '/Users/lun5/Box Sync/ColorNormalizationPaper/Tiles_512_Validation_Data';

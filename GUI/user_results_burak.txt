@@ -1,0 +1,301 @@
+Source,Target,source_num,target_num,m1,m2,m1_num,m2_num,Results
+Source\1bhjqxecct.tif,Target\ffwtgxylhyna.tif,2,2,Normalized_source\Macenko\ffwtgxylhyna-1bhjqxecct.tif,Normalized_source\Vahadane\ffwtgxylhyna-1bhjqxecct.tif,2,5,1
+Source\25axkhgc58.tif,Target\2ale5ngryfnpo.tif,3,1,Normalized_source\Luong\2ale5ngryfnpo-25axkhgc58.tif,Normalized_source\Vahadane Fast\2ale5ngryfnpo-25axkhgc58.tif,1,6,1
+Source\9fukmjujwi.tif,Target\ffwtgxylhyna.tif,6,2,Normalized_source\Luong\ffwtgxylhyna-9fukmjujwi.tif,Normalized_source\Macenko\ffwtgxylhyna-9fukmjujwi.tif,1,2,1
+Source\25axkhgc58.tif,Target\2ale5ngryfnpo.tif,3,1,Normalized_source\Reinhard\2ale5ngryfnpo-25axkhgc58.tif,Normalized_source\Khan\2ale5ngryfnpo-25axkhgc58.tif,3,4,0
+Source\25axkhgc58.tif,Target\2ale5ngryfnpo.tif,3,1,Normalized_source\Luong\2ale5ngryfnpo-25axkhgc58.tif,Normalized_source\Reinhard\2ale5ngryfnpo-25axkhgc58.tif,1,3,0
+Source\9fukmjujwi.tif,Target\2ale5ngryfnpo.tif,6,1,Normalized_source\Luong\2ale5ngryfnpo-9fukmjujwi.tif,Normalized_source\Khan\2ale5ngryfnpo-9fukmjujwi.tif,1,4,0
+Source\25axkhgc58.tif,Target\ffwtgxylhyna.tif,3,2,Normalized_source\Vahadane\ffwtgxylhyna-25axkhgc58.tif,Normalized_source\Vahadane Fast\ffwtgxylhyna-25axkhgc58.tif,5,6,0
+Source\25axkhgc58.tif,Target\2ale5ngryfnpo.tif,3,1,Normalized_source\Macenko\2ale5ngryfnpo-25axkhgc58.tif,Normalized_source\Reinhard\2ale5ngryfnpo-25axkhgc58.tif,2,3,0
+Source\hrdqmlu2ig.tif,Target\2ale5ngryfnpo.tif,9,1,Normalized_source\Luong\2ale5ngryfnpo-hrdqmlu2ig.tif,Normalized_source\Vahadane\2ale5ngryfnpo-hrdqmlu2ig.tif,1,5,1
+Source\hrdqmlu2ig.tif,Target\2ale5ngryfnpo.tif,9,1,Normalized_source\Macenko\2ale5ngryfnpo-hrdqmlu2ig.tif,Normalized_source\Khan\2ale5ngryfnpo-hrdqmlu2ig.tif,2,4,0
+Source\cl0bl66cy5px.tif,Target\2ale5ngryfnpo.tif,7,1,Normalized_source\Luong\2ale5ngryfnpo-cl0bl66cy5px.tif,Normalized_source\Macenko\2ale5ngryfnpo-cl0bl66cy5px.tif,1,2,1
+Source\62fwdzt8reuz5.tif,Target\ffwtgxylhyna.tif,5,2,Normalized_source\Macenko\ffwtgxylhyna-62fwdzt8reuz5.tif,Normalized_source\Reinhard\ffwtgxylhyna-62fwdzt8reuz5.tif,2,3,0
+Source\4nkj5wqcqj.tif,Target\2ale5ngryfnpo.tif,4,1,Normalized_source\Luong\2ale5ngryfnpo-4nkj5wqcqj.tif,Normalized_source\Macenko\2ale5ngryfnpo-4nkj5wqcqj.tif,1,2,1
+Source\4nkj5wqcqj.tif,Target\2ale5ngryfnpo.tif,4,1,Normalized_source\Luong\2ale5ngryfnpo-4nkj5wqcqj.tif,Normalized_source\Reinhard\2ale5ngryfnpo-4nkj5wqcqj.tif,1,3,1
+Source\4nkj5wqcqj.tif,Target\ffwtgxylhyna.tif,4,2,Normalized_source\Khan\ffwtgxylhyna-4nkj5wqcqj.tif,Normalized_source\Vahadane\ffwtgxylhyna-4nkj5wqcqj.tif,4,5,1
+Source\1bhjqxecct.tif,Target\ffwtgxylhyna.tif,2,2,Normalized_source\Luong\ffwtgxylhyna-1bhjqxecct.tif,Normalized_source\Macenko\ffwtgxylhyna-1bhjqxecct.tif,1,2,1
+Source\dj0ebjbuxshxz.tif,Target\2ale5ngryfnpo.tif,8,1,Normalized_source\Luong\2ale5ngryfnpo-dj0ebjbuxshxz.tif,Normalized_source\Vahadane\2ale5ngryfnpo-dj0ebjbuxshxz.tif,1,5,1
+Source\1bhjqxecct.tif,Target\2ale5ngryfnpo.tif,2,1,Normalized_source\Khan\2ale5ngryfnpo-1bhjqxecct.tif,Normalized_source\Vahadane\2ale5ngryfnpo-1bhjqxecct.tif,4,5,0
+Source\hrdqmlu2ig.tif,Target\ffwtgxylhyna.tif,9,2,Normalized_source\Luong\ffwtgxylhyna-hrdqmlu2ig.tif,Normalized_source\Macenko\ffwtgxylhyna-hrdqmlu2ig.tif,1,2,1
+Source\hrdqmlu2ig.tif,Target\ffwtgxylhyna.tif,9,2,Normalized_source\Luong\ffwtgxylhyna-hrdqmlu2ig.tif,Normalized_source\Vahadane\ffwtgxylhyna-hrdqmlu2ig.tif,1,5,1
+Source\4nkj5wqcqj.tif,Target\2ale5ngryfnpo.tif,4,1,Normalized_source\Luong\2ale5ngryfnpo-4nkj5wqcqj.tif,Normalized_source\Khan\2ale5ngryfnpo-4nkj5wqcqj.tif,1,4,0
+Source\1bhjqxecct.tif,Target\2ale5ngryfnpo.tif,2,1,Normalized_source\Vahadane\2ale5ngryfnpo-1bhjqxecct.tif,Normalized_source\Vahadane Fast\2ale5ngryfnpo-1bhjqxecct.tif,5,6,1
+Source\jztr3exuiy3pzgr.tif,Target\2ale5ngryfnpo.tif,10,1,Normalized_source\Luong\2ale5ngryfnpo-jztr3exuiy3pzgr.tif,Normalized_source\Vahadane Fast\2ale5ngryfnpo-jztr3exuiy3pzgr.tif,1,6,0
+Source\1bhjqxecct.tif,Target\ffwtgxylhyna.tif,2,2,Normalized_source\Khan\ffwtgxylhyna-1bhjqxecct.tif,Normalized_source\Vahadane\ffwtgxylhyna-1bhjqxecct.tif,4,5,0
+Source\cl0bl66cy5px.tif,Target\ffwtgxylhyna.tif,7,2,Normalized_source\Khan\ffwtgxylhyna-cl0bl66cy5px.tif,Normalized_source\Vahadane\ffwtgxylhyna-cl0bl66cy5px.tif,4,5,1
+Source\9fukmjujwi.tif,Target\2ale5ngryfnpo.tif,6,1,Normalized_source\Luong\2ale5ngryfnpo-9fukmjujwi.tif,Normalized_source\Vahadane Fast\2ale5ngryfnpo-9fukmjujwi.tif,1,6,1
+Source\9fukmjujwi.tif,Target\2ale5ngryfnpo.tif,6,1,Normalized_source\Khan\2ale5ngryfnpo-9fukmjujwi.tif,Normalized_source\Vahadane\2ale5ngryfnpo-9fukmjujwi.tif,4,5,0
+Source\25axkhgc58.tif,Target\ffwtgxylhyna.tif,3,2,Normalized_source\Khan\ffwtgxylhyna-25axkhgc58.tif,Normalized_source\Vahadane\ffwtgxylhyna-25axkhgc58.tif,4,5,1
+Source\9fukmjujwi.tif,Target\2ale5ngryfnpo.tif,6,1,Normalized_source\Luong\2ale5ngryfnpo-9fukmjujwi.tif,Normalized_source\Macenko\2ale5ngryfnpo-9fukmjujwi.tif,1,2,0
+Source\25axkhgc58.tif,Target\2ale5ngryfnpo.tif,3,1,Normalized_source\Macenko\2ale5ngryfnpo-25axkhgc58.tif,Normalized_source\Vahadane Fast\2ale5ngryfnpo-25axkhgc58.tif,2,6,0
+Source\4nkj5wqcqj.tif,Target\ffwtgxylhyna.tif,4,2,Normalized_source\Macenko\ffwtgxylhyna-4nkj5wqcqj.tif,Normalized_source\Vahadane\ffwtgxylhyna-4nkj5wqcqj.tif,2,5,-1
+Source\cl0bl66cy5px.tif,Target\2ale5ngryfnpo.tif,7,1,Normalized_source\Luong\2ale5ngryfnpo-cl0bl66cy5px.tif,Normalized_source\Vahadane Fast\2ale5ngryfnpo-cl0bl66cy5px.tif,1,6,-1
+Source\hrdqmlu2ig.tif,Target\2ale5ngryfnpo.tif,9,1,Normalized_source\Reinhard\2ale5ngryfnpo-hrdqmlu2ig.tif,Normalized_source\Khan\2ale5ngryfnpo-hrdqmlu2ig.tif,3,4,0
+Source\hrdqmlu2ig.tif,Target\ffwtgxylhyna.tif,9,2,Normalized_source\Macenko\ffwtgxylhyna-hrdqmlu2ig.tif,Normalized_source\Vahadane Fast\ffwtgxylhyna-hrdqmlu2ig.tif,2,6,-1
+Source\hrdqmlu2ig.tif,Target\2ale5ngryfnpo.tif,9,1,Normalized_source\Macenko\2ale5ngryfnpo-hrdqmlu2ig.tif,Normalized_source\Vahadane Fast\2ale5ngryfnpo-hrdqmlu2ig.tif,2,6,-1
+Source\cl0bl66cy5px.tif,Target\2ale5ngryfnpo.tif,7,1,Normalized_source\Khan\2ale5ngryfnpo-cl0bl66cy5px.tif,Normalized_source\Vahadane Fast\2ale5ngryfnpo-cl0bl66cy5px.tif,4,6,-1
+Source\dj0ebjbuxshxz.tif,Target\2ale5ngryfnpo.tif,8,1,Normalized_source\Reinhard\2ale5ngryfnpo-dj0ebjbuxshxz.tif,Normalized_source\Khan\2ale5ngryfnpo-dj0ebjbuxshxz.tif,3,4,0
+Source\jztr3exuiy3pzgr.tif,Target\ffwtgxylhyna.tif,10,2,Normalized_source\Luong\ffwtgxylhyna-jztr3exuiy3pzgr.tif,Normalized_source\Vahadane Fast\ffwtgxylhyna-jztr3exuiy3pzgr.tif,1,6,0
+Source\62fwdzt8reuz5.tif,Target\2ale5ngryfnpo.tif,5,1,Normalized_source\Luong\2ale5ngryfnpo-62fwdzt8reuz5.tif,Normalized_source\Khan\2ale5ngryfnpo-62fwdzt8reuz5.tif,1,4,0
+Source\4nkj5wqcqj.tif,Target\ffwtgxylhyna.tif,4,2,Normalized_source\Vahadane\ffwtgxylhyna-4nkj5wqcqj.tif,Normalized_source\Vahadane Fast\ffwtgxylhyna-4nkj5wqcqj.tif,5,6,0
+Source\jztr3exuiy3pzgr.tif,Target\2ale5ngryfnpo.tif,10,1,Normalized_source\Luong\2ale5ngryfnpo-jztr3exuiy3pzgr.tif,Normalized_source\Khan\2ale5ngryfnpo-jztr3exuiy3pzgr.tif,1,4,1
+Source\62fwdzt8reuz5.tif,Target\ffwtgxylhyna.tif,5,2,Normalized_source\Luong\ffwtgxylhyna-62fwdzt8reuz5.tif,Normalized_source\Reinhard\ffwtgxylhyna-62fwdzt8reuz5.tif,1,3,1
+Source\62fwdzt8reuz5.tif,Target\2ale5ngryfnpo.tif,5,1,Normalized_source\Macenko\2ale5ngryfnpo-62fwdzt8reuz5.tif,Normalized_source\Vahadane Fast\2ale5ngryfnpo-62fwdzt8reuz5.tif,2,6,-1
+Source\0anzqyibfuc.tif,Target\2ale5ngryfnpo.tif,1,1,Normalized_source\Macenko\2ale5ngryfnpo-0anzqyibfuc.tif,Normalized_source\Reinhard\2ale5ngryfnpo-0anzqyibfuc.tif,2,3,0
+Source\1bhjqxecct.tif,Target\2ale5ngryfnpo.tif,2,1,Normalized_source\Khan\2ale5ngryfnpo-1bhjqxecct.tif,Normalized_source\Vahadane Fast\2ale5ngryfnpo-1bhjqxecct.tif,4,6,0
+Source\jztr3exuiy3pzgr.tif,Target\2ale5ngryfnpo.tif,10,1,Normalized_source\Luong\2ale5ngryfnpo-jztr3exuiy3pzgr.tif,Normalized_source\Vahadane\2ale5ngryfnpo-jztr3exuiy3pzgr.tif,1,5,-1
+Source\cl0bl66cy5px.tif,Target\2ale5ngryfnpo.tif,7,1,Normalized_source\Reinhard\2ale5ngryfnpo-cl0bl66cy5px.tif,Normalized_source\Khan\2ale5ngryfnpo-cl0bl66cy5px.tif,3,4,0
+Source\0anzqyibfuc.tif,Target\2ale5ngryfnpo.tif,1,1,Normalized_source\Luong\2ale5ngryfnpo-0anzqyibfuc.tif,Normalized_source\Macenko\2ale5ngryfnpo-0anzqyibfuc.tif,1,2,1
+Source\hrdqmlu2ig.tif,Target\ffwtgxylhyna.tif,9,2,Normalized_source\Khan\ffwtgxylhyna-hrdqmlu2ig.tif,Normalized_source\Vahadane Fast\ffwtgxylhyna-hrdqmlu2ig.tif,4,6,1
+Source\cl0bl66cy5px.tif,Target\ffwtgxylhyna.tif,7,2,Normalized_source\Luong\ffwtgxylhyna-cl0bl66cy5px.tif,Normalized_source\Vahadane Fast\ffwtgxylhyna-cl0bl66cy5px.tif,1,6,-1
+Source\1bhjqxecct.tif,Target\ffwtgxylhyna.tif,2,2,Normalized_source\Reinhard\ffwtgxylhyna-1bhjqxecct.tif,Normalized_source\Khan\ffwtgxylhyna-1bhjqxecct.tif,3,4,0
+Source\9fukmjujwi.tif,Target\2ale5ngryfnpo.tif,6,1,Normalized_source\Reinhard\2ale5ngryfnpo-9fukmjujwi.tif,Normalized_source\Khan\2ale5ngryfnpo-9fukmjujwi.tif,3,4,-1
+Source\25axkhgc58.tif,Target\2ale5ngryfnpo.tif,3,1,Normalized_source\Macenko\2ale5ngryfnpo-25axkhgc58.tif,Normalized_source\Khan\2ale5ngryfnpo-25axkhgc58.tif,2,4,0
+Source\62fwdzt8reuz5.tif,Target\ffwtgxylhyna.tif,5,2,Normalized_source\Macenko\ffwtgxylhyna-62fwdzt8reuz5.tif,Normalized_source\Khan\ffwtgxylhyna-62fwdzt8reuz5.tif,2,4,0
+Source\1bhjqxecct.tif,Target\ffwtgxylhyna.tif,2,2,Normalized_source\Reinhard\ffwtgxylhyna-1bhjqxecct.tif,Normalized_source\Vahadane\ffwtgxylhyna-1bhjqxecct.tif,3,5,-1
+Source\4nkj5wqcqj.tif,Target\2ale5ngryfnpo.tif,4,1,Normalized_source\Reinhard\2ale5ngryfnpo-4nkj5wqcqj.tif,Normalized_source\Khan\2ale5ngryfnpo-4nkj5wqcqj.tif,3,4,0
+Source\9fukmjujwi.tif,Target\ffwtgxylhyna.tif,6,2,Normalized_source\Reinhard\ffwtgxylhyna-9fukmjujwi.tif,Normalized_source\Vahadane\ffwtgxylhyna-9fukmjujwi.tif,3,5,-1
+Source\4nkj5wqcqj.tif,Target\ffwtgxylhyna.tif,4,2,Normalized_source\Macenko\ffwtgxylhyna-4nkj5wqcqj.tif,Normalized_source\Vahadane Fast\ffwtgxylhyna-4nkj5wqcqj.tif,2,6,0
+Source\4nkj5wqcqj.tif,Target\2ale5ngryfnpo.tif,4,1,Normalized_source\Reinhard\2ale5ngryfnpo-4nkj5wqcqj.tif,Normalized_source\Vahadane\2ale5ngryfnpo-4nkj5wqcqj.tif,3,5,0
+Source\62fwdzt8reuz5.tif,Target\ffwtgxylhyna.tif,5,2,Normalized_source\Reinhard\ffwtgxylhyna-62fwdzt8reuz5.tif,Normalized_source\Khan\ffwtgxylhyna-62fwdzt8reuz5.tif,3,4,-1
+Source\9fukmjujwi.tif,Target\2ale5ngryfnpo.tif,6,1,Normalized_source\Luong\2ale5ngryfnpo-9fukmjujwi.tif,Normalized_source\Reinhard\2ale5ngryfnpo-9fukmjujwi.tif,1,3,-1
+Source\9fukmjujwi.tif,Target\ffwtgxylhyna.tif,6,2,Normalized_source\Luong\ffwtgxylhyna-9fukmjujwi.tif,Normalized_source\Vahadane\ffwtgxylhyna-9fukmjujwi.tif,1,5,1
+Source\0anzqyibfuc.tif,Target\ffwtgxylhyna.tif,1,2,Normalized_source\Macenko\ffwtgxylhyna-0anzqyibfuc.tif,Normalized_source\Khan\ffwtgxylhyna-0anzqyibfuc.tif,2,4,0
+Source\jztr3exuiy3pzgr.tif,Target\2ale5ngryfnpo.tif,10,1,Normalized_source\Macenko\2ale5ngryfnpo-jztr3exuiy3pzgr.tif,Normalized_source\Vahadane\2ale5ngryfnpo-jztr3exuiy3pzgr.tif,2,5,-1
+Source\0anzqyibfuc.tif,Target\ffwtgxylhyna.tif,1,2,Normalized_source\Khan\ffwtgxylhyna-0anzqyibfuc.tif,Normalized_source\Vahadane Fast\ffwtgxylhyna-0anzqyibfuc.tif,4,6,0
+Source\jztr3exuiy3pzgr.tif,Target\ffwtgxylhyna.tif,10,2,Normalized_source\Macenko\ffwtgxylhyna-jztr3exuiy3pzgr.tif,Normalized_source\Reinhard\ffwtgxylhyna-jztr3exuiy3pzgr.tif,2,3,-1
+Source\4nkj5wqcqj.tif,Target\2ale5ngryfnpo.tif,4,1,Normalized_source\Luong\2ale5ngryfnpo-4nkj5wqcqj.tif,Normalized_source\Vahadane Fast\2ale5ngryfnpo-4nkj5wqcqj.tif,1,6,0
+Source\4nkj5wqcqj.tif,Target\ffwtgxylhyna.tif,4,2,Normalized_source\Macenko\ffwtgxylhyna-4nkj5wqcqj.tif,Normalized_source\Khan\ffwtgxylhyna-4nkj5wqcqj.tif,2,4,0
+Source\cl0bl66cy5px.tif,Target\ffwtgxylhyna.tif,7,2,Normalized_source\Macenko\ffwtgxylhyna-cl0bl66cy5px.tif,Normalized_source\Vahadane\ffwtgxylhyna-cl0bl66cy5px.tif,2,5,-1
+Source\hrdqmlu2ig.tif,Target\2ale5ngryfnpo.tif,9,1,Normalized_source\Reinhard\2ale5ngryfnpo-hrdqmlu2ig.tif,Normalized_source\Vahadane Fast\2ale5ngryfnpo-hrdqmlu2ig.tif,3,6,1
+Source\hrdqmlu2ig.tif,Target\ffwtgxylhyna.tif,9,2,Normalized_source\Reinhard\ffwtgxylhyna-hrdqmlu2ig.tif,Normalized_source\Vahadane\ffwtgxylhyna-hrdqmlu2ig.tif,3,5,-1
+Source\0anzqyibfuc.tif,Target\ffwtgxylhyna.tif,1,2,Normalized_source\Luong\ffwtgxylhyna-0anzqyibfuc.tif,Normalized_source\Vahadane Fast\ffwtgxylhyna-0anzqyibfuc.tif,1,6,0
+Source\dj0ebjbuxshxz.tif,Target\ffwtgxylhyna.tif,8,2,Normalized_source\Reinhard\ffwtgxylhyna-dj0ebjbuxshxz.tif,Normalized_source\Vahadane Fast\ffwtgxylhyna-dj0ebjbuxshxz.tif,3,6,0
+Source\cl0bl66cy5px.tif,Target\2ale5ngryfnpo.tif,7,1,Normalized_source\Luong\2ale5ngryfnpo-cl0bl66cy5px.tif,Normalized_source\Vahadane\2ale5ngryfnpo-cl0bl66cy5px.tif,1,5,-1
+Source\4nkj5wqcqj.tif,Target\ffwtgxylhyna.tif,4,2,Normalized_source\Reinhard\ffwtgxylhyna-4nkj5wqcqj.tif,Normalized_source\Vahadane\ffwtgxylhyna-4nkj5wqcqj.tif,3,5,-1
+Source\9fukmjujwi.tif,Target\ffwtgxylhyna.tif,6,2,Normalized_source\Vahadane\ffwtgxylhyna-9fukmjujwi.tif,Normalized_source\Vahadane Fast\ffwtgxylhyna-9fukmjujwi.tif,5,6,-1
+Source\jztr3exuiy3pzgr.tif,Target\2ale5ngryfnpo.tif,10,1,Normalized_source\Khan\2ale5ngryfnpo-jztr3exuiy3pzgr.tif,Normalized_source\Vahadane\2ale5ngryfnpo-jztr3exuiy3pzgr.tif,4,5,-1
+Source\hrdqmlu2ig.tif,Target\ffwtgxylhyna.tif,9,2,Normalized_source\Vahadane\ffwtgxylhyna-hrdqmlu2ig.tif,Normalized_source\Vahadane Fast\ffwtgxylhyna-hrdqmlu2ig.tif,5,6,-1
+Source\jztr3exuiy3pzgr.tif,Target\2ale5ngryfnpo.tif,10,1,Normalized_source\Khan\2ale5ngryfnpo-jztr3exuiy3pzgr.tif,Normalized_source\Vahadane Fast\2ale5ngryfnpo-jztr3exuiy3pzgr.tif,4,6,0
+Source\1bhjqxecct.tif,Target\2ale5ngryfnpo.tif,2,1,Normalized_source\Reinhard\2ale5ngryfnpo-1bhjqxecct.tif,Normalized_source\Vahadane Fast\2ale5ngryfnpo-1bhjqxecct.tif,3,6,1
+Source\9fukmjujwi.tif,Target\ffwtgxylhyna.tif,6,2,Normalized_source\Reinhard\ffwtgxylhyna-9fukmjujwi.tif,Normalized_source\Vahadane Fast\ffwtgxylhyna-9fukmjujwi.tif,3,6,0
+Source\jztr3exuiy3pzgr.tif,Target\2ale5ngryfnpo.tif,10,1,Normalized_source\Macenko\2ale5ngryfnpo-jztr3exuiy3pzgr.tif,Normalized_source\Reinhard\2ale5ngryfnpo-jztr3exuiy3pzgr.tif,2,3,-1
+Source\hrdqmlu2ig.tif,Target\2ale5ngryfnpo.tif,9,1,Normalized_source\Khan\2ale5ngryfnpo-hrdqmlu2ig.tif,Normalized_source\Vahadane\2ale5ngryfnpo-hrdqmlu2ig.tif,4,5,1
+Source\0anzqyibfuc.tif,Target\ffwtgxylhyna.tif,1,2,Normalized_source\Luong\ffwtgxylhyna-0anzqyibfuc.tif,Normalized_source\Macenko\ffwtgxylhyna-0anzqyibfuc.tif,1,2,1
+Source\1bhjqxecct.tif,Target\ffwtgxylhyna.tif,2,2,Normalized_source\Reinhard\ffwtgxylhyna-1bhjqxecct.tif,Normalized_source\Vahadane Fast\ffwtgxylhyna-1bhjqxecct.tif,3,6,0
+Source\0anzqyibfuc.tif,Target\2ale5ngryfnpo.tif,1,1,Normalized_source\Luong\2ale5ngryfnpo-0anzqyibfuc.tif,Normalized_source\Reinhard\2ale5ngryfnpo-0anzqyibfuc.tif,1,3,1
+Source\62fwdzt8reuz5.tif,Target\2ale5ngryfnpo.tif,5,1,Normalized_source\Reinhard\2ale5ngryfnpo-62fwdzt8reuz5.tif,Normalized_source\Vahadane Fast\2ale5ngryfnpo-62fwdzt8reuz5.tif,3,6,-1
+Source\9fukmjujwi.tif,Target\ffwtgxylhyna.tif,6,2,Normalized_source\Reinhard\ffwtgxylhyna-9fukmjujwi.tif,Normalized_source\Khan\ffwtgxylhyna-9fukmjujwi.tif,3,4,0
+Source\62fwdzt8reuz5.tif,Target\ffwtgxylhyna.tif,5,2,Normalized_source\Macenko\ffwtgxylhyna-62fwdzt8reuz5.tif,Normalized_source\Vahadane Fast\ffwtgxylhyna-62fwdzt8reuz5.tif,2,6,-1
+Source\1bhjqxecct.tif,Target\2ale5ngryfnpo.tif,2,1,Normalized_source\Luong\2ale5ngryfnpo-1bhjqxecct.tif,Normalized_source\Khan\2ale5ngryfnpo-1bhjqxecct.tif,1,4,0
+Source\jztr3exuiy3pzgr.tif,Target\ffwtgxylhyna.tif,10,2,Normalized_source\Luong\ffwtgxylhyna-jztr3exuiy3pzgr.tif,Normalized_source\Reinhard\ffwtgxylhyna-jztr3exuiy3pzgr.tif,1,3,0
+Source\25axkhgc58.tif,Target\ffwtgxylhyna.tif,3,2,Normalized_source\Luong\ffwtgxylhyna-25axkhgc58.tif,Normalized_source\Reinhard\ffwtgxylhyna-25axkhgc58.tif,1,3,1
+Source\cl0bl66cy5px.tif,Target\2ale5ngryfnpo.tif,7,1,Normalized_source\Reinhard\2ale5ngryfnpo-cl0bl66cy5px.tif,Normalized_source\Vahadane Fast\2ale5ngryfnpo-cl0bl66cy5px.tif,3,6,-1
+Source\25axkhgc58.tif,Target\ffwtgxylhyna.tif,3,2,Normalized_source\Macenko\ffwtgxylhyna-25axkhgc58.tif,Normalized_source\Vahadane Fast\ffwtgxylhyna-25axkhgc58.tif,2,6,-1
+Source\4nkj5wqcqj.tif,Target\2ale5ngryfnpo.tif,4,1,Normalized_source\Khan\2ale5ngryfnpo-4nkj5wqcqj.tif,Normalized_source\Vahadane Fast\2ale5ngryfnpo-4nkj5wqcqj.tif,4,6,0
+Source\4nkj5wqcqj.tif,Target\ffwtgxylhyna.tif,4,2,Normalized_source\Reinhard\ffwtgxylhyna-4nkj5wqcqj.tif,Normalized_source\Khan\ffwtgxylhyna-4nkj5wqcqj.tif,3,4,0
+Source\25axkhgc58.tif,Target\2ale5ngryfnpo.tif,3,1,Normalized_source\Reinhard\2ale5ngryfnpo-25axkhgc58.tif,Normalized_source\Vahadane Fast\2ale5ngryfnpo-25axkhgc58.tif,3,6,0
+Source\dj0ebjbuxshxz.tif,Target\ffwtgxylhyna.tif,8,2,Normalized_source\Luong\ffwtgxylhyna-dj0ebjbuxshxz.tif,Normalized_source\Macenko\ffwtgxylhyna-dj0ebjbuxshxz.tif,1,2,1
+Source\62fwdzt8reuz5.tif,Target\ffwtgxylhyna.tif,5,2,Normalized_source\Luong\ffwtgxylhyna-62fwdzt8reuz5.tif,Normalized_source\Vahadane Fast\ffwtgxylhyna-62fwdzt8reuz5.tif,1,6,-1
+Source\25axkhgc58.tif,Target\ffwtgxylhyna.tif,3,2,Normalized_source\Macenko\ffwtgxylhyna-25axkhgc58.tif,Normalized_source\Khan\ffwtgxylhyna-25axkhgc58.tif,2,4,-1
+Source\4nkj5wqcqj.tif,Target\ffwtgxylhyna.tif,4,2,Normalized_source\Luong\ffwtgxylhyna-4nkj5wqcqj.tif,Normalized_source\Vahadane\ffwtgxylhyna-4nkj5wqcqj.tif,1,5,1
+Source\9fukmjujwi.tif,Target\2ale5ngryfnpo.tif,6,1,Normalized_source\Macenko\2ale5ngryfnpo-9fukmjujwi.tif,Normalized_source\Vahadane Fast\2ale5ngryfnpo-9fukmjujwi.tif,2,6,0
+Source\jztr3exuiy3pzgr.tif,Target\ffwtgxylhyna.tif,10,2,Normalized_source\Macenko\ffwtgxylhyna-jztr3exuiy3pzgr.tif,Normalized_source\Vahadane\ffwtgxylhyna-jztr3exuiy3pzgr.tif,2,5,-1
+Source\0anzqyibfuc.tif,Target\2ale5ngryfnpo.tif,1,1,Normalized_source\Reinhard\2ale5ngryfnpo-0anzqyibfuc.tif,Normalized_source\Vahadane\2ale5ngryfnpo-0anzqyibfuc.tif,3,5,1
+Source\1bhjqxecct.tif,Target\2ale5ngryfnpo.tif,2,1,Normalized_source\Macenko\2ale5ngryfnpo-1bhjqxecct.tif,Normalized_source\Khan\2ale5ngryfnpo-1bhjqxecct.tif,2,4,0
+Source\0anzqyibfuc.tif,Target\ffwtgxylhyna.tif,1,2,Normalized_source\Macenko\ffwtgxylhyna-0anzqyibfuc.tif,Normalized_source\Vahadane Fast\ffwtgxylhyna-0anzqyibfuc.tif,2,6,0
+Source\jztr3exuiy3pzgr.tif,Target\2ale5ngryfnpo.tif,10,1,Normalized_source\Luong\2ale5ngryfnpo-jztr3exuiy3pzgr.tif,Normalized_source\Macenko\2ale5ngryfnpo-jztr3exuiy3pzgr.tif,1,2,-1
+Source\dj0ebjbuxshxz.tif,Target\ffwtgxylhyna.tif,8,2,Normalized_source\Macenko\ffwtgxylhyna-dj0ebjbuxshxz.tif,Normalized_source\Khan\ffwtgxylhyna-dj0ebjbuxshxz.tif,2,4,-1
+Source\62fwdzt8reuz5.tif,Target\2ale5ngryfnpo.tif,5,1,Normalized_source\Macenko\2ale5ngryfnpo-62fwdzt8reuz5.tif,Normalized_source\Vahadane\2ale5ngryfnpo-62fwdzt8reuz5.tif,2,5,-1
+Source\62fwdzt8reuz5.tif,Target\ffwtgxylhyna.tif,5,2,Normalized_source\Macenko\ffwtgxylhyna-62fwdzt8reuz5.tif,Normalized_source\Vahadane\ffwtgxylhyna-62fwdzt8reuz5.tif,2,5,-1
+Source\cl0bl66cy5px.tif,Target\ffwtgxylhyna.tif,7,2,Normalized_source\Reinhard\ffwtgxylhyna-cl0bl66cy5px.tif,Normalized_source\Khan\ffwtgxylhyna-cl0bl66cy5px.tif,3,4,0
+Source\hrdqmlu2ig.tif,Target\2ale5ngryfnpo.tif,9,1,Normalized_source\Khan\2ale5ngryfnpo-hrdqmlu2ig.tif,Normalized_source\Vahadane Fast\2ale5ngryfnpo-hrdqmlu2ig.tif,4,6,1
+Source\jztr3exuiy3pzgr.tif,Target\ffwtgxylhyna.tif,10,2,Normalized_source\Khan\ffwtgxylhyna-jztr3exuiy3pzgr.tif,Normalized_source\Vahadane\ffwtgxylhyna-jztr3exuiy3pzgr.tif,4,5,-1
+Source\cl0bl66cy5px.tif,Target\ffwtgxylhyna.tif,7,2,Normalized_source\Luong\ffwtgxylhyna-cl0bl66cy5px.tif,Normalized_source\Macenko\ffwtgxylhyna-cl0bl66cy5px.tif,1,2,1
+Source\0anzqyibfuc.tif,Target\2ale5ngryfnpo.tif,1,1,Normalized_source\Luong\2ale5ngryfnpo-0anzqyibfuc.tif,Normalized_source\Vahadane Fast\2ale5ngryfnpo-0anzqyibfuc.tif,1,6,1
+Source\hrdqmlu2ig.tif,Target\2ale5ngryfnpo.tif,9,1,Normalized_source\Vahadane\2ale5ngryfnpo-hrdqmlu2ig.tif,Normalized_source\Vahadane Fast\2ale5ngryfnpo-hrdqmlu2ig.tif,5,6,-1
+Source\0anzqyibfuc.tif,Target\2ale5ngryfnpo.tif,1,1,Normalized_source\Macenko\2ale5ngryfnpo-0anzqyibfuc.tif,Normalized_source\Vahadane\2ale5ngryfnpo-0anzqyibfuc.tif,2,5,0
+Source\9fukmjujwi.tif,Target\2ale5ngryfnpo.tif,6,1,Normalized_source\Macenko\2ale5ngryfnpo-9fukmjujwi.tif,Normalized_source\Reinhard\2ale5ngryfnpo-9fukmjujwi.tif,2,3,-1
+Source\hrdqmlu2ig.tif,Target\2ale5ngryfnpo.tif,9,1,Normalized_source\Macenko\2ale5ngryfnpo-hrdqmlu2ig.tif,Normalized_source\Reinhard\2ale5ngryfnpo-hrdqmlu2ig.tif,2,3,0
+Source\1bhjqxecct.tif,Target\ffwtgxylhyna.tif,2,2,Normalized_source\Macenko\ffwtgxylhyna-1bhjqxecct.tif,Normalized_source\Khan\ffwtgxylhyna-1bhjqxecct.tif,2,4,-1
+Source\4nkj5wqcqj.tif,Target\ffwtgxylhyna.tif,4,2,Normalized_source\Luong\ffwtgxylhyna-4nkj5wqcqj.tif,Normalized_source\Macenko\ffwtgxylhyna-4nkj5wqcqj.tif,1,2,1
+Source\cl0bl66cy5px.tif,Target\2ale5ngryfnpo.tif,7,1,Normalized_source\Khan\2ale5ngryfnpo-cl0bl66cy5px.tif,Normalized_source\Vahadane\2ale5ngryfnpo-cl0bl66cy5px.tif,4,5,-1
+Source\1bhjqxecct.tif,Target\2ale5ngryfnpo.tif,2,1,Normalized_source\Luong\2ale5ngryfnpo-1bhjqxecct.tif,Normalized_source\Reinhard\2ale5ngryfnpo-1bhjqxecct.tif,1,3,0
+Source\dj0ebjbuxshxz.tif,Target\ffwtgxylhyna.tif,8,2,Normalized_source\Macenko\ffwtgxylhyna-dj0ebjbuxshxz.tif,Normalized_source\Vahadane\ffwtgxylhyna-dj0ebjbuxshxz.tif,2,5,-1
+Source\dj0ebjbuxshxz.tif,Target\ffwtgxylhyna.tif,8,2,Normalized_source\Luong\ffwtgxylhyna-dj0ebjbuxshxz.tif,Normalized_source\Reinhard\ffwtgxylhyna-dj0ebjbuxshxz.tif,1,3,-1
+Source\62fwdzt8reuz5.tif,Target\2ale5ngryfnpo.tif,5,1,Normalized_source\Macenko\2ale5ngryfnpo-62fwdzt8reuz5.tif,Normalized_source\Reinhard\2ale5ngryfnpo-62fwdzt8reuz5.tif,2,3,-1
+Source\25axkhgc58.tif,Target\2ale5ngryfnpo.tif,3,1,Normalized_source\Vahadane\2ale5ngryfnpo-25axkhgc58.tif,Normalized_source\Vahadane Fast\2ale5ngryfnpo-25axkhgc58.tif,5,6,0
+Source\25axkhgc58.tif,Target\2ale5ngryfnpo.tif,3,1,Normalized_source\Khan\2ale5ngryfnpo-25axkhgc58.tif,Normalized_source\Vahadane Fast\2ale5ngryfnpo-25axkhgc58.tif,4,6,0
+Source\62fwdzt8reuz5.tif,Target\ffwtgxylhyna.tif,5,2,Normalized_source\Khan\ffwtgxylhyna-62fwdzt8reuz5.tif,Normalized_source\Vahadane Fast\ffwtgxylhyna-62fwdzt8reuz5.tif,4,6,-1
+Source\hrdqmlu2ig.tif,Target\ffwtgxylhyna.tif,9,2,Normalized_source\Macenko\ffwtgxylhyna-hrdqmlu2ig.tif,Normalized_source\Khan\ffwtgxylhyna-hrdqmlu2ig.tif,2,4,0
+Source\9fukmjujwi.tif,Target\2ale5ngryfnpo.tif,6,1,Normalized_source\Reinhard\2ale5ngryfnpo-9fukmjujwi.tif,Normalized_source\Vahadane\2ale5ngryfnpo-9fukmjujwi.tif,3,5,-1
+Source\hrdqmlu2ig.tif,Target\ffwtgxylhyna.tif,9,2,Normalized_source\Reinhard\ffwtgxylhyna-hrdqmlu2ig.tif,Normalized_source\Vahadane Fast\ffwtgxylhyna-hrdqmlu2ig.tif,3,6,-1
+Source\25axkhgc58.tif,Target\2ale5ngryfnpo.tif,3,1,Normalized_source\Macenko\2ale5ngryfnpo-25axkhgc58.tif,Normalized_source\Vahadane\2ale5ngryfnpo-25axkhgc58.tif,2,5,0
+Source\0anzqyibfuc.tif,Target\ffwtgxylhyna.tif,1,2,Normalized_source\Macenko\ffwtgxylhyna-0anzqyibfuc.tif,Normalized_source\Vahadane\ffwtgxylhyna-0anzqyibfuc.tif,2,5,0
+Source\dj0ebjbuxshxz.tif,Target\2ale5ngryfnpo.tif,8,1,Normalized_source\Reinhard\2ale5ngryfnpo-dj0ebjbuxshxz.tif,Normalized_source\Vahadane\2ale5ngryfnpo-dj0ebjbuxshxz.tif,3,5,0
+Source\4nkj5wqcqj.tif,Target\2ale5ngryfnpo.tif,4,1,Normalized_source\Vahadane\2ale5ngryfnpo-4nkj5wqcqj.tif,Normalized_source\Vahadane Fast\2ale5ngryfnpo-4nkj5wqcqj.tif,5,6,0
+Source\25axkhgc58.tif,Target\2ale5ngryfnpo.tif,3,1,Normalized_source\Luong\2ale5ngryfnpo-25axkhgc58.tif,Normalized_source\Macenko\2ale5ngryfnpo-25axkhgc58.tif,1,2,1
+Source\0anzqyibfuc.tif,Target\2ale5ngryfnpo.tif,1,1,Normalized_source\Khan\2ale5ngryfnpo-0anzqyibfuc.tif,Normalized_source\Vahadane Fast\2ale5ngryfnpo-0anzqyibfuc.tif,4,6,1
+Source\9fukmjujwi.tif,Target\2ale5ngryfnpo.tif,6,1,Normalized_source\Khan\2ale5ngryfnpo-9fukmjujwi.tif,Normalized_source\Vahadane Fast\2ale5ngryfnpo-9fukmjujwi.tif,4,6,-1
+Source\0anzqyibfuc.tif,Target\2ale5ngryfnpo.tif,1,1,Normalized_source\Luong\2ale5ngryfnpo-0anzqyibfuc.tif,Normalized_source\Vahadane\2ale5ngryfnpo-0anzqyibfuc.tif,1,5,-1
+Source\cl0bl66cy5px.tif,Target\ffwtgxylhyna.tif,7,2,Normalized_source\Macenko\ffwtgxylhyna-cl0bl66cy5px.tif,Normalized_source\Vahadane Fast\ffwtgxylhyna-cl0bl66cy5px.tif,2,6,-1
+Source\jztr3exuiy3pzgr.tif,Target\ffwtgxylhyna.tif,10,2,Normalized_source\Luong\ffwtgxylhyna-jztr3exuiy3pzgr.tif,Normalized_source\Macenko\ffwtgxylhyna-jztr3exuiy3pzgr.tif,1,2,1
+Source\4nkj5wqcqj.tif,Target\2ale5ngryfnpo.tif,4,1,Normalized_source\Macenko\2ale5ngryfnpo-4nkj5wqcqj.tif,Normalized_source\Vahadane Fast\2ale5ngryfnpo-4nkj5wqcqj.tif,2,6,-1
+Source\dj0ebjbuxshxz.tif,Target\2ale5ngryfnpo.tif,8,1,Normalized_source\Macenko\2ale5ngryfnpo-dj0ebjbuxshxz.tif,Normalized_source\Reinhard\2ale5ngryfnpo-dj0ebjbuxshxz.tif,2,3,0
+Source\hrdqmlu2ig.tif,Target\ffwtgxylhyna.tif,9,2,Normalized_source\Luong\ffwtgxylhyna-hrdqmlu2ig.tif,Normalized_source\Reinhard\ffwtgxylhyna-hrdqmlu2ig.tif,1,3,1
+Source\62fwdzt8reuz5.tif,Target\ffwtgxylhyna.tif,5,2,Normalized_source\Luong\ffwtgxylhyna-62fwdzt8reuz5.tif,Normalized_source\Khan\ffwtgxylhyna-62fwdzt8reuz5.tif,1,4,-1
+Source\hrdqmlu2ig.tif,Target\ffwtgxylhyna.tif,9,2,Normalized_source\Luong\ffwtgxylhyna-hrdqmlu2ig.tif,Normalized_source\Khan\ffwtgxylhyna-hrdqmlu2ig.tif,1,4,1
+Source\jztr3exuiy3pzgr.tif,Target\2ale5ngryfnpo.tif,10,1,Normalized_source\Vahadane\2ale5ngryfnpo-jztr3exuiy3pzgr.tif,Normalized_source\Vahadane Fast\2ale5ngryfnpo-jztr3exuiy3pzgr.tif,5,6,0
+Source\0anzqyibfuc.tif,Target\ffwtgxylhyna.tif,1,2,Normalized_source\Vahadane\ffwtgxylhyna-0anzqyibfuc.tif,Normalized_source\Vahadane Fast\ffwtgxylhyna-0anzqyibfuc.tif,5,6,1
+Source\4nkj5wqcqj.tif,Target\2ale5ngryfnpo.tif,4,1,Normalized_source\Reinhard\2ale5ngryfnpo-4nkj5wqcqj.tif,Normalized_source\Vahadane Fast\2ale5ngryfnpo-4nkj5wqcqj.tif,3,6,1
+Source\0anzqyibfuc.tif,Target\ffwtgxylhyna.tif,1,2,Normalized_source\Reinhard\ffwtgxylhyna-0anzqyibfuc.tif,Normalized_source\Khan\ffwtgxylhyna-0anzqyibfuc.tif,3,4,0
+Source\1bhjqxecct.tif,Target\2ale5ngryfnpo.tif,2,1,Normalized_source\Reinhard\2ale5ngryfnpo-1bhjqxecct.tif,Normalized_source\Vahadane\2ale5ngryfnpo-1bhjqxecct.tif,3,5,-1
+Source\1bhjqxecct.tif,Target\ffwtgxylhyna.tif,2,2,Normalized_source\Macenko\ffwtgxylhyna-1bhjqxecct.tif,Normalized_source\Vahadane Fast\ffwtgxylhyna-1bhjqxecct.tif,2,6,0
+Source\1bhjqxecct.tif,Target\2ale5ngryfnpo.tif,2,1,Normalized_source\Reinhard\2ale5ngryfnpo-1bhjqxecct.tif,Normalized_source\Khan\2ale5ngryfnpo-1bhjqxecct.tif,3,4,0
+Source\25axkhgc58.tif,Target\ffwtgxylhyna.tif,3,2,Normalized_source\Luong\ffwtgxylhyna-25axkhgc58.tif,Normalized_source\Macenko\ffwtgxylhyna-25axkhgc58.tif,1,2,1
+Source\25axkhgc58.tif,Target\ffwtgxylhyna.tif,3,2,Normalized_source\Macenko\ffwtgxylhyna-25axkhgc58.tif,Normalized_source\Vahadane\ffwtgxylhyna-25axkhgc58.tif,2,5,-1
+Source\9fukmjujwi.tif,Target\2ale5ngryfnpo.tif,6,1,Normalized_source\Macenko\2ale5ngryfnpo-9fukmjujwi.tif,Normalized_source\Vahadane\2ale5ngryfnpo-9fukmjujwi.tif,2,5,-1
+Source\25axkhgc58.tif,Target\ffwtgxylhyna.tif,3,2,Normalized_source\Luong\ffwtgxylhyna-25axkhgc58.tif,Normalized_source\Vahadane\ffwtgxylhyna-25axkhgc58.tif,1,5,1
+Source\0anzqyibfuc.tif,Target\ffwtgxylhyna.tif,1,2,Normalized_source\Luong\ffwtgxylhyna-0anzqyibfuc.tif,Normalized_source\Vahadane\ffwtgxylhyna-0anzqyibfuc.tif,1,5,0
+Source\dj0ebjbuxshxz.tif,Target\ffwtgxylhyna.tif,8,2,Normalized_source\Luong\ffwtgxylhyna-dj0ebjbuxshxz.tif,Normalized_source\Khan\ffwtgxylhyna-dj0ebjbuxshxz.tif,1,4,1
+Source\dj0ebjbuxshxz.tif,Target\ffwtgxylhyna.tif,8,2,Normalized_source\Reinhard\ffwtgxylhyna-dj0ebjbuxshxz.tif,Normalized_source\Khan\ffwtgxylhyna-dj0ebjbuxshxz.tif,3,4,-1
+Source\9fukmjujwi.tif,Target\ffwtgxylhyna.tif,6,2,Normalized_source\Macenko\ffwtgxylhyna-9fukmjujwi.tif,Normalized_source\Vahadane\ffwtgxylhyna-9fukmjujwi.tif,2,5,1
+Source\62fwdzt8reuz5.tif,Target\2ale5ngryfnpo.tif,5,1,Normalized_source\Luong\2ale5ngryfnpo-62fwdzt8reuz5.tif,Normalized_source\Vahadane Fast\2ale5ngryfnpo-62fwdzt8reuz5.tif,1,6,-1
+Source\hrdqmlu2ig.tif,Target\2ale5ngryfnpo.tif,9,1,Normalized_source\Luong\2ale5ngryfnpo-hrdqmlu2ig.tif,Normalized_source\Macenko\2ale5ngryfnpo-hrdqmlu2ig.tif,1,2,1
+Source\hrdqmlu2ig.tif,Target\2ale5ngryfnpo.tif,9,1,Normalized_source\Luong\2ale5ngryfnpo-hrdqmlu2ig.tif,Normalized_source\Reinhard\2ale5ngryfnpo-hrdqmlu2ig.tif,1,3,1
+Source\9fukmjujwi.tif,Target\ffwtgxylhyna.tif,6,2,Normalized_source\Khan\ffwtgxylhyna-9fukmjujwi.tif,Normalized_source\Vahadane\ffwtgxylhyna-9fukmjujwi.tif,4,5,1
+Source\dj0ebjbuxshxz.tif,Target\ffwtgxylhyna.tif,8,2,Normalized_source\Khan\ffwtgxylhyna-dj0ebjbuxshxz.tif,Normalized_source\Vahadane Fast\ffwtgxylhyna-dj0ebjbuxshxz.tif,4,6,0
+Source\4nkj5wqcqj.tif,Target\ffwtgxylhyna.tif,4,2,Normalized_source\Khan\ffwtgxylhyna-4nkj5wqcqj.tif,Normalized_source\Vahadane Fast\ffwtgxylhyna-4nkj5wqcqj.tif,4,6,0
+Source\4nkj5wqcqj.tif,Target\2ale5ngryfnpo.tif,4,1,Normalized_source\Luong\2ale5ngryfnpo-4nkj5wqcqj.tif,Normalized_source\Vahadane\2ale5ngryfnpo-4nkj5wqcqj.tif,1,5,1
+Source\1bhjqxecct.tif,Target\2ale5ngryfnpo.tif,2,1,Normalized_source\Luong\2ale5ngryfnpo-1bhjqxecct.tif,Normalized_source\Vahadane\2ale5ngryfnpo-1bhjqxecct.tif,1,5,0
+Source\cl0bl66cy5px.tif,Target\ffwtgxylhyna.tif,7,2,Normalized_source\Reinhard\ffwtgxylhyna-cl0bl66cy5px.tif,Normalized_source\Vahadane\ffwtgxylhyna-cl0bl66cy5px.tif,3,5,0
+Source\1bhjqxecct.tif,Target\ffwtgxylhyna.tif,2,2,Normalized_source\Luong\ffwtgxylhyna-1bhjqxecct.tif,Normalized_source\Khan\ffwtgxylhyna-1bhjqxecct.tif,1,4,-1
+Source\hrdqmlu2ig.tif,Target\2ale5ngryfnpo.tif,9,1,Normalized_source\Reinhard\2ale5ngryfnpo-hrdqmlu2ig.tif,Normalized_source\Vahadane\2ale5ngryfnpo-hrdqmlu2ig.tif,3,5,1
+Source\9fukmjujwi.tif,Target\2ale5ngryfnpo.tif,6,1,Normalized_source\Luong\2ale5ngryfnpo-9fukmjujwi.tif,Normalized_source\Vahadane\2ale5ngryfnpo-9fukmjujwi.tif,1,5,-1
+Source\jztr3exuiy3pzgr.tif,Target\2ale5ngryfnpo.tif,10,1,Normalized_source\Luong\2ale5ngryfnpo-jztr3exuiy3pzgr.tif,Normalized_source\Reinhard\2ale5ngryfnpo-jztr3exuiy3pzgr.tif,1,3,1
+Source\9fukmjujwi.tif,Target\ffwtgxylhyna.tif,6,2,Normalized_source\Luong\ffwtgxylhyna-9fukmjujwi.tif,Normalized_source\Reinhard\ffwtgxylhyna-9fukmjujwi.tif,1,3,-1
+Source\cl0bl66cy5px.tif,Target\2ale5ngryfnpo.tif,7,1,Normalized_source\Macenko\2ale5ngryfnpo-cl0bl66cy5px.tif,Normalized_source\Vahadane\2ale5ngryfnpo-cl0bl66cy5px.tif,2,5,-1
+Source\cl0bl66cy5px.tif,Target\ffwtgxylhyna.tif,7,2,Normalized_source\Luong\ffwtgxylhyna-cl0bl66cy5px.tif,Normalized_source\Khan\ffwtgxylhyna-cl0bl66cy5px.tif,1,4,1
+Source\0anzqyibfuc.tif,Target\2ale5ngryfnpo.tif,1,1,Normalized_source\Reinhard\2ale5ngryfnpo-0anzqyibfuc.tif,Normalized_source\Khan\2ale5ngryfnpo-0anzqyibfuc.tif,3,4,0
+Source\dj0ebjbuxshxz.tif,Target\2ale5ngryfnpo.tif,8,1,Normalized_source\Reinhard\2ale5ngryfnpo-dj0ebjbuxshxz.tif,Normalized_source\Vahadane Fast\2ale5ngryfnpo-dj0ebjbuxshxz.tif,3,6,0
+Source\hrdqmlu2ig.tif,Target\ffwtgxylhyna.tif,9,2,Normalized_source\Reinhard\ffwtgxylhyna-hrdqmlu2ig.tif,Normalized_source\Khan\ffwtgxylhyna-hrdqmlu2ig.tif,3,4,0
+Source\dj0ebjbuxshxz.tif,Target\ffwtgxylhyna.tif,8,2,Normalized_source\Khan\ffwtgxylhyna-dj0ebjbuxshxz.tif,Normalized_source\Vahadane\ffwtgxylhyna-dj0ebjbuxshxz.tif,4,5,-1
+Source\25axkhgc58.tif,Target\ffwtgxylhyna.tif,3,2,Normalized_source\Reinhard\ffwtgxylhyna-25axkhgc58.tif,Normalized_source\Khan\ffwtgxylhyna-25axkhgc58.tif,3,4,0
+Source\62fwdzt8reuz5.tif,Target\2ale5ngryfnpo.tif,5,1,Normalized_source\Reinhard\2ale5ngryfnpo-62fwdzt8reuz5.tif,Normalized_source\Vahadane\2ale5ngryfnpo-62fwdzt8reuz5.tif,3,5,0
+Source\dj0ebjbuxshxz.tif,Target\2ale5ngryfnpo.tif,8,1,Normalized_source\Luong\2ale5ngryfnpo-dj0ebjbuxshxz.tif,Normalized_source\Macenko\2ale5ngryfnpo-dj0ebjbuxshxz.tif,1,2,1
+Source\jztr3exuiy3pzgr.tif,Target\ffwtgxylhyna.tif,10,2,Normalized_source\Khan\ffwtgxylhyna-jztr3exuiy3pzgr.tif,Normalized_source\Vahadane Fast\ffwtgxylhyna-jztr3exuiy3pzgr.tif,4,6,0
+Source\62fwdzt8reuz5.tif,Target\2ale5ngryfnpo.tif,5,1,Normalized_source\Reinhard\2ale5ngryfnpo-62fwdzt8reuz5.tif,Normalized_source\Khan\2ale5ngryfnpo-62fwdzt8reuz5.tif,3,4,0
+Source\62fwdzt8reuz5.tif,Target\2ale5ngryfnpo.tif,5,1,Normalized_source\Luong\2ale5ngryfnpo-62fwdzt8reuz5.tif,Normalized_source\Macenko\2ale5ngryfnpo-62fwdzt8reuz5.tif,1,2,-1
+Source\25axkhgc58.tif,Target\2ale5ngryfnpo.tif,3,1,Normalized_source\Luong\2ale5ngryfnpo-25axkhgc58.tif,Normalized_source\Vahadane\2ale5ngryfnpo-25axkhgc58.tif,1,5,1
+Source\jztr3exuiy3pzgr.tif,Target\ffwtgxylhyna.tif,10,2,Normalized_source\Reinhard\ffwtgxylhyna-jztr3exuiy3pzgr.tif,Normalized_source\Vahadane\ffwtgxylhyna-jztr3exuiy3pzgr.tif,3,5,1
+Source\cl0bl66cy5px.tif,Target\ffwtgxylhyna.tif,7,2,Normalized_source\Macenko\ffwtgxylhyna-cl0bl66cy5px.tif,Normalized_source\Khan\ffwtgxylhyna-cl0bl66cy5px.tif,2,4,0
+Source\0anzqyibfuc.tif,Target\ffwtgxylhyna.tif,1,2,Normalized_source\Macenko\ffwtgxylhyna-0anzqyibfuc.tif,Normalized_source\Reinhard\ffwtgxylhyna-0anzqyibfuc.tif,2,3,-1
+Source\62fwdzt8reuz5.tif,Target\ffwtgxylhyna.tif,5,2,Normalized_source\Reinhard\ffwtgxylhyna-62fwdzt8reuz5.tif,Normalized_source\Vahadane Fast\ffwtgxylhyna-62fwdzt8reuz5.tif,3,6,-1
+Source\cl0bl66cy5px.tif,Target\2ale5ngryfnpo.tif,7,1,Normalized_source\Macenko\2ale5ngryfnpo-cl0bl66cy5px.tif,Normalized_source\Reinhard\2ale5ngryfnpo-cl0bl66cy5px.tif,2,3,-1
+Source\cl0bl66cy5px.tif,Target\2ale5ngryfnpo.tif,7,1,Normalized_source\Luong\2ale5ngryfnpo-cl0bl66cy5px.tif,Normalized_source\Reinhard\2ale5ngryfnpo-cl0bl66cy5px.tif,1,3,-1
+Source\jztr3exuiy3pzgr.tif,Target\2ale5ngryfnpo.tif,10,1,Normalized_source\Reinhard\2ale5ngryfnpo-jztr3exuiy3pzgr.tif,Normalized_source\Khan\2ale5ngryfnpo-jztr3exuiy3pzgr.tif,3,4,-1
+Source\dj0ebjbuxshxz.tif,Target\ffwtgxylhyna.tif,8,2,Normalized_source\Luong\ffwtgxylhyna-dj0ebjbuxshxz.tif,Normalized_source\Vahadane\ffwtgxylhyna-dj0ebjbuxshxz.tif,1,5,1
+Source\1bhjqxecct.tif,Target\2ale5ngryfnpo.tif,2,1,Normalized_source\Macenko\2ale5ngryfnpo-1bhjqxecct.tif,Normalized_source\Reinhard\2ale5ngryfnpo-1bhjqxecct.tif,2,3,0
+Source\jztr3exuiy3pzgr.tif,Target\ffwtgxylhyna.tif,10,2,Normalized_source\Macenko\ffwtgxylhyna-jztr3exuiy3pzgr.tif,Normalized_source\Khan\ffwtgxylhyna-jztr3exuiy3pzgr.tif,2,4,-1
+Source\62fwdzt8reuz5.tif,Target\2ale5ngryfnpo.tif,5,1,Normalized_source\Luong\2ale5ngryfnpo-62fwdzt8reuz5.tif,Normalized_source\Vahadane\2ale5ngryfnpo-62fwdzt8reuz5.tif,1,5,0
+Source\25axkhgc58.tif,Target\2ale5ngryfnpo.tif,3,1,Normalized_source\Reinhard\2ale5ngryfnpo-25axkhgc58.tif,Normalized_source\Vahadane\2ale5ngryfnpo-25axkhgc58.tif,3,5,0
+Source\4nkj5wqcqj.tif,Target\ffwtgxylhyna.tif,4,2,Normalized_source\Luong\ffwtgxylhyna-4nkj5wqcqj.tif,Normalized_source\Reinhard\ffwtgxylhyna-4nkj5wqcqj.tif,1,3,1
+Source\1bhjqxecct.tif,Target\2ale5ngryfnpo.tif,2,1,Normalized_source\Macenko\2ale5ngryfnpo-1bhjqxecct.tif,Normalized_source\Vahadane\2ale5ngryfnpo-1bhjqxecct.tif,2,5,-1
+Source\dj0ebjbuxshxz.tif,Target\2ale5ngryfnpo.tif,8,1,Normalized_source\Luong\2ale5ngryfnpo-dj0ebjbuxshxz.tif,Normalized_source\Reinhard\2ale5ngryfnpo-dj0ebjbuxshxz.tif,1,3,1
+Source\jztr3exuiy3pzgr.tif,Target\2ale5ngryfnpo.tif,10,1,Normalized_source\Macenko\2ale5ngryfnpo-jztr3exuiy3pzgr.tif,Normalized_source\Vahadane Fast\2ale5ngryfnpo-jztr3exuiy3pzgr.tif,2,6,0
+Source\dj0ebjbuxshxz.tif,Target\2ale5ngryfnpo.tif,8,1,Normalized_source\Macenko\2ale5ngryfnpo-dj0ebjbuxshxz.tif,Normalized_source\Vahadane\2ale5ngryfnpo-dj0ebjbuxshxz.tif,2,5,-1
+Source\dj0ebjbuxshxz.tif,Target\ffwtgxylhyna.tif,8,2,Normalized_source\Luong\ffwtgxylhyna-dj0ebjbuxshxz.tif,Normalized_source\Vahadane Fast\ffwtgxylhyna-dj0ebjbuxshxz.tif,1,6,1
+Source\4nkj5wqcqj.tif,Target\ffwtgxylhyna.tif,4,2,Normalized_source\Luong\ffwtgxylhyna-4nkj5wqcqj.tif,Normalized_source\Vahadane Fast\ffwtgxylhyna-4nkj5wqcqj.tif,1,6,0
+Source\25axkhgc58.tif,Target\ffwtgxylhyna.tif,3,2,Normalized_source\Reinhard\ffwtgxylhyna-25axkhgc58.tif,Normalized_source\Vahadane Fast\ffwtgxylhyna-25axkhgc58.tif,3,6,0
+Source\hrdqmlu2ig.tif,Target\2ale5ngryfnpo.tif,9,1,Normalized_source\Macenko\2ale5ngryfnpo-hrdqmlu2ig.tif,Normalized_source\Vahadane\2ale5ngryfnpo-hrdqmlu2ig.tif,2,5,-1
+Source\1bhjqxecct.tif,Target\ffwtgxylhyna.tif,2,2,Normalized_source\Khan\ffwtgxylhyna-1bhjqxecct.tif,Normalized_source\Vahadane Fast\ffwtgxylhyna-1bhjqxecct.tif,4,6,0
+Source\1bhjqxecct.tif,Target\ffwtgxylhyna.tif,2,2,Normalized_source\Vahadane\ffwtgxylhyna-1bhjqxecct.tif,Normalized_source\Vahadane Fast\ffwtgxylhyna-1bhjqxecct.tif,5,6,0
+Source\cl0bl66cy5px.tif,Target\2ale5ngryfnpo.tif,7,1,Normalized_source\Reinhard\2ale5ngryfnpo-cl0bl66cy5px.tif,Normalized_source\Vahadane\2ale5ngryfnpo-cl0bl66cy5px.tif,3,5,1
+Source\dj0ebjbuxshxz.tif,Target\2ale5ngryfnpo.tif,8,1,Normalized_source\Macenko\2ale5ngryfnpo-dj0ebjbuxshxz.tif,Normalized_source\Khan\2ale5ngryfnpo-dj0ebjbuxshxz.tif,2,4,0
+Source\0anzqyibfuc.tif,Target\ffwtgxylhyna.tif,1,2,Normalized_source\Reinhard\ffwtgxylhyna-0anzqyibfuc.tif,Normalized_source\Vahadane Fast\ffwtgxylhyna-0anzqyibfuc.tif,3,6,0
+Source\1bhjqxecct.tif,Target\ffwtgxylhyna.tif,2,2,Normalized_source\Luong\ffwtgxylhyna-1bhjqxecct.tif,Normalized_source\Reinhard\ffwtgxylhyna-1bhjqxecct.tif,1,3,-1
+Source\dj0ebjbuxshxz.tif,Target\ffwtgxylhyna.tif,8,2,Normalized_source\Macenko\ffwtgxylhyna-dj0ebjbuxshxz.tif,Normalized_source\Reinhard\ffwtgxylhyna-dj0ebjbuxshxz.tif,2,3,0
+Source\4nkj5wqcqj.tif,Target\2ale5ngryfnpo.tif,4,1,Normalized_source\Khan\2ale5ngryfnpo-4nkj5wqcqj.tif,Normalized_source\Vahadane\2ale5ngryfnpo-4nkj5wqcqj.tif,4,5,1
+Source\9fukmjujwi.tif,Target\ffwtgxylhyna.tif,6,2,Normalized_source\Macenko\ffwtgxylhyna-9fukmjujwi.tif,Normalized_source\Reinhard\ffwtgxylhyna-9fukmjujwi.tif,2,3,-1
+Source\jztr3exuiy3pzgr.tif,Target\2ale5ngryfnpo.tif,10,1,Normalized_source\Macenko\2ale5ngryfnpo-jztr3exuiy3pzgr.tif,Normalized_source\Khan\2ale5ngryfnpo-jztr3exuiy3pzgr.tif,2,4,-1
+Source\25axkhgc58.tif,Target\2ale5ngryfnpo.tif,3,1,Normalized_source\Khan\2ale5ngryfnpo-25axkhgc58.tif,Normalized_source\Vahadane\2ale5ngryfnpo-25axkhgc58.tif,4,5,0
+Source\4nkj5wqcqj.tif,Target\ffwtgxylhyna.tif,4,2,Normalized_source\Luong\ffwtgxylhyna-4nkj5wqcqj.tif,Normalized_source\Khan\ffwtgxylhyna-4nkj5wqcqj.tif,1,4,1
+Source\hrdqmlu2ig.tif,Target\ffwtgxylhyna.tif,9,2,Normalized_source\Macenko\ffwtgxylhyna-hrdqmlu2ig.tif,Normalized_source\Vahadane\ffwtgxylhyna-hrdqmlu2ig.tif,2,5,-1
+Source\0anzqyibfuc.tif,Target\2ale5ngryfnpo.tif,1,1,Normalized_source\Khan\2ale5ngryfnpo-0anzqyibfuc.tif,Normalized_source\Vahadane\2ale5ngryfnpo-0anzqyibfuc.tif,4,5,1
+Source\9fukmjujwi.tif,Target\ffwtgxylhyna.tif,6,2,Normalized_source\Macenko\ffwtgxylhyna-9fukmjujwi.tif,Normalized_source\Vahadane Fast\ffwtgxylhyna-9fukmjujwi.tif,2,6,0
+Source\25axkhgc58.tif,Target\ffwtgxylhyna.tif,3,2,Normalized_source\Reinhard\ffwtgxylhyna-25axkhgc58.tif,Normalized_source\Vahadane\ffwtgxylhyna-25axkhgc58.tif,3,5,-1
+Source\jztr3exuiy3pzgr.tif,Target\ffwtgxylhyna.tif,10,2,Normalized_source\Luong\ffwtgxylhyna-jztr3exuiy3pzgr.tif,Normalized_source\Khan\ffwtgxylhyna-jztr3exuiy3pzgr.tif,1,4,1
+Source\cl0bl66cy5px.tif,Target\ffwtgxylhyna.tif,7,2,Normalized_source\Reinhard\ffwtgxylhyna-cl0bl66cy5px.tif,Normalized_source\Vahadane Fast\ffwtgxylhyna-cl0bl66cy5px.tif,3,6,0
+Source\9fukmjujwi.tif,Target\ffwtgxylhyna.tif,6,2,Normalized_source\Luong\ffwtgxylhyna-9fukmjujwi.tif,Normalized_source\Khan\ffwtgxylhyna-9fukmjujwi.tif,1,4,0
+Source\62fwdzt8reuz5.tif,Target\2ale5ngryfnpo.tif,5,1,Normalized_source\Khan\2ale5ngryfnpo-62fwdzt8reuz5.tif,Normalized_source\Vahadane\2ale5ngryfnpo-62fwdzt8reuz5.tif,4,5,0
+Source\dj0ebjbuxshxz.tif,Target\2ale5ngryfnpo.tif,8,1,Normalized_source\Luong\2ale5ngryfnpo-dj0ebjbuxshxz.tif,Normalized_source\Khan\2ale5ngryfnpo-dj0ebjbuxshxz.tif,1,4,1
+Source\0anzqyibfuc.tif,Target\ffwtgxylhyna.tif,1,2,Normalized_source\Luong\ffwtgxylhyna-0anzqyibfuc.tif,Normalized_source\Khan\ffwtgxylhyna-0anzqyibfuc.tif,1,4,1
+Source\0anzqyibfuc.tif,Target\2ale5ngryfnpo.tif,1,1,Normalized_source\Vahadane\2ale5ngryfnpo-0anzqyibfuc.tif,Normalized_source\Vahadane Fast\2ale5ngryfnpo-0anzqyibfuc.tif,5,6,-1
+Source\cl0bl66cy5px.tif,Target\2ale5ngryfnpo.tif,7,1,Normalized_source\Vahadane\2ale5ngryfnpo-cl0bl66cy5px.tif,Normalized_source\Vahadane Fast\2ale5ngryfnpo-cl0bl66cy5px.tif,5,6,-1
+Source\cl0bl66cy5px.tif,Target\ffwtgxylhyna.tif,7,2,Normalized_source\Khan\ffwtgxylhyna-cl0bl66cy5px.tif,Normalized_source\Vahadane Fast\ffwtgxylhyna-cl0bl66cy5px.tif,4,6,1
+Source\25axkhgc58.tif,Target\ffwtgxylhyna.tif,3,2,Normalized_source\Khan\ffwtgxylhyna-25axkhgc58.tif,Normalized_source\Vahadane Fast\ffwtgxylhyna-25axkhgc58.tif,4,6,0
+Source\jztr3exuiy3pzgr.tif,Target\2ale5ngryfnpo.tif,10,1,Normalized_source\Reinhard\2ale5ngryfnpo-jztr3exuiy3pzgr.tif,Normalized_source\Vahadane\2ale5ngryfnpo-jztr3exuiy3pzgr.tif,3,5,-1
+Source\9fukmjujwi.tif,Target\ffwtgxylhyna.tif,6,2,Normalized_source\Macenko\ffwtgxylhyna-9fukmjujwi.tif,Normalized_source\Khan\ffwtgxylhyna-9fukmjujwi.tif,2,4,0
+Source\cl0bl66cy5px.tif,Target\ffwtgxylhyna.tif,7,2,Normalized_source\Macenko\ffwtgxylhyna-cl0bl66cy5px.tif,Normalized_source\Reinhard\ffwtgxylhyna-cl0bl66cy5px.tif,2,3,-1
+Source\jztr3exuiy3pzgr.tif,Target\2ale5ngryfnpo.tif,10,1,Normalized_source\Reinhard\2ale5ngryfnpo-jztr3exuiy3pzgr.tif,Normalized_source\Vahadane Fast\2ale5ngryfnpo-jztr3exuiy3pzgr.tif,3,6,-1
+Source\9fukmjujwi.tif,Target\ffwtgxylhyna.tif,6,2,Normalized_source\Khan\ffwtgxylhyna-9fukmjujwi.tif,Normalized_source\Vahadane Fast\ffwtgxylhyna-9fukmjujwi.tif,4,6,1
+Source\dj0ebjbuxshxz.tif,Target\2ale5ngryfnpo.tif,8,1,Normalized_source\Macenko\2ale5ngryfnpo-dj0ebjbuxshxz.tif,Normalized_source\Vahadane Fast\2ale5ngryfnpo-dj0ebjbuxshxz.tif,2,6,0
+Source\0anzqyibfuc.tif,Target\ffwtgxylhyna.tif,1,2,Normalized_source\Luong\ffwtgxylhyna-0anzqyibfuc.tif,Normalized_source\Reinhard\ffwtgxylhyna-0anzqyibfuc.tif,1,3,1
+Source\25axkhgc58.tif,Target\ffwtgxylhyna.tif,3,2,Normalized_source\Luong\ffwtgxylhyna-25axkhgc58.tif,Normalized_source\Khan\ffwtgxylhyna-25axkhgc58.tif,1,4,1
+Source\dj0ebjbuxshxz.tif,Target\2ale5ngryfnpo.tif,8,1,Normalized_source\Khan\2ale5ngryfnpo-dj0ebjbuxshxz.tif,Normalized_source\Vahadane Fast\2ale5ngryfnpo-dj0ebjbuxshxz.tif,4,6,1
+Source\62fwdzt8reuz5.tif,Target\ffwtgxylhyna.tif,5,2,Normalized_source\Luong\ffwtgxylhyna-62fwdzt8reuz5.tif,Normalized_source\Macenko\ffwtgxylhyna-62fwdzt8reuz5.tif,1,2,1
+Source\cl0bl66cy5px.tif,Target\ffwtgxylhyna.tif,7,2,Normalized_source\Vahadane\ffwtgxylhyna-cl0bl66cy5px.tif,Normalized_source\Vahadane Fast\ffwtgxylhyna-cl0bl66cy5px.tif,5,6,-1
+Source\4nkj5wqcqj.tif,Target\2ale5ngryfnpo.tif,4,1,Normalized_source\Macenko\2ale5ngryfnpo-4nkj5wqcqj.tif,Normalized_source\Reinhard\2ale5ngryfnpo-4nkj5wqcqj.tif,2,3,0
+Source\hrdqmlu2ig.tif,Target\ffwtgxylhyna.tif,9,2,Normalized_source\Khan\ffwtgxylhyna-hrdqmlu2ig.tif,Normalized_source\Vahadane\ffwtgxylhyna-hrdqmlu2ig.tif,4,5,1
+Source\0anzqyibfuc.tif,Target\2ale5ngryfnpo.tif,1,1,Normalized_source\Macenko\2ale5ngryfnpo-0anzqyibfuc.tif,Normalized_source\Vahadane Fast\2ale5ngryfnpo-0anzqyibfuc.tif,2,6,0
+Source\dj0ebjbuxshxz.tif,Target\ffwtgxylhyna.tif,8,2,Normalized_source\Reinhard\ffwtgxylhyna-dj0ebjbuxshxz.tif,Normalized_source\Vahadane\ffwtgxylhyna-dj0ebjbuxshxz.tif,3,5,-1
+Source\hrdqmlu2ig.tif,Target\2ale5ngryfnpo.tif,9,1,Normalized_source\Luong\2ale5ngryfnpo-hrdqmlu2ig.tif,Normalized_source\Khan\2ale5ngryfnpo-hrdqmlu2ig.tif,1,4,0
+Source\9fukmjujwi.tif,Target\2ale5ngryfnpo.tif,6,1,Normalized_source\Vahadane\2ale5ngryfnpo-9fukmjujwi.tif,Normalized_source\Vahadane Fast\2ale5ngryfnpo-9fukmjujwi.tif,5,6,-1
+Source\1bhjqxecct.tif,Target\ffwtgxylhyna.tif,2,2,Normalized_source\Luong\ffwtgxylhyna-1bhjqxecct.tif,Normalized_source\Vahadane\ffwtgxylhyna-1bhjqxecct.tif,1,5,-1
+Source\4nkj5wqcqj.tif,Target\2ale5ngryfnpo.tif,4,1,Normalized_source\Macenko\2ale5ngryfnpo-4nkj5wqcqj.tif,Normalized_source\Khan\2ale5ngryfnpo-4nkj5wqcqj.tif,2,4,0
+Source\jztr3exuiy3pzgr.tif,Target\ffwtgxylhyna.tif,10,2,Normalized_source\Reinhard\ffwtgxylhyna-jztr3exuiy3pzgr.tif,Normalized_source\Vahadane Fast\ffwtgxylhyna-jztr3exuiy3pzgr.tif,3,6,-1
+Source\cl0bl66cy5px.tif,Target\ffwtgxylhyna.tif,7,2,Normalized_source\Luong\ffwtgxylhyna-cl0bl66cy5px.tif,Normalized_source\Reinhard\ffwtgxylhyna-cl0bl66cy5px.tif,1,3,-1
+Source\0anzqyibfuc.tif,Target\2ale5ngryfnpo.tif,1,1,Normalized_source\Reinhard\2ale5ngryfnpo-0anzqyibfuc.tif,Normalized_source\Vahadane Fast\2ale5ngryfnpo-0anzqyibfuc.tif,3,6,1
+Source\0anzqyibfuc.tif,Target\2ale5ngryfnpo.tif,1,1,Normalized_source\Luong\2ale5ngryfnpo-0anzqyibfuc.tif,Normalized_source\Khan\2ale5ngryfnpo-0anzqyibfuc.tif,1,4,1
+Source\9fukmjujwi.tif,Target\2ale5ngryfnpo.tif,6,1,Normalized_source\Macenko\2ale5ngryfnpo-9fukmjujwi.tif,Normalized_source\Khan\2ale5ngryfnpo-9fukmjujwi.tif,2,4,-1
+Source\62fwdzt8reuz5.tif,Target\2ale5ngryfnpo.tif,5,1,Normalized_source\Macenko\2ale5ngryfnpo-62fwdzt8reuz5.tif,Normalized_source\Khan\2ale5ngryfnpo-62fwdzt8reuz5.tif,2,4,0
+Source\hrdqmlu2ig.tif,Target\ffwtgxylhyna.tif,9,2,Normalized_source\Macenko\ffwtgxylhyna-hrdqmlu2ig.tif,Normalized_source\Reinhard\ffwtgxylhyna-hrdqmlu2ig.tif,2,3,-1
+Source\hrdqmlu2ig.tif,Target\2ale5ngryfnpo.tif,9,1,Normalized_source\Luong\2ale5ngryfnpo-hrdqmlu2ig.tif,Normalized_source\Vahadane Fast\2ale5ngryfnpo-hrdqmlu2ig.tif,1,6,-1
+Source\4nkj5wqcqj.tif,Target\ffwtgxylhyna.tif,4,2,Normalized_source\Macenko\ffwtgxylhyna-4nkj5wqcqj.tif,Normalized_source\Reinhard\ffwtgxylhyna-4nkj5wqcqj.tif,2,3,-1
+Source\25axkhgc58.tif,Target\ffwtgxylhyna.tif,3,2,Normalized_source\Macenko\ffwtgxylhyna-25axkhgc58.tif,Normalized_source\Reinhard\ffwtgxylhyna-25axkhgc58.tif,2,3,-1
+Source\dj0ebjbuxshxz.tif,Target\2ale5ngryfnpo.tif,8,1,Normalized_source\Vahadane\2ale5ngryfnpo-dj0ebjbuxshxz.tif,Normalized_source\Vahadane Fast\2ale5ngryfnpo-dj0ebjbuxshxz.tif,5,6,0
+Source\1bhjqxecct.tif,Target\2ale5ngryfnpo.tif,2,1,Normalized_source\Luong\2ale5ngryfnpo-1bhjqxecct.tif,Normalized_source\Macenko\2ale5ngryfnpo-1bhjqxecct.tif,1,2,1
+Source\cl0bl66cy5px.tif,Target\2ale5ngryfnpo.tif,7,1,Normalized_source\Macenko\2ale5ngryfnpo-cl0bl66cy5px.tif,Normalized_source\Vahadane Fast\2ale5ngryfnpo-cl0bl66cy5px.tif,2,6,-1
+Source\1bhjqxecct.tif,Target\2ale5ngryfnpo.tif,2,1,Normalized_source\Luong\2ale5ngryfnpo-1bhjqxecct.tif,Normalized_source\Vahadane Fast\2ale5ngryfnpo-1bhjqxecct.tif,1,6,1
+Source\hrdqmlu2ig.tif,Target\ffwtgxylhyna.tif,9,2,Normalized_source\Luong\ffwtgxylhyna-hrdqmlu2ig.tif,Normalized_source\Vahadane Fast\ffwtgxylhyna-hrdqmlu2ig.tif,1,6,1
+Source\cl0bl66cy5px.tif,Target\2ale5ngryfnpo.tif,7,1,Normalized_source\Macenko\2ale5ngryfnpo-cl0bl66cy5px.tif,Normalized_source\Khan\2ale5ngryfnpo-cl0bl66cy5px.tif,2,4,-1
+Source\25axkhgc58.tif,Target\2ale5ngryfnpo.tif,3,1,Normalized_source\Luong\2ale5ngryfnpo-25axkhgc58.tif,Normalized_source\Khan\2ale5ngryfnpo-25axkhgc58.tif,1,4,1
+Source\62fwdzt8reuz5.tif,Target\2ale5ngryfnpo.tif,5,1,Normalized_source\Luong\2ale5ngryfnpo-62fwdzt8reuz5.tif,Normalized_source\Reinhard\2ale5ngryfnpo-62fwdzt8reuz5.tif,1,3,1
+Source\4nkj5wqcqj.tif,Target\ffwtgxylhyna.tif,4,2,Normalized_source\Reinhard\ffwtgxylhyna-4nkj5wqcqj.tif,Normalized_source\Vahadane Fast\ffwtgxylhyna-4nkj5wqcqj.tif,3,6,0
+Source\1bhjqxecct.tif,Target\ffwtgxylhyna.tif,2,2,Normalized_source\Macenko\ffwtgxylhyna-1bhjqxecct.tif,Normalized_source\Reinhard\ffwtgxylhyna-1bhjqxecct.tif,2,3,-1
+Source\dj0ebjbuxshxz.tif,Target\2ale5ngryfnpo.tif,8,1,Normalized_source\Khan\2ale5ngryfnpo-dj0ebjbuxshxz.tif,Normalized_source\Vahadane\2ale5ngryfnpo-dj0ebjbuxshxz.tif,4,5,1
+Source\9fukmjujwi.tif,Target\ffwtgxylhyna.tif,6,2,Normalized_source\Luong\ffwtgxylhyna-9fukmjujwi.tif,Normalized_source\Vahadane Fast\ffwtgxylhyna-9fukmjujwi.tif,1,6,-1
+Source\62fwdzt8reuz5.tif,Target\ffwtgxylhyna.tif,5,2,Normalized_source\Reinhard\ffwtgxylhyna-62fwdzt8reuz5.tif,Normalized_source\Vahadane\ffwtgxylhyna-62fwdzt8reuz5.tif,3,5,-1
+Source\62fwdzt8reuz5.tif,Target\ffwtgxylhyna.tif,5,2,Normalized_source\Vahadane\ffwtgxylhyna-62fwdzt8reuz5.tif,Normalized_source\Vahadane Fast\ffwtgxylhyna-62fwdzt8reuz5.tif,5,6,-1
+Source\dj0ebjbuxshxz.tif,Target\2ale5ngryfnpo.tif,8,1,Normalized_source\Luong\2ale5ngryfnpo-dj0ebjbuxshxz.tif,Normalized_source\Vahadane Fast\2ale5ngryfnpo-dj0ebjbuxshxz.tif,1,6,0
+Source\1bhjqxecct.tif,Target\2ale5ngryfnpo.tif,2,1,Normalized_source\Macenko\2ale5ngryfnpo-1bhjqxecct.tif,Normalized_source\Vahadane Fast\2ale5ngryfnpo-1bhjqxecct.tif,2,6,-1
+Source\9fukmjujwi.tif,Target\2ale5ngryfnpo.tif,6,1,Normalized_source\Reinhard\2ale5ngryfnpo-9fukmjujwi.tif,Normalized_source\Vahadane Fast\2ale5ngryfnpo-9fukmjujwi.tif,3,6,-1
+Source\dj0ebjbuxshxz.tif,Target\ffwtgxylhyna.tif,8,2,Normalized_source\Macenko\ffwtgxylhyna-dj0ebjbuxshxz.tif,Normalized_source\Vahadane Fast\ffwtgxylhyna-dj0ebjbuxshxz.tif,2,6,0
+Source\25axkhgc58.tif,Target\ffwtgxylhyna.tif,3,2,Normalized_source\Luong\ffwtgxylhyna-25axkhgc58.tif,Normalized_source\Vahadane Fast\ffwtgxylhyna-25axkhgc58.tif,1,6,0
+Source\62fwdzt8reuz5.tif,Target\ffwtgxylhyna.tif,5,2,Normalized_source\Khan\ffwtgxylhyna-62fwdzt8reuz5.tif,Normalized_source\Vahadane\ffwtgxylhyna-62fwdzt8reuz5.tif,4,5,-1
+Source\dj0ebjbuxshxz.tif,Target\ffwtgxylhyna.tif,8,2,Normalized_source\Vahadane\ffwtgxylhyna-dj0ebjbuxshxz.tif,Normalized_source\Vahadane Fast\ffwtgxylhyna-dj0ebjbuxshxz.tif,5,6,0
+Source\4nkj5wqcqj.tif,Target\2ale5ngryfnpo.tif,4,1,Normalized_source\Macenko\2ale5ngryfnpo-4nkj5wqcqj.tif,Normalized_source\Vahadane\2ale5ngryfnpo-4nkj5wqcqj.tif,2,5,0
+Source\0anzqyibfuc.tif,Target\2ale5ngryfnpo.tif,1,1,Normalized_source\Macenko\2ale5ngryfnpo-0anzqyibfuc.tif,Normalized_source\Khan\2ale5ngryfnpo-0anzqyibfuc.tif,2,4,0
+Source\jztr3exuiy3pzgr.tif,Target\ffwtgxylhyna.tif,10,2,Normalized_source\Reinhard\ffwtgxylhyna-jztr3exuiy3pzgr.tif,Normalized_source\Khan\ffwtgxylhyna-jztr3exuiy3pzgr.tif,3,4,-1
+Source\jztr3exuiy3pzgr.tif,Target\ffwtgxylhyna.tif,10,2,Normalized_source\Macenko\ffwtgxylhyna-jztr3exuiy3pzgr.tif,Normalized_source\Vahadane Fast\ffwtgxylhyna-jztr3exuiy3pzgr.tif,2,6,-1
+Source\cl0bl66cy5px.tif,Target\2ale5ngryfnpo.tif,7,1,Normalized_source\Luong\2ale5ngryfnpo-cl0bl66cy5px.tif,Normalized_source\Khan\2ale5ngryfnpo-cl0bl66cy5px.tif,1,4,-1
+Source\0anzqyibfuc.tif,Target\ffwtgxylhyna.tif,1,2,Normalized_source\Khan\ffwtgxylhyna-0anzqyibfuc.tif,Normalized_source\Vahadane\ffwtgxylhyna-0anzqyibfuc.tif,4,5,0
+Source\62fwdzt8reuz5.tif,Target\2ale5ngryfnpo.tif,5,1,Normalized_source\Vahadane\2ale5ngryfnpo-62fwdzt8reuz5.tif,Normalized_source\Vahadane Fast\2ale5ngryfnpo-62fwdzt8reuz5.tif,5,6,-1
+Source\jztr3exuiy3pzgr.tif,Target\ffwtgxylhyna.tif,10,2,Normalized_source\Vahadane\ffwtgxylhyna-jztr3exuiy3pzgr.tif,Normalized_source\Vahadane Fast\ffwtgxylhyna-jztr3exuiy3pzgr.tif,5,6,0
+Source\jztr3exuiy3pzgr.tif,Target\ffwtgxylhyna.tif,10,2,Normalized_source\Luong\ffwtgxylhyna-jztr3exuiy3pzgr.tif,Normalized_source\Vahadane\ffwtgxylhyna-jztr3exuiy3pzgr.tif,1,5,-1
+Source\1bhjqxecct.tif,Target\ffwtgxylhyna.tif,2,2,Normalized_source\Luong\ffwtgxylhyna-1bhjqxecct.tif,Normalized_source\Vahadane Fast\ffwtgxylhyna-1bhjqxecct.tif,1,6,-1
+Source\cl0bl66cy5px.tif,Target\ffwtgxylhyna.tif,7,2,Normalized_source\Luong\ffwtgxylhyna-cl0bl66cy5px.tif,Normalized_source\Vahadane\ffwtgxylhyna-cl0bl66cy5px.tif,1,5,-1
+Source\0anzqyibfuc.tif,Target\ffwtgxylhyna.tif,1,2,Normalized_source\Reinhard\ffwtgxylhyna-0anzqyibfuc.tif,Normalized_source\Vahadane\ffwtgxylhyna-0anzqyibfuc.tif,3,5,0
+Source\62fwdzt8reuz5.tif,Target\ffwtgxylhyna.tif,5,2,Normalized_source\Luong\ffwtgxylhyna-62fwdzt8reuz5.tif,Normalized_source\Vahadane\ffwtgxylhyna-62fwdzt8reuz5.tif,1,5,-1
+Source\62fwdzt8reuz5.tif,Target\2ale5ngryfnpo.tif,5,1,Normalized_source\Khan\2ale5ngryfnpo-62fwdzt8reuz5.tif,Normalized_source\Vahadane Fast\2ale5ngryfnpo-62fwdzt8reuz5.tif,4,6,-1
