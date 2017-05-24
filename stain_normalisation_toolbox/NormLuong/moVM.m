@@ -19,9 +19,9 @@
 % Please email me if you find bugs, or have suggestions or questions
 % -------------------------------------------------------------------------
 
-function [ mu_hat_polar,mu_hat_cart, kappa_hat,posterior_probs, prior_probs] = moVM(X_cart,k,opts,init_params)
+function [ mu_hat_polar,mu_hat_cart, kappa_hat,posterior_probs, prior_probs, conv] = moVM(X_cart,k,opts,init_params)
     
-    opts_default.maxiter = 100;
+    opts_default.maxiter = 20;
     opts_default.eps1 = 1e-2; % threshold for likelihood convergence
     opts_default.eps2 = 1e-2; % threshold for parameter convergence
     opts_default.noise = 1;
@@ -52,13 +52,19 @@ function [ mu_hat_polar,mu_hat_cart, kappa_hat,posterior_probs, prior_probs] = m
     if ~ isfield(opts,'noise');
         opts.noise = opts_default.noise;
     end
+    
+    if ~ isfield(opts,'mask');
+        opts.mask = ones(size(X_cart,1),1)>0;
+    end
 
     % Set 'm' to the number of data points.
-    numData = size(X_cart, 1);
+    %numData = size(X_cart, 1);
     % set 'd' to the dimension
     d = size(X_cart,2); % for now it's just 2D
+    X_cart = X_cart(opts.mask(:),:);
     X_polar = atan2(X_cart(:,2),X_cart(:,1));
-
+    %X_polar = X_polar(opts.mask(:)); % take the mask
+    numData = length(X_polar);
     %% STEP 1: Initialization
     posterior_probs = zeros(numData,k + opts.noise);
     
@@ -85,12 +91,39 @@ function [ mu_hat_polar,mu_hat_cart, kappa_hat,posterior_probs, prior_probs] = m
         pink_interval = [find(bin_centers > -2.5,1,'first') , find(bin_centers < -1,1,'last')];
         purple_interval = [find(bin_centers > -0.5,1,'first') find(bin_centers < 1.2,1,'last')];
         white_interval = find(bin_centers > 2,1,'first');
-        pink_peak = peakfinder(values(pink_interval(1):pink_interval(2)));
-        mu_hat_polar(2) = bin_centers(pink_interval(1) + pink_peak(1)); %stroma pink
-        purple_peak = peakfinder(values(purple_interval(1)+1:purple_interval(2)));
-        mu_hat_polar(1) = bin_centers(purple_interval(1) + purple_peak(1)); % purple nuclei
-        white_peak = peakfinder(values(white_interval+1:end));
-        mu_hat_polar(3) = bin_centers(white_interval + white_peak(1));% white
+        
+        if numel(pink_interval) < 2
+            mu_hat_polar(2) = -1.7; %bin_centers(pink_interval(1));
+        else
+            pink_peak = peakfinder(values(pink_interval(1):pink_interval(2)));
+            if isempty(pink_peak)
+                mu_hat_polar(2) = -1.7;
+            else
+                mu_hat_polar(2) = bin_centers(pink_interval(1) + pink_peak(1)); %stroma pink
+            end
+        end
+        
+        if numel(purple_interval) < 2
+            mu_hat_polar(1) = -0.2;
+        else
+            purple_peak = peakfinder(values(purple_interval(1)+1:purple_interval(2)));
+            if isempty(purple_peak)
+                mu_hat_polar(1) = -0.2;
+            else
+                mu_hat_polar(1) = bin_centers(purple_interval(1) + purple_peak(1)); % purple nuclei
+            end
+        end
+        
+        if isempty(white_interval)
+            mu_hat_polar(3) = 2.24;
+        else
+            white_peak = peakfinder(values(white_interval+1:end));
+            if isempty(white_peak)
+                mu_hat_polar(3) = 2.24;
+            else
+                mu_hat_polar(3) = bin_centers(white_interval + white_peak(1));% white
+            end
+        end
     else
         mu_hat_polar = init_params.theta_hat;
         kappa_hat = init_params.kappa_hat;
@@ -173,8 +206,11 @@ for iter = 1: opts.maxiter
   
 end
 
-if iter == opts.maxiter
-    sprintf('The algorithm does not converge at maxiter %d',opts.maxiter)
+if iter < opts.maxiter
+    %fprintf('The algorithm does not converge at maxiter %d',opts.maxiter);
+    conv = 1;
+else
+    conv = 0;
 end
   
 end
