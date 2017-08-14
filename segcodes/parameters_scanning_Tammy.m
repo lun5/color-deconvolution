@@ -23,12 +23,16 @@ githubdir = 'C:\Users\luong_nguyen\Documents\GitHub\HE-tumor-object-segmentation
 seismdir = 'C:\Users\luong_nguyen\Documents\GitHub\seism';  addpath(genpath(seismdir));
 DATA_DIR = 'D:\Documents\HE_Segmentation\data';
 GT_DIR = fullfile(DATA_DIR,'GroundTruth','coarse_fine_GT_512_512','all_files');
-IMG_DIR = 'D:\Documents\Tiles_Norm\Target15Norm_newresults_march';
+%IMG_DIR = 'D:\Documents\Tiles_Norm\Target15Norm_newresults_march';
+%IMG_DIR = 'D:\Documents\Tiles_Norm\Target15Norm_May_results_may30';
+%IMG_DIR = 'D:\Documents\Tiles_Norm\June6_results';
+IMG_DIR = 'D:\Documents\Tiles_Norm\June15_results';
 %addpath(genpath(githubdir));
 addpath(genpath(seismdir));
 
 %all_methods = {'Luong', 'Macenko', 'Reinhard', 'Vahadane', 'VahadaneFast'};
-all_methods = {'Luong','Khan','Macenko', 'Reinhard','Vahadane', 'VahadaneFast','NoNorm'};
+%all_methods = {'Luong','Khan','Macenko', 'Reinhard','Vahadane', 'VahadaneFast','NoNorm'};
+all_methods = {'Luong','Khan','Macenko', 'Reinhard','Vahadane','NoNorm'};
 %all_methods = {'NoNorm'};
 
 train_fname = fullfile(githubdir,'otherMethods','train_tiles.txt');
@@ -67,8 +71,7 @@ maxDist = 0.02;
 maxDist_vec = 0.02;
 target_names = {'ocmmhhrtzz5'};
 %target_names = {'ffwtgxylhyna','ocmmhhrtzz5'};
-
-
+%{
 for i= 1:length(all_methods)
    param_scan_dir = fullfile(RESULTS_DIR{i},['param_scan' '_' num2str(maxDist)]);
    fprintf('Start with method %s\n',all_methods{i});
@@ -76,6 +79,7 @@ for i= 1:length(all_methods)
        mkdir(param_scan_dir)
    end
    tic;
+   
    parfor j = 1:length(im_list) %%load sources
       % load the mat file
       im_name = lower(im_list{j});
@@ -90,21 +94,21 @@ for i= 1:length(all_methods)
               continue;
           end
           
-          if i < 7
-              outname = fullfile(param_scan_dir,[target_name '-' im_name '.mat']);
-          else
+          %if i < 7
+          %    outname = fullfile(param_scan_dir,[target_name '-' im_name '.mat']);
+          %else
               outname = fullfile(param_scan_dir,[im_name '.mat']);
-          end
+          %end
           %if exist(fullfile(param_scan_dir,[target_name '-' im_name '.mat']),'file')
           if exist(outname,'file')
               continue;
           end
           
-          if i < 7
-              fname = fullfile(RESULTS_DIR{i},[target_name '-' im_name '_se1_minNuc3_minStr5_minLum5_segResults.mat_segmentationTilesResult.mat']);
-          else
+          %if i < 7
+          %    fname = fullfile(RESULTS_DIR{i},[target_name '-' im_name '_se1_minNuc3_minStr5_minLum5_segResults.mat_segmentationTilesResult.mat']);
+          %else
               fname = fullfile(RESULTS_DIR{i},[im_name '_se1_minNuc3_minStr5_minLum5_segResults.mat_segmentationTilesResult.mat']);
-          end
+          %end
           
           %tmp = load(fullfile(RESULTS_DIR{i},[target_name '-' im_name '_se1_minNuc3_minStr5_minLum5_segResults.mat_segmentationTilesResult.mat']));
           if ~exist(fname,'file')
@@ -150,7 +154,7 @@ for i= 1:length(all_methods)
    end
    fprintf('Finish with method %s in %.2f seconds\n',all_methods{i},toc);
 end
-
+%}
 %% Put together the results across multiple maxDist
 % don't need this step because there is only one maxDist
 %{
@@ -201,11 +205,11 @@ for i = 1:length(all_methods)
                 continue;
             end
             %tmp = load(fullfile(param_scan_dir,[target_name '-' im_name '.mat']));
-            if i < 7
-                fname = fullfile(param_scan_dir,[target_name '-' im_name '.mat']);
-            else
+            %if i < 7
+            %    fname = fullfile(param_scan_dir,[target_name '-' im_name '.mat']);
+            %else
                 fname = fullfile(param_scan_dir,[im_name '.mat']);
-            end
+            %end
             
             if ~exist(fname,'file')
                 fprintf('There is no %s\n',im_name)
@@ -263,15 +267,22 @@ for i = 1:length(all_methods)
                 %tmp = load(fullfile(RESULTS_DIR{i},[target_name '-' im_name ...
                 %    '_se1_minNuc3_minStr5_minLum5_segResults.mat_segmentationTilesResult.mat']));
                 
-                if i < 7
-                   fname =  fullfile(RESULTS_DIR{i},[target_name '-' im_name ...
-                    '_se1_minNuc3_minStr5_minLum5_segResults.mat_segmentationTilesResult.mat']);
-                else
+                %if i < 7
+                %   fname =  fullfile(RESULTS_DIR{i},[target_name '-' im_name ...
+                %    '_se1_minNuc3_minStr5_minLum5_segResults.mat_segmentationTilesResult.mat']);
+                %else
                    fname = fullfile(RESULTS_DIR{i},[im_name ...
                     '_se1_minNuc3_minStr5_minLum5_segResults.mat_segmentationTilesResult.mat']);
-                end
+                %end
                 tmp = load(fname);
                 segs = tmp.segs;
+                curr_results = zeros(1,length(measures)+1);
+                
+                if isempty(segs)
+                    test_measures{j} = curr_results;
+                    continue;
+                end
+                    
                 seg = segs{max_id,1};
                 
                 if size(seg,1) > size(gt,1)
@@ -283,7 +294,7 @@ for i = 1:length(all_methods)
                 end
                 seg = uint16(seg);
                 
-                curr_results = zeros(1,length(measures)+1);
+                
                 for m = 1:length(measures)
                     result = eval_segm(seg, gt, measures{m},maxDist);
                     curr_results(m) = result(1);

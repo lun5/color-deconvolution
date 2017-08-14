@@ -67,13 +67,13 @@ for cl = 1:2 % only do purple and pink, LEAVE WHITE RED MASK ALONE(numClusters)%
             source_eq_cl(source_eq_cl <= min(target_im_cl)) = min(target_im_cl);
             source_eq_cl(source_eq_cl >= max(target_im_cl)) = max(target_im_cl);
             % fix skewness
-            %if skewness(source_eq_cl) ~= target_skewness
-            %    [source_eq_cl, ~] = modskew(source_eq_cl,target_skewness);
-            %end
+            if skewness(source_eq_cl) ~= target_skewness
+                [source_eq_cl, ~] = modskew(source_eq_cl,target_skewness);
+            end
             % fix kurtosis
-            %if kurtosis(source_eq_cl) ~= target_kurtosis
-            %    [source_eq_cl, ~] = modkurt(source_eq_cl,target_kurtosis);
-            %end
+            if kurtosis(source_eq_cl) ~= target_kurtosis
+                [source_eq_cl, ~] = modkurt(source_eq_cl,target_kurtosis);
+            end
             %source_eq_skewness = skewness(source_eq_nw);
             %source_eq_kurtosis = kurtosis(source_eq_nw);
         end

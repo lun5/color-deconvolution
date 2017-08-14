@@ -381,8 +381,8 @@ for i = 1: length(file_list)
    mean_scores = mean(summary_table(:,3:8),1); 
    med_scores = median(summary_table(:,3:8),1); 
    sum_scores = sum(summary_table(:,3:8), 1);
-   [sort_scores, sort_id] = sort(mean_scores,'descend');
-   [~, sort_id_med] = sort(med_scores,'descend');
+   [sort_mean, sort_id] = sort(mean_scores,'descend');
+   [sort_med, sort_id_med] = sort(med_scores,'descend');
    
    count_inconst = 0;
    %[sort_scores, sorted_id] = sort(med_scores,'descend');
@@ -420,14 +420,15 @@ for i = 1: length(file_list)
    avg_inconst = count_inconst/300;
    fprintf('\n\nUser %s ',upper(file_list{i}(14:end-4)));
    fprintf('%.2f %0.2f %d  %0.2f %d %.2f\n', sum_scores(1), mean_scores(1),...
-       sort_id(1), med_scores(1), sort_id_med(1),avg_inconst);
+       find(sort_mean == mean_scores(1),1,'first'), med_scores(1),...
+       find(sort_med == med_scores(1),1,'first'),avg_inconst);
    
    for mm = 1:(length(sort_id)-1)
        method1 = method_names(sort_id(mm));
        method2 = method_names(sort_id(mm+1));
        [~,p] = ttest2(summary_table(:,sort_id(mm) +2), summary_table(:,sort_id(mm+1) +2));
        fprintf('ttest p-value for user %s of method %s (mean %.2f) and method %s (mean %.2f) is %.4f\n',...
-           file_list{i}(14:end-4), method1{1}, sort_scores(mm), method2{1}, sort_scores(mm+1), p);
+           file_list{i}(14:end-4), method1{1}, sort_mean(mm), method2{1}, sort_mean(mm+1), p);
        p = signrank(summary_table(:,sort_id(mm) + 2), summary_table(:,sort_id(mm+1) + 2));
        fprintf('sign rank test p-value for  user %s of method %s (median %.2f) and method %s (median %.2f) is %.4f\n',...
            file_list{i}(14:end-4), method1{1}, median(summary_table(:,sort_id(mm) + 2)),...
